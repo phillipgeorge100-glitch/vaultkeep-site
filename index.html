@@ -1,190 +1,2072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional-grade wealth tracking without the cloud, subscription, or compromise. VaultKeep — your portfolio, your device, your control.">
+  <title>VaultKeep — Privacy-First Wealth Tracking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-Vault
-Keep
-	•	Features
-	•	Security
-	•	Pricing
-	•	FAQ
-	•	Download Free
-Your portfolio. Your device. Your control.
-Professional-grade wealth tracking without the cloud, the subscription, or the compromise.
-Download VaultKeep View Features 🔒
-No cloud
-✕
-No subscription
-👁
-No tracking
-🔐
-AES-256 encrypted
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-VaultKeep™ — Your Finances, Your Device, Your Control
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a1a;
+      color: #e4e4ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
+    /* Utility Classes */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
+    .section {
+      padding: 80px 0;
+    }
 
-VaultKeep
-v1.0
-	•	Dashboard
-	•	Portfolio
-	•	Accounts
-	•	Holdings
-	•	Plan
-	•	History
-Dashboard
-£187,432
-.61
-Cash
-£34,218
-Buffer: £18k
-Invested
-£158,214
-Liabilities
-£5,000
-Cash Available
-£16,218
+    .section.dark {
+      background-color: #0a0a1a;
+    }
 
-Buffer OK
+    .section.dark-surface {
+      background-color: #12122a;
+    }
 
-Risk: Low
+    .section.with-grid {
+      background-color: #0a0a1a;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
 
-VWRP XNAQ EQGB CASH
-Trusted by self-directed investors across the United Kingdom
-100%
-Local
-Zero
-Data Collected
-£39.99
-One-Time, No Subscription
-Built for clarity and control
+    .text-muted {
+      color: #8888a4;
+    }
 
-Private by Architecture
-All data stays on your device. No cloud synchronisation. No telemetry. No analytics. Not as a feature toggle — as a fundamental design constraint.
+    .text-accent {
+      color: #6c63ff;
+    }
 
-One Purchase, Lifetime Use
-Start free. VaultKeep is £39.99 once — no subscriptions, no annual renewals, no price increases. Your software, permanently.
+    /* Typography */
+    h1 {
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
 
-Intelligent Without Surveillance
-AI-powered portfolio analysis using your own API key. VaultKeep never sees, stores, or profits from your conversations.
-See your finances clearly. Decide with confidence.
-Net worth, allocation drift, risk signals, and trajectory — all computed locally, updated in real time. The data density of an institutional terminal, designed for personal portfolios.
+    h2 {
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
 
-VaultKeep™ — Your Finances, Your Device, Your Control
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
 
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
 
+    .lead {
+      font-size: 20px;
+      font-weight: 400;
+      color: #8888a4;
+      max-width: 540px;
+      line-height: 1.8;
+    }
 
-Net Worth Overview
-Cash Available
-£16,218
-Monthly Spend
-£1,500
-Risk Level
-Low
-Concentration
-Balanced
-12-Month Projection
-Set targets. Track drift. Rebalance with precision.
-Define your target allocation. VaultKeep calculates drift in pounds and percentages, then generates contribution-only or full rebalancing scenarios. You decide when and how to act.
+    /* Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 0;
+    }
 
-VaultKeep™ — Your Finances, Your Device, Your Control
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #e4e4ed;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
 
+    .nav-logo svg {
+      width: 32px;
+      height: 32px;
+    }
 
-Target Allocation
-Asset
-Target
-Actual
-Drift (£)
-VWRP
-40%
-40.2%
-+£374
-XNAQ
-25%
-24.8%
--£374
-EQGB
-15%
-15.1%
-+£187
-CASH
-20%
-19.9%
--£187
-Monthly Spend: £1,500
-Buffer Required: 12 months = £18,000
-Investable Cash: £16,218
-Your portfolio analyst. Your API key.
-Ask questions, add holdings, run scenarios — all through natural language. Supports OpenAI, Anthropic, Google, xAI, DeepSeek, and local models via Ollama. Conversations go directly to the provider. VaultKeep is never in the middle.
+    .nav-logo-text {
+      display: flex;
+      gap: 0;
+      letter-spacing: -0.03em;
+    }
 
-VaultKeep™ — Your Finances, Your Device, Your Control
+    .nav-logo-vault {
+      color: #e4e4ed;
+    }
 
+    .nav-logo-keep {
+      color: #6c63ff;
+    }
 
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
 
-Main Dashboard
-Net Worth
-£187,432.61
-Chat Assistant
-What is my current allocation drift?
-Your largest drift is XNAQ at -£374 (0.2% below target). VWRP is slightly ahead at +£374.
-Claude · Anthropic
-Security you can verify, not just trust.
-Local-First Storage
-Your portfolio data never leaves your device. No accounts to create. No servers to trust. No breaches to worry about.
-Encrypted Key Storage
-API keys protected with PBKDF2 (200,000 iterations) and AES-GCM encryption via the Web Crypto API. Industry-standard, browser-native.
-Transparent Architecture
-React + TypeScript. Tauri desktop. Open security model. No obfuscation. No dark patterns. No hidden network calls.
-Simple, honest pricing.
-Two plans. No surprises. No subscriptions.
-Free
-£0
-forever
-	•	Full portfolio dashboard Up to 3 accounts and 5 holdings Target allocation and rebalancing Risk signals and trajectory charts 16 built-in themes CSV import and JSON backup Manual price entry No automatic price feeds No AI assistant
-Download Free
-No account required. Your data stays on your device.
-EARLY BIRD
-VaultKeep
-£39.99
-one-time purchase
-£69.99 after early-bird ends
-	•	Everything in Free, unlimited Delayed price feeds (up to every 30 min) AI assistant (bring your own key) Monte Carlo projections Unlimited accounts, holdings, and assets Snapshot history and projections Desktop app (Windows and macOS) Lifetime updates
-Get VaultKeep
-Pay once. Yours forever. No subscription.
-YNAB charges £84 per year. Quicken charges £90 per year. VaultKeep costs £39.99 once.
-Frequently asked questions
-Where is my data stored?
-+
-On your device. VaultKeep stores all portfolio data in your browser's local storage or, for the desktop app, in an encrypted file on your machine. Nothing is transmitted to any server.
-Do I need an internet connection?
-+
-No. VaultKeep works fully offline. Price feeds and the AI assistant require internet when you choose to use them, but the core application — your dashboard, calculations, and portfolio — works without any connection.
-How does the AI assistant work without sending my data to VaultKeep?
-+
-You provide your own API key from providers like OpenAI or Anthropic. When you ask a question, VaultKeep sends your query directly from your browser to that provider. We are never in the middle, never see the conversation, and never store it.
-What happens if I lose my device?
-+
-VaultKeep includes JSON export for full backups. We recommend exporting regularly. The desktop app stores data locally, so standard device backup practices apply.
-Is VaultKeep regulated by the FCA?
-+
-VaultKeep is a portfolio tracking tool, not a financial service. It does not provide investment advice, manage client funds, or execute trades. All calculations are informational. You make your own decisions.
-Can I use VaultKeep on multiple devices?
-+
-The web version works in any modern browser. The desktop app runs on Windows and macOS. Data is stored locally per device. You can transfer data between devices using the JSON export and import feature.
-Start managing your portfolio with clarity and control.
-Download VaultKeep Free
+    .nav-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-Vault
-Keep
-Privacy-first personal finance dashboard
-Product
-	•	Features
-	•	Security
-	•	Pricing
-	•	FAQ
-Company
-	•	About VaultKeep Ltd
-	•	Privacy Policy
-	•	Terms of Use
-	•	Contact
-© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775 · VaultKeep™ UK00004341086
-Email: support@vaultkeep.co.uk
+    .nav-links a:hover {
+      color: #6c63ff;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      color: #e4e4ed;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 55% 45%;
+      gap: 60px;
+      align-items: center;
+      padding: 120px 0;
+    }
+
+    .hero-content h1 {
+      margin-bottom: 24px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+      margin-bottom: 48px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      color: #e4e4ed;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #6c63ff;
+      border: 1.5px solid #6c63ff;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(108, 99, 255, 0.1);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #8888a4;
+      font-weight: 500;
+    }
+
+    .badge-icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c63ff;
+    }
+
+    /* Product Shot */
+    .hero-visual {
+      perspective: 1200px;
+    }
+
+    .product-shot {
+      background: #12122a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.15);
+      transform: perspective(1200px) rotateY(-5deg);
+      transition: transform 0.3s ease;
+    }
+
+    .hero-visual:hover .product-shot {
+      transform: perspective(1200px) rotateY(-3deg);
+    }
+
+    .window-titlebar {
+      background: #1c1c2e;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      height: 32px;
+    }
+
+    .window-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .window-icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .window-title {
+      font-size: 12px;
+      color: #8888a4;
+      font-weight: 400;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 8px;
+    }
+
+    .window-controls {
+      display: flex;
+      align-items: stretch;
+      height: 100%;
+      margin-left: auto;
+    }
+
+    .window-btn {
+      width: 46px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8888a4;
+      font-size: 11px;
+      font-family: 'Segoe MDL2 Assets', 'Inter', sans-serif;
+      background: transparent;
+      border: none;
+      cursor: default;
+    }
+
+    .window-btn:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .window-btn-close:hover {
+      background: #c42b1c;
+      color: #fff;
+    }
+
+    .window-btn svg {
+      width: 10px;
+      height: 10px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    .product-frame {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      height: 500px;
+    }
+
+    .dashboard-sidebar {
+      background: #0a0a1a;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .sidebar-logo svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .version-badge {
+      display: inline-block;
+      background: rgba(108, 99, 255, 0.1);
+      color: #6c63ff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar-nav-item {
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #8888a4;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .sidebar-nav-item.active {
+      background: rgba(108, 99, 255, 0.15);
+      color: #6c63ff;
+    }
+
+    .sidebar-nav-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dashboard-main {
+      background: #0a0a1a;
+      padding: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dashboard-header {
+      margin-bottom: 24px;
+    }
+
+    .dashboard-header h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .net-worth-display {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .net-worth-amount {
+      font-size: 42px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .net-worth-currency {
+      font-size: 24px;
+      color: #8888a4;
+    }
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #8888a4;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-positive {
+      color: #34d399;
+    }
+
+    .stat-neutral {
+      color: #e4e4ed;
+    }
+
+    .stat-negative {
+      color: #f87171;
+    }
+
+    .dashboard-signals {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .signal-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .signal-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .signal-green {
+      color: #34d399;
+    }
+
+    .signal-green .signal-dot {
+      background-color: #34d399;
+    }
+
+    .signal-amber {
+      color: #fbbf24;
+    }
+
+    .signal-amber .signal-dot {
+      background-color: #fbbf24;
+    }
+
+    .dashboard-chart {
+      height: 120px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .chart-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .allocation-bar {
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .allocation-segment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e4e4ed;
+      font-size: 10px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .segment-vwrp {
+      background-color: #6c63ff;
+      width: 40%;
+    }
+
+    .segment-xnaq {
+      background-color: #8b7fff;
+      width: 25%;
+    }
+
+    .segment-eqgb {
+      background-color: #a89fff;
+      width: 15%;
+    }
+
+    .segment-cash {
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 20%;
+    }
+
+    /* Social Proof Bar */
+    .social-proof {
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .social-proof-text {
+      color: #8888a4;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .proof-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .proof-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .proof-stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #6c63ff;
+    }
+
+    .proof-stat-label {
+      font-size: 13px;
+      color: #8888a4;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(108, 99, 255, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(108, 99, 255, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c63ff;
+      font-size: 24px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #8888a4;
+      line-height: 1.6;
+    }
+
+    /* Feature Section */
+    .feature-section {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .feature-section:nth-child(even) {
+      direction: rtl;
+    }
+
+    .feature-section:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .feature-text h2 {
+      margin-bottom: 16px;
+    }
+
+    .feature-text p {
+      color: #8888a4;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .feature-visual {
+      perspective: 1200px;
+    }
+
+    .feature-shot {
+      background: #12122a;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.15);
+    }
+
+    .feature-section:nth-child(odd) .feature-visual {
+      transform: perspective(1200px) rotateY(5deg);
+    }
+
+    .feature-section:nth-child(even) .feature-visual {
+      transform: perspective(1200px) rotateY(-5deg);
+    }
+
+    /* Plan View */
+    .plan-view {
+      padding: 20px;
+      background: #0a0a1a;
+    }
+
+    .plan-header {
+      margin-bottom: 20px;
+    }
+
+    .plan-header h3 {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .plan-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .plan-table th {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      color: #8888a4;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .plan-table td {
+      padding: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .plan-table td:last-child {
+      text-align: right;
+    }
+
+    .drift-positive {
+      color: #34d399;
+    }
+
+    .drift-negative {
+      color: #f87171;
+    }
+
+    .plan-info {
+      font-size: 12px;
+      color: #8888a4;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 6px;
+      margin-top: 12px;
+    }
+
+    /* AI Chat */
+    .ai-chat-drawer {
+      width: 320px;
+      border-left: 1px solid rgba(255, 255, 255, 0.06);
+      background: #12122a;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+    }
+
+    .ai-chat-header {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ai-messages {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+
+    .ai-message {
+      padding: 10px 12px;
+      border-radius: 8px;
+      line-height: 1.5;
+    }
+
+    .ai-message-user {
+      background: #6c63ff;
+      color: #e4e4ed;
+      align-self: flex-end;
+      max-width: 80%;
+    }
+
+    .ai-message-assistant {
+      background: rgba(255, 255, 255, 0.06);
+      color: #e4e4ed;
+      align-self: flex-start;
+      max-width: 80%;
+    }
+
+    .ai-provider {
+      font-size: 11px;
+      color: #8888a4;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .product-shot {
+        transform: perspective(1200px) rotateY(0);
+      }
+
+      .feature-section {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-section:nth-child(even) {
+        direction: ltr;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .product-frame {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-sidebar {
+        display: none;
+      }
+
+      .ai-chat-drawer {
+        display: none;
+      }
+
+      .proof-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Security Section */
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .security-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .security-card h3 {
+      color: #e4e4ed;
+    }
+
+    .security-card p {
+      color: #8888a4;
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Pricing Section */
+    .pricing-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .pricing-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+    }
+
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 36px 28px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(108, 99, 255, 0.6);
+      box-shadow: 0 8px 32px rgba(108, 99, 255, 0.15);
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      border-color: rgba(108, 99, 255, 0.5);
+      box-shadow: 0 16px 48px rgba(108, 99, 255, 0.15);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 16px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #e4e4ed;
+      text-align: center;
+    }
+
+    .pricing-amount {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .pricing-value {
+      font-size: 48px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .pricing-frequency {
+      font-size: 14px;
+      color: #8888a4;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .pricing-subtitle {
+      font-size: 13px;
+      color: #8888a4;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+      text-align: left;
+      flex-grow: 1;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #e4e4ed;
+    }
+
+    .pricing-features li:before {
+      content: "\2713";
+      color: #34d399;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .pricing-features li.dimmed {
+      color: #555570;
+    }
+
+    .pricing-features li.dimmed:before {
+      content: "\2014";
+      color: #555570;
+    }
+
+    .pricing-cta {
+      display: block;
+      width: 100%;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      color: #e4e4ed;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 12px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .pricing-cta.secondary {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .pricing-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(108, 99, 255, 0.4);
+    }
+
+    .pricing-cta.secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .pricing-note {
+      font-size: 12px;
+      color: #8888a4;
+      text-align: center;
+    }
+
+    .pricing-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #8888a4;
+    }
+
+    .pricing-toggle a {
+      color: #8b7fff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .pricing-comparison {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 14px;
+      color: #8888a4;
+      line-height: 1.8;
+    }
+
+    .pricing-comparison strong {
+      color: #e4e4ed;
+      font-weight: 600;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: #e4e4ed;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: #6c63ff;
+    }
+
+    .faq-toggle {
+      color: #6c63ff;
+      font-size: 20px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 20px;
+      color: #8888a4;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      text-align: center;
+      padding: 60px 20px;
+      border-radius: 12px;
+      margin: 80px 0;
+    }
+
+    .cta-banner h2 {
+      margin-bottom: 24px;
+      color: #e4e4ed;
+    }
+
+    .cta-banner-btn {
+      display: inline-block;
+      background: #0a0a1a;
+      color: #e4e4ed;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cta-banner-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: #12122a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 0 24px;
+      margin-top: 120px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8888a4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .footer-wordmark {
+      display: flex;
+      gap: 0;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-vault {
+      color: #e4e4ed;
+    }
+
+    .footer-keep {
+      color: #6c63ff;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: #8888a4;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #6c63ff;
+    }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 12px;
+      color: #8888a4;
+    }
+
+    .footer-email {
+      font-size: 12px;
+      color: #8888a4;
+    }
+
+    .footer-email a {
+      color: #6c63ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-email a:hover {
+      color: #8b7fff;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* Fade-in animations */
+    .fade-in {
+      opacity: 0;
+    }
+
+    .fade-in.visible {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stagger animations */
+    .fade-in-stagger > * {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .fade-in-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a1a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #6c63ff;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #8b7fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vk-nav-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6c63ff"/>
+              <stop offset="1" stop-color="#8b7fff"/>
+            </linearGradient>
+          </defs>
+          <rect width="80" height="80" rx="16" fill="url(#vk-nav-bg)"/>
+          <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="nav-logo-vault">Vault</span><span class="nav-logo-keep">Keep</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><button class="nav-cta">Download Free</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="section dark">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-content">
+            <h1>Your portfolio. Your device. Your control.</h1>
+            <p class="lead">Professional-grade wealth tracking without the cloud, the subscription, or the compromise.</p>
+
+            <div class="hero-buttons">
+              <button class="btn btn-primary">Download VaultKeep</button>
+              <button class="btn btn-ghost">View Features</button>
+            </div>
+
+            <div class="hero-badges">
+              <div class="badge-row">
+                <div class="badge">
+                  <span class="badge-icon">🔒</span>
+                  <span>No cloud</span>
+                </div>
+                <div class="badge">
+                  <span class="badge-icon">✕</span>
+                  <span>No subscription</span>
+                </div>
+                <div class="badge">
+                  <span class="badge-icon">👁</span>
+                  <span>No tracking</span>
+                </div>
+                <div class="badge">
+                  <span class="badge-icon">🔐</span>
+                  <span>AES-256 encrypted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="product-shot">
+              <div class="window-titlebar">
+                <div class="window-icon">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="vk-tb1" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
+                    <rect width="80" height="80" rx="16" fill="url(#vk-tb1)"/>
+                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+                  </svg>
+                </div>
+                <div class="window-title">VaultKeep™ — Your Finances, Your Device, Your Control</div>
+                <div class="window-controls">
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
+                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
+                </div>
+              </div>
+              <div class="product-frame">
+                <div class="dashboard-sidebar">
+                  <div class="sidebar-logo">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
+                      <defs>
+                        <linearGradient id="vk-sidebar-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#6c63ff"/>
+                          <stop offset="1" stop-color="#8b7fff"/>
+                        </linearGradient>
+                      </defs>
+                      <rect width="80" height="80" rx="16" fill="url(#vk-sidebar-bg)"/>
+                      <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+                    </svg>
+                    <span>VaultKeep</span>
+                    <span class="version-badge">v1.0</span>
+                  </div>
+                  <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item active">Dashboard</li>
+                    <li class="sidebar-nav-item">Portfolio</li>
+                    <li class="sidebar-nav-item">Accounts</li>
+                    <li class="sidebar-nav-item">Holdings</li>
+                    <li class="sidebar-nav-item">Plan</li>
+                    <li class="sidebar-nav-item">History</li>
+                  </ul>
+                </div>
+                <div class="dashboard-main">
+                  <div class="dashboard-header">
+                    <h3>Dashboard</h3>
+                    <div class="net-worth-display">
+                      <span class="net-worth-amount">£187,432</span><span class="net-worth-currency">.61</span>
+                    </div>
+                  </div>
+
+                  <div class="dashboard-stats">
+                    <div class="stat-card">
+                      <div class="stat-label">Cash</div>
+                      <div class="stat-value stat-neutral">£34,218</div>
+                      <div class="stat-label" style="margin-top: 4px;">Buffer: £18k</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-label">Invested</div>
+                      <div class="stat-value stat-positive">£158,214</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-label">Liabilities</div>
+                      <div class="stat-value stat-negative">£5,000</div>
+                    </div>
+                    <div class="stat-card">
+                      <div class="stat-label">Cash Available</div>
+                      <div class="stat-value stat-positive">£16,218</div>
+                    </div>
+                  </div>
+
+                  <div class="dashboard-signals">
+                    <div class="signal-pill signal-green">
+                      <span class="signal-dot"></span>
+                      <span>Buffer OK</span>
+                    </div>
+                    <div class="signal-pill signal-green">
+                      <span class="signal-dot"></span>
+                      <span>Risk: Low</span>
+                    </div>
+                  </div>
+
+                  <div class="dashboard-chart">
+                    <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                      <defs>
+                        <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" style="stop-color:#6c63ff;stop-opacity:0.3" />
+                          <stop offset="100%" style="stop-color:#6c63ff;stop-opacity:0.05" />
+                        </linearGradient>
+                      </defs>
+                      <polyline points="0,60 15,50 30,45 45,35 60,25 75,15 90,10 100,8" fill="none" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
+                      <polygon points="0,60 15,50 30,45 45,35 60,25 75,15 90,10 100,8 100,80 0,80" fill="url(#chart-gradient)"/>
+                    </svg>
+                  </div>
+
+                  <div class="allocation-bar">
+                    <div class="allocation-segment segment-vwrp">VWRP</div>
+                    <div class="allocation-segment segment-xnaq">XNAQ</div>
+                    <div class="allocation-segment segment-eqgb">EQGB</div>
+                    <div class="allocation-segment segment-cash">CASH</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="section dark social-proof">
+      <div class="container">
+        <p class="social-proof-text">Trusted by self-directed investors across the United Kingdom</p>
+        <div class="proof-stats">
+          <div class="proof-stat">
+            <div class="proof-stat-value">100%</div>
+            <div class="proof-stat-label">Local</div>
+          </div>
+          <div class="proof-stat">
+            <div class="proof-stat-value">Zero</div>
+            <div class="proof-stat-label">Data Collected</div>
+          </div>
+          <div class="proof-stat">
+            <div class="proof-stat-value">£39.99</div>
+            <div class="proof-stat-label">One-Time, No Subscription</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Overview -->
+    <section class="section dark" id="features">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 60px;">Built for clarity and control</h2>
+        <div class="features-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Private by Architecture</h3>
+            <p>All data stays on your device. No cloud synchronisation. No telemetry. No analytics. Not as a feature toggle — as a fundamental design constraint.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 11L12 14L22 4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>One Purchase, Lifetime Use</h3>
+            <p>Start free. VaultKeep is £39.99 once — no subscriptions, no annual renewals, no price increases. Your software, permanently.</p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Intelligent Without Surveillance</h3>
+            <p>AI-powered portfolio analysis using your own API key. VaultKeep never sees, stores, or profits from your conversations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Section 1: Dashboard -->
+    <section class="section dark">
+      <div class="container">
+        <div class="feature-section">
+          <div class="feature-text">
+            <h2>See your finances clearly. Decide with confidence.</h2>
+            <p>Net worth, allocation drift, risk signals, and trajectory — all computed locally, updated in real time. The data density of an institutional terminal, designed for personal portfolios.</p>
+          </div>
+          <div class="feature-visual">
+            <div class="feature-shot">
+              <div class="window-titlebar">
+                <div class="window-icon">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="vk-tb2" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
+                    <rect width="80" height="80" rx="16" fill="url(#vk-tb2)"/>
+                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+                  </svg>
+                </div>
+                <div class="window-title">VaultKeep™ — Your Finances, Your Device, Your Control</div>
+                <div class="window-controls">
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
+                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
+                </div>
+              </div>
+              <div style="background: #0a0a1a; padding: 24px; height: 400px; display: flex; flex-direction: column;">
+                <h3 style="font-size: 16px; margin-bottom: 20px;">Net Worth Overview</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px;">
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
+                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Cash Available</div>
+                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">£16,218</div>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
+                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Monthly Spend</div>
+                    <div style="font-size: 20px; font-weight: 600; color: #e4e4ed;">£1,500</div>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
+                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Risk Level</div>
+                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">Low</div>
+                  </div>
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
+                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Concentration</div>
+                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">Balanced</div>
+                  </div>
+                </div>
+                <div style="margin-top: auto;">
+                  <div style="font-size: 12px; color: #8888a4; margin-bottom: 8px;">12-Month Projection</div>
+                  <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 60px;">
+                    <polyline points="10,50 30,45 50,40 70,32 90,28 110,22 130,18 150,15 170,12 190,10" fill="none" stroke="#6c63ff" stroke-width="2"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Section 2: Planning -->
+    <section class="section dark">
+      <div class="container">
+        <div class="feature-section">
+          <div class="feature-text">
+            <h2>Set targets. Track drift. Rebalance with precision.</h2>
+            <p>Define your target allocation. VaultKeep calculates drift in pounds and percentages, then generates contribution-only or full rebalancing scenarios. You decide when and how to act.</p>
+          </div>
+          <div class="feature-visual">
+            <div class="feature-shot">
+              <div class="window-titlebar">
+                <div class="window-icon">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="vk-tb3" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
+                    <rect width="80" height="80" rx="16" fill="url(#vk-tb3)"/>
+                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+                  </svg>
+                </div>
+                <div class="window-title">VaultKeep™ — Your Finances, Your Device, Your Control</div>
+                <div class="window-controls">
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
+                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
+                </div>
+              </div>
+              <div class="plan-view">
+                <div class="plan-header">
+                  <h3>Target Allocation</h3>
+                </div>
+                <table class="plan-table">
+                  <thead>
+                    <tr>
+                      <th>Asset</th>
+                      <th>Target</th>
+                      <th>Actual</th>
+                      <th>Drift (£)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="font-weight: 600;">VWRP</td>
+                      <td>40%</td>
+                      <td>40.2%</td>
+                      <td class="drift-positive">+£374</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600;">XNAQ</td>
+                      <td>25%</td>
+                      <td>24.8%</td>
+                      <td class="drift-negative">-£374</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600;">EQGB</td>
+                      <td>15%</td>
+                      <td>15.1%</td>
+                      <td class="drift-positive">+£187</td>
+                    </tr>
+                    <tr>
+                      <td style="font-weight: 600;">CASH</td>
+                      <td>20%</td>
+                      <td>19.9%</td>
+                      <td class="drift-negative">-£187</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="plan-info">
+                  <div style="margin-bottom: 8px;"><strong>Monthly Spend:</strong> £1,500</div>
+                  <div style="margin-bottom: 8px;"><strong>Buffer Required:</strong> 12 months = £18,000</div>
+                  <div><strong>Investable Cash:</strong> £16,218</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Section 3: AI Assistant -->
+    <section class="section dark">
+      <div class="container">
+        <div class="feature-section">
+          <div class="feature-text">
+            <h2>Your portfolio analyst. Your API key.</h2>
+            <p>Ask questions, add holdings, run scenarios — all through natural language. Supports OpenAI, Anthropic, Google, xAI, DeepSeek, and local models via Ollama. Conversations go directly to the provider. VaultKeep is never in the middle.</p>
+          </div>
+          <div class="feature-visual">
+            <div class="feature-shot">
+              <div class="window-titlebar">
+                <div class="window-icon">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="vk-tb4" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
+                    <rect width="80" height="80" rx="16" fill="url(#vk-tb4)"/>
+                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+                  </svg>
+                </div>
+                <div class="window-title">VaultKeep™ — Your Finances, Your Device, Your Control</div>
+                <div class="window-controls">
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
+                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
+                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: 1fr 280px; height: 400px;">
+                <div style="background: #0a0a1a; padding: 20px; overflow: hidden;">
+                  <h3 style="font-size: 14px; margin-bottom: 16px;">Main Dashboard</h3>
+                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; margin-bottom: 12px;">
+                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 4px;">Net Worth</div>
+                    <div style="font-size: 24px; font-weight: 700; color: #6c63ff;">£187,432.61</div>
+                  </div>
+                </div>
+                <div class="ai-chat-drawer">
+                  <div class="ai-chat-header">Chat Assistant</div>
+                  <div class="ai-messages">
+                    <div class="ai-message ai-message-user">What is my current allocation drift?</div>
+                    <div class="ai-message ai-message-assistant">Your largest drift is XNAQ at -£374 (0.2% below target). VWRP is slightly ahead at +£374.</div>
+                  </div>
+                  <div class="ai-provider">Claude · Anthropic</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="section with-grid" id="security">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 60px;">Security you can verify, not just trust.</h2>
+        <div class="security-grid">
+          <div class="security-card">
+            <h3>Local-First Storage</h3>
+            <p>Your portfolio data never leaves your device. No accounts to create. No servers to trust. No breaches to worry about.</p>
+          </div>
+          <div class="security-card">
+            <h3>Encrypted Key Storage</h3>
+            <p>API keys protected with PBKDF2 (200,000 iterations) and AES-GCM encryption via the Web Crypto API. Industry-standard, browser-native.</p>
+          </div>
+          <div class="security-card">
+            <h3>Transparent Architecture</h3>
+            <p>React + TypeScript. Tauri desktop. Open security model. No obfuscation. No dark patterns. No hidden network calls.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section dark" id="pricing">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">Simple, honest pricing.</h2>
+        <p style="text-align: center; color: #8888a4; margin-bottom: 12px; font-size: 16px;">Two plans. No surprises. No subscriptions.</p>
+
+        <div class="pricing-container">
+          <!-- Free Tier -->
+          <div class="pricing-card">
+            <div class="pricing-title">Free</div>
+            <div class="pricing-amount">
+              <span class="pricing-value">£0</span>
+            </div>
+            <div class="pricing-frequency">forever</div>
+
+            <ul class="pricing-features">
+              <li>Full portfolio dashboard</li>
+              <li>Up to 3 accounts and 5 holdings</li>
+              <li>Target allocation and rebalancing</li>
+              <li>Risk signals and trajectory charts</li>
+              <li>16 built-in themes</li>
+              <li>CSV import and JSON backup</li>
+              <li>Manual price entry</li>
+              <li class="dimmed">No automatic price feeds</li>
+              <li class="dimmed">No AI assistant</li>
+            </ul>
+
+            <a class="pricing-cta secondary" href="#">Download Free</a>
+            <div class="pricing-note">No account required. Your data stays on your device.</div>
+          </div>
+
+          <!-- VaultKeep Tier -->
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Early Bird</div>
+            <div class="pricing-title">VaultKeep</div>
+            <div class="pricing-amount">
+              <span class="pricing-value">£39.99</span>
+            </div>
+            <div class="pricing-frequency">one-time purchase</div>
+            <div class="pricing-subtitle">£69.99 after early-bird ends</div>
+
+            <ul class="pricing-features">
+              <li>Everything in Free, unlimited</li>
+              <li>Delayed price feeds (up to every 30 min)</li>
+              <li>AI assistant (bring your own key)</li>
+              <li>Monte Carlo projections</li>
+              <li>Unlimited accounts, holdings, and assets</li>
+              <li>Snapshot history and projections</li>
+              <li>Desktop app (Windows and macOS)</li>
+              <li>Lifetime updates</li>
+            </ul>
+
+            <a class="pricing-cta" href="https://vaultkeep.lemonsqueezy.com/buy/1415730">Get VaultKeep</a>
+            <div class="pricing-note">Pay once. Yours forever. No subscription.</div>
+          </div>
+        </div>
+
+        <div class="pricing-comparison" style="margin-top: 32px;">
+          YNAB charges <strong>£84 per year</strong>. Quicken charges <strong>£90 per year</strong>. VaultKeep costs <strong>£39.99 once</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section dark" id="faq">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 60px;">Frequently asked questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Where is my data stored?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                On your device. VaultKeep stores all portfolio data in your browser's local storage or, for the desktop app, in an encrypted file on your machine. Nothing is transmitted to any server.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do I need an internet connection?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                No. VaultKeep works fully offline. Price feeds and the AI assistant require internet when you choose to use them, but the core application — your dashboard, calculations, and portfolio — works without any connection.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>How does the AI assistant work without sending my data to VaultKeep?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                You provide your own API key from providers like OpenAI or Anthropic. When you ask a question, VaultKeep sends your query directly from your browser to that provider. We are never in the middle, never see the conversation, and never store it.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What happens if I lose my device?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                VaultKeep includes JSON export for full backups. We recommend exporting regularly. The desktop app stores data locally, so standard device backup practices apply.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Is VaultKeep regulated by the FCA?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                VaultKeep is a portfolio tracking tool, not a financial service. It does not provide investment advice, manage client funds, or execute trades. All calculations are informational. You make your own decisions.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Can I use VaultKeep on multiple devices?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                The web version works in any modern browser. The desktop app runs on Windows and macOS. Data is stored locally per device. You can transfer data between devices using the JSON export and import feature.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="section dark">
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Start managing your portfolio with clarity and control.</h2>
+          <button class="cta-banner-btn">Download VaultKeep Free</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vk-footer-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6c63ff"/>
+                  <stop offset="1" stop-color="#8b7fff"/>
+                </linearGradient>
+              </defs>
+              <rect width="80" height="80" rx="16" fill="url(#vk-footer-bg)"/>
+              <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+            </svg>
+            <div class="footer-wordmark">
+              <span class="footer-vault">Vault</span><span class="footer-keep">Keep</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Privacy-first personal finance dashboard</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About VaultKeep Ltd</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775 · VaultKeep™ UK00004341086</p>
+        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    // FAQ Accordion Toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        faqItem.classList.toggle('open');
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Button click handlers
+    document.querySelectorAll('.btn, .btn-primary, .btn-ghost, .nav-cta, .pricing-cta, .cta-banner-btn').forEach(button => {
+      button.addEventListener('click', function(e) {
+        if (this.textContent.includes('Download')) {
+          e.preventDefault();
+          // In production, this would link to the download
+          console.log('Download clicked');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
