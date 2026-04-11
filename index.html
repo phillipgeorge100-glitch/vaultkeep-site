@@ -1402,7 +1402,7 @@
         <li><a href="#security">Security</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><button class="nav-cta">Download Free</button></li>
+        <li><a class="nav-cta" href="https://github.com/phillipgeorge100-glitch/VaultKeep/releases/latest">Download Free</a></li>
       </ul>
     </div>
   </nav>
@@ -1417,7 +1417,7 @@
             <p class="lead">Professional-grade wealth tracking without the cloud, the subscription, or the compromise.</p>
 
             <div class="hero-buttons">
-              <button class="btn btn-primary">Download VaultKeep</button>
+              <a class="btn btn-primary" href="https://github.com/phillipgeorge100-glitch/VaultKeep/releases/latest">Download VaultKeep</a>
               <button class="btn btn-ghost">View Features</button>
             </div>
 
@@ -1554,7 +1554,7 @@
     <!-- Social Proof Bar -->
     <section class="section dark social-proof">
       <div class="container">
-        <p class="social-proof-text">Trusted by self-directed investors across the United Kingdom</p>
+        <p class="social-proof-text">Trusted by self-directed investors worldwide</p>
         <div class="proof-stats">
           <div class="proof-stat">
             <div class="proof-stat-value">100%</div>
@@ -1907,19 +1907,18 @@
               <li class="dimmed">No AI assistant</li>
             </ul>
 
-            <a class="pricing-cta secondary" href="#">Download Free</a>
+            <a class="pricing-cta secondary" href="https://github.com/phillipgeorge100-glitch/VaultKeep/releases/latest">Download Free</a>
             <div class="pricing-note">No account required. Your data stays on your device.</div>
           </div>
 
           <!-- VaultKeep Tier -->
           <div class="pricing-card featured">
-            <div class="pricing-badge">Early Bird</div>
+            <div class="pricing-badge">Best Value</div>
             <div class="pricing-title">VaultKeep</div>
             <div class="pricing-amount">
               <span class="pricing-value">£39.99</span>
             </div>
             <div class="pricing-frequency">one-time purchase</div>
-            <div class="pricing-subtitle">£69.99 after early-bird ends</div>
 
             <ul class="pricing-features">
               <li>Everything in Free, unlimited</li>
@@ -2029,7 +2028,7 @@
       <div class="container">
         <div class="cta-banner">
           <h2>Start managing your portfolio with clarity and control.</h2>
-          <button class="cta-banner-btn">Download VaultKeep Free</button>
+          <a class="cta-banner-btn" href="https://github.com/phillipgeorge100-glitch/VaultKeep/releases/latest">Download VaultKeep Free</a>
         </div>
       </div>
     </section>
@@ -2129,11 +2128,7 @@
     // Button click handlers
     document.querySelectorAll('.btn, .btn-primary, .btn-ghost, .nav-cta, .pricing-cta, .cta-banner-btn').forEach(button => {
       button.addEventListener('click', function(e) {
-        if (this.textContent.includes('Download')) {
-          e.preventDefault();
-          // In production, this would link to the download
-          console.log('Download clicked');
-        }
+        // Download buttons are now regular <a> links — no JS needed
       });
     });
   </script>
