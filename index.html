@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Professional-grade wealth tracking without the cloud, subscription, or compromise. VaultKeep — your portfolio, your device, your control.">
-  <title>VaultKeep — Privacy-First Wealth Tracking</title>
+  <meta name="description" content="VaultKeep is a beautifully designed desktop app for tracking everything you own. Cards for Net Worth, Freedom Number, Safe Withdrawal and 46 more. Live market data and AI assistance through your own keys. £39.99 once, lifetime updates. Mac and Windows.">
+  <title>VaultKeep. The wealth dashboard you'll actually want to open.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
@@ -167,9 +167,16 @@
       color: #6c63ff;
     }
 
+    .nav-cta,
+    .nav-cta:link,
+    .nav-cta:visited,
+    .nav-cta:hover,
+    .nav-cta:active {
+      color: #ffffff !important;
+    }
+
     .nav-cta {
       background: linear-gradient(135deg, #6c63ff, #8b7fff);
-      color: #e4e4ed;
       padding: 10px 20px;
       border-radius: 8px;
       text-decoration: none;
@@ -185,6 +192,30 @@
       box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
     }
 
+    .nav-cta-ghost,
+    .nav-cta-ghost:link,
+    .nav-cta-ghost:visited,
+    .nav-cta-ghost:hover,
+    .nav-cta-ghost:active {
+      color: #6c63ff !important;
+    }
+
+    .nav-cta-ghost {
+      background: transparent;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1.5px solid #6c63ff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta-ghost:hover {
+      background: rgba(108, 99, 255, 0.08);
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -192,16 +223,36 @@
     }
 
     /* Hero Section */
-    .hero {
-      display: grid;
-      grid-template-columns: 55% 45%;
-      gap: 60px;
-      align-items: center;
-      padding: 120px 0;
+    .hero-section {
+      padding: 120px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .hero-content h1 {
       margin-bottom: 24px;
+    }
+
+    .hero-content .lead {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      justify-content: center;
+    }
+
+    .hero-content .hero-badges {
+      align-items: center;
+    }
+
+    .hero-content .badge-row {
+      justify-content: center;
     }
 
     .hero-buttons {
@@ -226,9 +277,16 @@
       white-space: nowrap;
     }
 
+    .btn-primary,
+    .btn-primary:link,
+    .btn-primary:visited,
+    .btn-primary:hover,
+    .btn-primary:active {
+      color: #ffffff !important;
+    }
+
     .btn-primary {
       background: linear-gradient(135deg, #6c63ff, #8b7fff);
-      color: #e4e4ed;
     }
 
     .btn-primary:hover {
@@ -279,20 +337,20 @@
 
     /* Product Shot */
     .hero-visual {
-      perspective: 1200px;
+      width: 100%;
+      max-width: 1700px;
+      margin: 64px auto 0;
+      padding: 0 32px;
+      box-sizing: border-box;
     }
 
-    .product-shot {
-      background: #12122a;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 20px 80px rgba(108, 99, 255, 0.15);
-      transform: perspective(1200px) rotateY(-5deg);
-      transition: transform 0.3s ease;
-    }
-
-    .hero-visual:hover .product-shot {
-      transform: perspective(1200px) rotateY(-3deg);
+    .hero-visual .hero-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 40px 96px rgba(0, 0, 0, 0.55), 0 16px 40px rgba(108, 99, 255, 0.08);
     }
 
     .window-titlebar {
@@ -847,16 +905,22 @@
     }
 
     @media (max-width: 768px) {
-      .hero {
-        grid-template-columns: 1fr;
+      .hero-section {
+        padding: 80px 0 60px;
       }
 
       .hero-buttons {
         flex-direction: column;
       }
 
-      .product-shot {
-        transform: perspective(1200px) rotateY(0);
+      .hero-visual {
+        max-width: 100%;
+        margin-top: 48px;
+        padding: 0 16px;
+      }
+
+      .hero-visual .hero-screenshot {
+        border-radius: 10px;
       }
 
       .feature-section {
@@ -1376,6 +1440,632 @@
     ::-webkit-scrollbar-thumb:hover {
       background: #8b7fff;
     }
+
+    /* Total cost of ownership section */
+    .tco-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .tco-grid { grid-template-columns: 1fr; }
+    }
+
+    .tco-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    .tco-card h3 {
+      margin-bottom: 20px;
+      color: #e4e4ed;
+    }
+
+    .tco-card.vk-tco {
+      border-color: rgba(108, 99, 255, 0.4);
+      background: rgba(108, 99, 255, 0.06);
+    }
+
+    .tco-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .tco-card li {
+      padding: 6px 0;
+      color: #c4c4d4;
+      font-size: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .tco-card li:last-child {
+      border-bottom: none;
+    }
+
+    .tco-card li strong {
+      color: #e4e4ed;
+    }
+
+    .tco-card .tco-note {
+      color: #8888a4;
+      font-size: 13px;
+      margin: 0;
+      padding-top: 4px;
+      line-height: 1.6;
+    }
+
+    /* ----------------------------------------------------------------
+       Real screenshot framing (replaces the SVG window-titlebar chrome
+       on the hero and 4 inline section visuals). Keeps the rounded
+       corners, subtle border, and soft drop-shadow per
+       docs/prompts/marketing-screenshot-automation.md section 6.
+    ---------------------------------------------------------------- */
+    .hero-screenshot {
+      width: 100%;
+      max-width: 1200px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+    }
+    .section-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ----------------------------------------------------------------
+       "What's inside" - six-tile feature explainer grid.
+    ---------------------------------------------------------------- */
+    .explainer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .explainer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .explainer-tile {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 28px;
+      transition: border-color 0.2s ease;
+    }
+    .explainer-tile:hover {
+      border-color: rgba(108, 99, 255, 0.3);
+    }
+    .explainer-tile h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #e4e4ed;
+    }
+    .explainer-tile p {
+      font-size: 15px;
+      color: #8888a4;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .explainer-tile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Custom Plan tile visual (donut + drift bars) */
+    .tile-plan-viz {
+      background: rgba(10, 10, 26, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .tile-plan-donut {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #6c63ff 0% 30%,
+        #4f8eff 30% 55%,
+        #5cd6a3 55% 63%,
+        #ffb74d 63% 71%,
+        #f87171 71% 77%,
+        #6b7080 77% 100%
+      );
+      flex-shrink: 0;
+    }
+
+    .tile-plan-donut::before {
+      content: '';
+      position: absolute;
+      inset: 32px;
+      background: rgba(10, 10, 26, 1);
+      border-radius: 50%;
+    }
+
+    .tile-plan-donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .tile-plan-donut-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+
+    .tile-plan-donut-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #e4e4ed;
+      margin-top: 2px;
+    }
+
+    .tile-plan-drift {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .drift-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 64px;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .drift-label {
+      color: #c4c4d4;
+      font-weight: 600;
+    }
+
+    .drift-track {
+      position: relative;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 3px;
+    }
+
+    .drift-track::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .drift-fill {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      border-radius: 3px;
+    }
+
+    .drift-fill-negative {
+      right: 50%;
+      background: #f87171;
+    }
+
+    .drift-fill-positive {
+      left: 50%;
+      background: #5cd6a3;
+    }
+
+    .drift-value {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .drift-value-negative { color: #f87171; }
+    .drift-value-positive { color: #5cd6a3; }
+
+    /* Shared tile-visual base (for all custom tile graphics) */
+    .tile-visual {
+      background: rgba(10, 10, 26, 0.6);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Net Worth tile */
+    .tile-nw-headline {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .tile-nw-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+    .tile-nw-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #6c63ff;
+      letter-spacing: -0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+    .tile-nw-delta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #5cd6a3;
+      font-weight: 600;
+    }
+    .tile-nw-delta-neutral { color: #8888a4; font-weight: 500; }
+    .tile-nw-spark {
+      width: 100%;
+      height: 80px;
+    }
+    .tile-nw-legend {
+      width: 100%;
+      display: flex;
+      gap: 16px;
+      font-size: 11px;
+      color: #8888a4;
+    }
+    .tile-nw-legend-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+
+    /* Projections tile */
+    .tile-proj-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .tile-proj-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+    .tile-proj-pill {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6c63ff;
+      background: rgba(108, 99, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .tile-proj-chart {
+      width: 100%;
+      height: 140px;
+    }
+    .tile-proj-axis {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: #6b7080;
+      letter-spacing: 0.5px;
+    }
+    .tile-proj-totals {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .tile-proj-total {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tile-proj-total-label {
+      font-size: 10px;
+      color: #8888a4;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+    .tile-proj-total-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: #e4e4ed;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Monte Carlo tile */
+    .tile-mc-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .tile-mc-chart {
+      width: 100%;
+      height: 140px;
+    }
+    .tile-mc-stats {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .tile-mc-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      align-items: center;
+    }
+    .tile-mc-stat-label {
+      font-size: 9px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #8888a4;
+    }
+    .tile-mc-stat-value {
+      font-size: 14px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+    .tile-mc-stat-worst { color: #f87171; }
+    .tile-mc-stat-median { color: #e4e4ed; }
+    .tile-mc-stat-best { color: #5cd6a3; }
+
+    /* Macro tile (Fear and Greed gauge) */
+    .tile-macro-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+    .tile-macro-gauge {
+      width: 220px;
+      height: 130px;
+      position: relative;
+    }
+    .tile-macro-score {
+      font-size: 36px;
+      font-weight: 700;
+      color: #ffb74d;
+      line-height: 1;
+      letter-spacing: -1px;
+      font-variant-numeric: tabular-nums;
+    }
+    .tile-macro-status {
+      font-size: 13px;
+      color: #ffb74d;
+      font-weight: 600;
+      margin-top: -4px;
+    }
+    .tile-macro-meta {
+      font-size: 11px;
+      color: #6b7080;
+      margin-top: 4px;
+    }
+
+    /* Asset mix tile */
+    .tile-mix-donut {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #5cd6a3 0% 7%,
+        #6c63ff 7% 33%,
+        #4f8eff 33% 81%,
+        #ffb74d 81% 97%,
+        #f87171 97% 100%
+      );
+      flex-shrink: 0;
+    }
+    .tile-mix-donut::before {
+      content: '';
+      position: absolute;
+      inset: 30px;
+      background: rgba(10, 10, 26, 1);
+      border-radius: 50%;
+    }
+    .tile-mix-donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .tile-mix-donut-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+    .tile-mix-donut-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #e4e4ed;
+      margin-top: 2px;
+    }
+    .tile-mix-legend {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 16px;
+      font-size: 12px;
+    }
+    .tile-mix-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tile-mix-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .tile-mix-legend-name {
+      color: #c4c4d4;
+      flex: 1;
+    }
+    .tile-mix-legend-pct {
+      color: #8888a4;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    /* Inline section composition: dashboard preview */
+    .section-preview {
+      width: 100%;
+      max-width: 580px;
+      margin-left: auto;
+      background: #12122a;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45), 0 12px 32px rgba(108, 99, 255, 0.06);
+      overflow: hidden;
+    }
+    .section-preview-bar {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .section-preview-bar-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .section-preview-bar-title {
+      margin-left: 6px;
+      font-size: 12px;
+      color: #8888a4;
+      font-weight: 500;
+    }
+    .section-preview-body {
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .section-preview-headline {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .section-preview-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      color: #8888a4;
+      text-transform: uppercase;
+    }
+    .section-preview-value {
+      font-size: 44px;
+      font-weight: 700;
+      color: #6c63ff;
+      letter-spacing: -1px;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .section-preview-delta {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 13px;
+      margin-top: 6px;
+      color: #8888a4;
+    }
+    .section-preview-delta-positive {
+      color: #5cd6a3;
+      font-weight: 600;
+    }
+    .section-preview-chart {
+      width: 100%;
+      height: 96px;
+    }
+    .section-preview-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .section-preview-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #c4c4d4;
+    }
+    .section-preview-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .section-preview-pill-green { color: #5cd6a3; }
+    .section-preview-pill-amber { color: #ffb74d; }
+    .section-preview-pill-purple { color: #8b7fff; }
+    .section-preview-pill-slate { color: #8888a4; }
+
   </style>
 </head>
 <body>
@@ -1402,180 +2092,57 @@
         <li><a href="#security">Security</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#faq">FAQ</a></li>
-        <li><a class="nav-cta" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Download Free</a></li>
+        <li><a class="nav-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy £39.99</a></li>
+        <li><a class="nav-cta-ghost" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
     <!-- Hero Section -->
-    <section class="section dark">
+    <section class="section dark hero-section">
       <div class="container">
-        <div class="hero">
-          <div class="hero-content">
-            <h1>Your portfolio. Your device. Your control.</h1>
-            <p class="lead">Professional-grade wealth tracking without the cloud, the subscription, or the compromise.</p>
+        <div class="hero-content">
+          <h1>The wealth dashboard you'll actually want to open.</h1>
+          <p class="lead">VaultKeep is a native desktop app for everything you own. Beautifully designed on the surface, professionally deep underneath. Track manually like a refined spreadsheet, or plug in live market data and AI through your own keys. Cards for Net Worth, Freedom Number, Safe Withdrawal and 46 more. £39.99 once, lifetime updates.</p>
 
-            <div class="hero-buttons">
-              <a class="btn btn-primary" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Download VaultKeep</a>
-              <button class="btn btn-ghost">View Features</button>
-            </div>
-
-            <div class="hero-badges">
-              <div class="badge-row">
-                <div class="badge">
-                  <span class="badge-icon">🔒</span>
-                  <span>No cloud</span>
-                </div>
-                <div class="badge">
-                  <span class="badge-icon">✕</span>
-                  <span>No subscription</span>
-                </div>
-                <div class="badge">
-                  <span class="badge-icon">👁</span>
-                  <span>No tracking</span>
-                </div>
-                <div class="badge">
-                  <span class="badge-icon">🔐</span>
-                  <span>AES-256 encrypted</span>
-                </div>
-              </div>
-            </div>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy VaultKeep, £39.99</a>
+            <a class="btn btn-ghost" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a>
           </div>
 
-          <div class="hero-visual">
-            <div class="product-shot">
-              <div class="window-titlebar">
-                <div class="window-icon">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="vk-tb1" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
-                    <rect width="80" height="80" rx="16" fill="url(#vk-tb1)"/>
-                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                  </svg>
-                </div>
-                <div class="window-title">VaultKeep — Your Finances, Your Device, Your Control</div>
-                <div class="window-controls">
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
-                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
-                </div>
+          <div class="hero-badges">
+            <div class="badge-row">
+              <div class="badge">
+                <span class="badge-icon">✕</span>
+                <span>No subscription</span>
               </div>
-              <div class="product-frame">
-                <div class="dashboard-sidebar">
-                  <div class="sidebar-logo">
-                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
-                      <defs>
-                        <linearGradient id="vk-sidebar-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
-                          <stop stop-color="#6c63ff"/>
-                          <stop offset="1" stop-color="#8b7fff"/>
-                        </linearGradient>
-                      </defs>
-                      <rect width="80" height="80" rx="16" fill="url(#vk-sidebar-bg)"/>
-                      <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                    </svg>
-                    <span>VaultKeep</span>
-                    <span class="version-badge">v1.0</span>
-                  </div>
-                  <ul class="sidebar-nav">
-                    <li class="sidebar-nav-item active">Dashboard</li>
-                    <li class="sidebar-nav-item">Portfolio</li>
-                    <li class="sidebar-nav-item">Accounts</li>
-                    <li class="sidebar-nav-item">Holdings</li>
-                    <li class="sidebar-nav-item">Plan</li>
-                    <li class="sidebar-nav-item">History</li>
-                  </ul>
-                </div>
-                <div class="dashboard-main">
-                  <div class="dashboard-header">
-                    <h3>Dashboard</h3>
-                    <div class="net-worth-display">
-                      <span class="net-worth-amount">£187,432</span><span class="net-worth-currency">.61</span>
-                    </div>
-                  </div>
-
-                  <div class="dashboard-stats">
-                    <div class="stat-card">
-                      <div class="stat-label">Cash</div>
-                      <div class="stat-value stat-neutral">£34,218</div>
-                      <div class="stat-label" style="margin-top: 4px;">Buffer: £18k</div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="stat-label">Invested</div>
-                      <div class="stat-value stat-positive">£158,214</div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="stat-label">Liabilities</div>
-                      <div class="stat-value stat-negative">£5,000</div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="stat-label">Cash Available</div>
-                      <div class="stat-value stat-positive">£16,218</div>
-                    </div>
-                  </div>
-
-                  <div class="dashboard-signals">
-                    <div class="signal-pill signal-green">
-                      <span class="signal-dot"></span>
-                      <span>Buffer OK</span>
-                    </div>
-                    <div class="signal-pill signal-green">
-                      <span class="signal-dot"></span>
-                      <span>Risk: Low</span>
-                    </div>
-                  </div>
-
-                  <div class="dashboard-chart">
-                    <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
-                      <defs>
-                        <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                          <stop offset="0%" style="stop-color:#6c63ff;stop-opacity:0.3" />
-                          <stop offset="100%" style="stop-color:#6c63ff;stop-opacity:0.05" />
-                        </linearGradient>
-                      </defs>
-                      <polyline points="0,60 15,50 30,45 45,35 60,25 75,15 90,10 100,8" fill="none" stroke="#6c63ff" stroke-width="2" stroke-linecap="round"/>
-                      <polygon points="0,60 15,50 30,45 45,35 60,25 75,15 90,10 100,8 100,80 0,80" fill="url(#chart-gradient)"/>
-                    </svg>
-                  </div>
-
-                  <div class="allocation-bar">
-                    <div class="allocation-segment segment-vwrp">VWRP</div>
-                    <div class="allocation-segment segment-xnaq">XNAQ</div>
-                    <div class="allocation-segment segment-eqgb">EQGB</div>
-                    <div class="allocation-segment segment-cash">CASH</div>
-                  </div>
-                </div>
+              <div class="badge">
+                <span class="badge-icon">🔒</span>
+                <span>Local-only data</span>
+              </div>
+              <div class="badge">
+                <span class="badge-icon">👁</span>
+                <span>No tracking</span>
+              </div>
+              <div class="badge">
+                <span class="badge-icon">↩</span>
+                <span>14-day money-back</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Social Proof Bar -->
-    <section class="section dark social-proof">
-      <div class="container">
-        <p class="social-proof-text">Trusted by self-directed investors worldwide</p>
-        <div class="proof-stats">
-          <div class="proof-stat">
-            <div class="proof-stat-value">100%</div>
-            <div class="proof-stat-label">Local</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-stat-value">Zero</div>
-            <div class="proof-stat-label">Data Collected</div>
-          </div>
-          <div class="proof-stat">
-            <div class="proof-stat-value">£39.99</div>
-            <div class="proof-stat-label">One-Time, No Subscription</div>
-          </div>
-        </div>
+      <div class="hero-visual">
+        <img class="hero-screenshot" src="screenshots/hero-dashboard-tight.png" alt="VaultKeep dashboard showing net worth, cash, allocation, and risk cards" />
       </div>
     </section>
 
     <!-- Features Overview -->
     <section class="section dark" id="features">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 60px;">Built for clarity and control</h2>
+        <h2 style="text-align: center; margin-bottom: 60px;">A dashboard you'll want to open. Power when you want it. Yours forever.</h2>
         <div class="features-grid">
           <div class="feature-card fade-in">
             <div class="feature-icon">
@@ -1583,8 +2150,8 @@
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Private by Architecture</h3>
-            <p>All data stays on your device. No cloud synchronisation. No telemetry. No analytics. Not as a feature toggle — as a fundamental design constraint.</p>
+            <h3>Designed for daily use</h3>
+            <p>Every screen considered. A clean Net Worth headline. Cash Available, Buffer status, Risk pill. A Freedom Number countdown when you're ready for one. Drag any card. Hide any card. The interface stays calm.</p>
           </div>
           <div class="feature-card fade-in">
             <div class="feature-icon">
@@ -1592,8 +2159,8 @@
                 <path d="M9 11L12 14L22 4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>One Purchase, Lifetime Use</h3>
-            <p>Start free. VaultKeep is £39.99 once — no subscriptions, no annual renewals, no price increases. Your software, permanently.</p>
+            <h3>Power tools when you want them</h3>
+            <p>49 dashboard cards. Over 10 panels. Projections out to 30 and 40 years, with scheduled contributions and life events. Monte Carlo with worst-case drawdown. Macro indicators including Fear and Greed, yield curve and inflation. The depth is there when you go looking.</p>
           </div>
           <div class="feature-card fade-in">
             <div class="feature-icon">
@@ -1601,9 +2168,242 @@
                 <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Intelligent Without Surveillance</h3>
-            <p>AI-powered portfolio analysis using your own API key. VaultKeep never sees, stores, or profits from your conversations.</p>
+            <h3>Built to keep</h3>
+            <p>A native Mac and Windows app. £39.99 once. Lifetime updates. Your accounts, holdings, assets and liabilities live on your machine. Live prices through your EODHD key. AI assistance through your provider key. Both bring-your-own-key.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Explainer Grid -->
+    <section class="section dark" id="features-explainer">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 16px;">What's inside.</h2>
+        <p style="text-align: center; color: #8888a4; max-width: 720px; margin: 0 auto 60px; font-size: 16px;">
+          Six features that earn the dashboard you'll open every morning.
+        </p>
+
+        <div class="explainer-grid">
+
+          <div class="explainer-tile">
+            <h3>Net Worth at a glance</h3>
+            <p>A clean headline number you'll glance at every morning. Cash, invested, liabilities, all rendered calmly.</p>
+            <div class="tile-visual" role="img" aria-label="Net Worth £407,694, +2.1% since last snapshot">
+              <div class="tile-nw-headline">
+                <div class="tile-nw-label">Net Worth</div>
+                <div class="tile-nw-value">£407,694.98</div>
+                <div class="tile-nw-delta">▲ +£8,513.98 <span class="tile-nw-delta-neutral">since last snapshot · +2.1%</span></div>
+              </div>
+              <svg class="tile-nw-spark" viewBox="0 0 300 80" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="nw-spark-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.32"/>
+                    <stop offset="100%" stop-color="#6c63ff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <polygon fill="url(#nw-spark-fill)"
+                  points="0,55 18,53 36,57 54,49 72,52 90,46 108,48 126,42 144,40 162,36 180,38 198,30 216,26 234,22 252,18 270,15 288,11 300,8 300,80 0,80"/>
+                <polyline fill="none" stroke="#6c63ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  points="0,55 18,53 36,57 54,49 72,52 90,46 108,48 126,42 144,40 162,36 180,38 198,30 216,26 234,22 252,18 270,15 288,11 300,8"/>
+              </svg>
+              <div class="tile-nw-legend">
+                <span><span class="tile-nw-legend-dot" style="background:#5cd6a3"></span>Cash</span>
+                <span><span class="tile-nw-legend-dot" style="background:#6c63ff"></span>Invested</span>
+                <span><span class="tile-nw-legend-dot" style="background:#ffb74d"></span>Assets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="explainer-tile">
+            <h3>Plan your targets</h3>
+            <p>A target percentage for each holding. Drift in pounds and percent, calculated against today's prices. Two rebalance modes: contribution-only or full reset. You choose when to act.</p>
+            <div class="tile-plan-viz" role="img" aria-label="Allocation donut chart with drift bars">
+              <div class="tile-plan-donut">
+                <div class="tile-plan-donut-center">
+                  <div class="tile-plan-donut-label">Allocation</div>
+                  <div class="tile-plan-donut-value">£196.5k</div>
+                </div>
+              </div>
+              <div class="tile-plan-drift">
+                <div class="drift-row">
+                  <span class="drift-label">VWRP</span>
+                  <div class="drift-track"><div class="drift-fill drift-fill-negative" style="width: 22%;"></div></div>
+                  <span class="drift-value drift-value-negative">−£760</span>
+                </div>
+                <div class="drift-row">
+                  <span class="drift-label">IWDA</span>
+                  <div class="drift-track"><div class="drift-fill drift-fill-positive" style="width: 14%;"></div></div>
+                  <span class="drift-value drift-value-positive">+£420</span>
+                </div>
+                <div class="drift-row">
+                  <span class="drift-label">AAPL</span>
+                  <div class="drift-track"><div class="drift-fill drift-fill-negative" style="width: 8%;"></div></div>
+                  <span class="drift-value drift-value-negative">−£280</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explainer-tile">
+            <h3>Project the future</h3>
+            <p>30 and 40-year projections with scheduled contributions and life events. Played with, not preached.</p>
+            <div class="tile-visual" role="img" aria-label="30-year projection from today's net worth to projected future value">
+              <div class="tile-proj-header">
+                <div class="tile-proj-label">Projection</div>
+                <div class="tile-proj-pill">30 years · Average</div>
+              </div>
+              <svg class="tile-proj-chart" viewBox="0 0 320 140" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="proj-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.28"/>
+                    <stop offset="100%" stop-color="#6c63ff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="105" x2="320" y2="105" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="0" y1="65" x2="320" y2="65" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="25" x2="320" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <path d="M 0 105 Q 80 95 130 80 T 220 50 T 320 12 L 320 140 L 0 140 Z" fill="url(#proj-fill)"/>
+                <path d="M 0 105 Q 80 95 130 80 T 220 50 T 320 12" fill="none" stroke="#6c63ff" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 4"/>
+                <circle cx="0" cy="105" r="5" fill="#5cd6a3"/>
+              </svg>
+              <div class="tile-proj-axis">
+                <span>Today</span>
+                <span>10y</span>
+                <span>20y</span>
+                <span>30y</span>
+              </div>
+              <div class="tile-proj-totals">
+                <div class="tile-proj-total">
+                  <span class="tile-proj-total-label">Today</span>
+                  <span class="tile-proj-total-value">£407.7k</span>
+                </div>
+                <div class="tile-proj-total">
+                  <span class="tile-proj-total-label">In 30 years</span>
+                  <span class="tile-proj-total-value" style="color:#6c63ff;">£1.74m</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explainer-tile">
+            <h3>Stress-test the worst</h3>
+            <p>Monte Carlo with worst-case drawdown analysis. Two thousand simulated futures, one calm chart.</p>
+            <div class="tile-visual" role="img" aria-label="Monte Carlo range cone showing worst case, median, and best case projections">
+              <div class="tile-mc-header">
+                <div class="tile-proj-label">Range of outcomes</div>
+                <div class="tile-proj-pill">2,000 simulations</div>
+              </div>
+              <svg class="tile-mc-chart" viewBox="0 0 320 140" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="mc-cone" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#5cd6a3" stop-opacity="0.22"/>
+                    <stop offset="100%" stop-color="#f87171" stop-opacity="0.18"/>
+                  </linearGradient>
+                </defs>
+                <line x1="0" y1="115" x2="320" y2="115" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="0" y1="70" x2="320" y2="70" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="0" y1="25" x2="320" y2="25" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <!-- Cone: best case top, worst case bottom -->
+                <path d="M 0 115 Q 80 110 160 80 T 320 8 L 320 60 Q 240 80 160 95 T 0 115 Z" fill="url(#mc-cone)"/>
+                <!-- Best case (top edge) -->
+                <path d="M 0 115 Q 80 110 160 80 T 320 8" fill="none" stroke="#5cd6a3" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.65"/>
+                <!-- Worst case (bottom edge) -->
+                <path d="M 0 115 Q 80 115 160 95 T 320 60" fill="none" stroke="#f87171" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.65"/>
+                <!-- Median -->
+                <path d="M 0 115 Q 80 112 160 88 T 320 32" fill="none" stroke="#e4e4ed" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="0" cy="115" r="5" fill="#5cd6a3"/>
+              </svg>
+              <div class="tile-mc-stats">
+                <div class="tile-mc-stat">
+                  <span class="tile-mc-stat-label">Worst case</span>
+                  <span class="tile-mc-stat-value tile-mc-stat-worst">£820k</span>
+                </div>
+                <div class="tile-mc-stat">
+                  <span class="tile-mc-stat-label">Median</span>
+                  <span class="tile-mc-stat-value tile-mc-stat-median">£1.74m</span>
+                </div>
+                <div class="tile-mc-stat">
+                  <span class="tile-mc-stat-label">Best case</span>
+                  <span class="tile-mc-stat-value tile-mc-stat-best">£3.2m</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="explainer-tile">
+            <h3>Macro at your back</h3>
+            <p>Fear and Greed, yield curve, inflation, currency strength. The world's signals, in one calm view.</p>
+            <div class="tile-visual" role="img" aria-label="Fear and Greed gauge showing 52 Neutral">
+              <div class="tile-macro-label">Fear and Greed</div>
+              <svg class="tile-macro-gauge" viewBox="0 0 220 130">
+                <defs>
+                  <linearGradient id="macro-arc" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#f87171"/>
+                    <stop offset="35%" stop-color="#ffb74d"/>
+                    <stop offset="65%" stop-color="#ffd166"/>
+                    <stop offset="100%" stop-color="#5cd6a3"/>
+                  </linearGradient>
+                </defs>
+                <!-- Background arc (semi-circle, gradient red→amber→green) -->
+                <path d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="url(#macro-arc)" stroke-width="20" stroke-linecap="round"/>
+                <!-- Tick marks -->
+                <g stroke="rgba(10, 10, 26, 1)" stroke-width="2">
+                  <line x1="61" y1="51" x2="63" y2="58"/>
+                  <line x1="110" y1="20" x2="110" y2="28"/>
+                  <line x1="159" y1="51" x2="157" y2="58"/>
+                </g>
+                <!-- Needle pointing to 52 (just past the middle) -->
+                <g transform="rotate(3.6 110 110)">
+                  <line x1="110" y1="110" x2="110" y2="30" stroke="#e4e4ed" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="110" cy="110" r="6" fill="#e4e4ed"/>
+                </g>
+              </svg>
+              <div class="tile-macro-score">52</div>
+              <div class="tile-macro-status">Neutral</div>
+              <div class="tile-macro-meta">Estimated from VIX, momentum &amp; safe-haven signals</div>
+            </div>
+          </div>
+
+          <div class="explainer-tile">
+            <h3>Track everything you own</h3>
+            <p>Cash, investments, property, pension, vehicle, crypto, business stakes, collectibles. In 46 currencies, on your machine.</p>
+            <div class="tile-visual" role="img" aria-label="Asset mix donut chart">
+              <div class="tile-mix-donut">
+                <div class="tile-mix-donut-center">
+                  <div class="tile-mix-donut-label">Total assets</div>
+                  <div class="tile-mix-donut-value">£588k</div>
+                </div>
+              </div>
+              <div class="tile-mix-legend">
+                <div class="tile-mix-legend-row">
+                  <span class="tile-mix-legend-dot" style="background:#5cd6a3"></span>
+                  <span class="tile-mix-legend-name">Cash</span>
+                  <span class="tile-mix-legend-pct">7%</span>
+                </div>
+                <div class="tile-mix-legend-row">
+                  <span class="tile-mix-legend-dot" style="background:#6c63ff"></span>
+                  <span class="tile-mix-legend-name">Invested</span>
+                  <span class="tile-mix-legend-pct">26%</span>
+                </div>
+                <div class="tile-mix-legend-row">
+                  <span class="tile-mix-legend-dot" style="background:#4f8eff"></span>
+                  <span class="tile-mix-legend-name">Property</span>
+                  <span class="tile-mix-legend-pct">48%</span>
+                </div>
+                <div class="tile-mix-legend-row">
+                  <span class="tile-mix-legend-dot" style="background:#ffb74d"></span>
+                  <span class="tile-mix-legend-name">Pension</span>
+                  <span class="tile-mix-legend-pct">16%</span>
+                </div>
+                <div class="tile-mix-legend-row">
+                  <span class="tile-mix-legend-dot" style="background:#f87171"></span>
+                  <span class="tile-mix-legend-name">Vehicle</span>
+                  <span class="tile-mix-legend-pct">3%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1613,245 +2413,47 @@
       <div class="container">
         <div class="feature-section">
           <div class="feature-text">
-            <h2>See your finances clearly. Decide with confidence.</h2>
-            <p>Net worth, allocation drift, risk signals, and trajectory — all computed locally, updated in real time. The data density of an institutional terminal, designed for personal portfolios.</p>
+            <h2>Your wealth, in one calm view.</h2>
+            <p>A clean Net Worth headline. Allocation, drift, and risk pills you'll glance at every morning. A trajectory chart you can follow out to 30 years. Everything computed on your machine, refreshed when you ask.</p>
           </div>
           <div class="feature-visual">
-            <div class="feature-shot">
-              <div class="window-titlebar">
-                <div class="window-icon">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="vk-tb2" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
-                    <rect width="80" height="80" rx="16" fill="url(#vk-tb2)"/>
-                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                  </svg>
-                </div>
-                <div class="window-title">VaultKeep — Your Finances, Your Device, Your Control</div>
-                <div class="window-controls">
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
-                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
-                </div>
+            <div class="section-preview" role="img" aria-label="VaultKeep dashboard preview showing Net Worth, trajectory, and status pills">
+              <div class="section-preview-bar">
+                <span class="section-preview-bar-dot"></span>
+                <span class="section-preview-bar-dot"></span>
+                <span class="section-preview-bar-dot"></span>
+                <span class="section-preview-bar-title">Dashboard · Sam</span>
               </div>
-              <div style="background: #0a0a1a; padding: 24px; height: 400px; display: flex; flex-direction: column;">
-                <h3 style="font-size: 16px; margin-bottom: 20px;">Net Worth Overview</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 20px;">
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Cash Available</div>
-                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">£16,218</div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Monthly Spend</div>
-                    <div style="font-size: 20px; font-weight: 600; color: #e4e4ed;">£1,500</div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Risk Level</div>
-                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">Low</div>
-                  </div>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px;">
-                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 8px;">Concentration</div>
-                    <div style="font-size: 20px; font-weight: 600; color: #34d399;">Balanced</div>
+              <div class="section-preview-body">
+                <div class="section-preview-headline">
+                  <div class="section-preview-label">Net Worth</div>
+                  <div class="section-preview-value">£407,694.98</div>
+                  <div class="section-preview-delta">
+                    <span class="section-preview-delta-positive">▲ +£8,513.98</span>
+                    <span>since last snapshot · +2.1%</span>
                   </div>
                 </div>
-                <div style="margin-top: auto;">
-                  <div style="font-size: 12px; color: #8888a4; margin-bottom: 8px;">12-Month Projection</div>
-                  <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 60px;">
-                    <polyline points="10,50 30,45 50,40 70,32 90,28 110,22 130,18 150,15 170,12 190,10" fill="none" stroke="#6c63ff" stroke-width="2"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature Section 2: Planning -->
-    <section class="section dark">
-      <div class="container">
-        <div class="feature-section">
-          <div class="feature-text">
-            <h2>Set targets. Track drift. Rebalance with precision.</h2>
-            <p>Define your target allocation. VaultKeep calculates drift in pounds and percentages, then generates contribution-only or full rebalancing scenarios. You decide when and how to act.</p>
-          </div>
-          <div class="feature-visual">
-            <div class="feature-shot">
-              <div class="window-titlebar">
-                <div class="window-icon">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="vk-tb3" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
-                    <rect width="80" height="80" rx="16" fill="url(#vk-tb3)"/>
-                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                  </svg>
-                </div>
-                <div class="window-title">VaultKeep — Your Finances, Your Device, Your Control</div>
-                <div class="window-controls">
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
-                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
-                </div>
-              </div>
-              <div class="plan-view">
-                <div class="plan-header">
-                  <h3>Target Allocation</h3>
-                </div>
-                <table class="plan-table">
-                  <thead>
-                    <tr>
-                      <th>Asset</th>
-                      <th>Target</th>
-                      <th>Actual</th>
-                      <th>Drift (£)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td style="font-weight: 600;">VWRP</td>
-                      <td>40%</td>
-                      <td>40.2%</td>
-                      <td class="drift-positive">+£374</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: 600;">XNAQ</td>
-                      <td>25%</td>
-                      <td>24.8%</td>
-                      <td class="drift-negative">-£374</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: 600;">EQGB</td>
-                      <td>15%</td>
-                      <td>15.1%</td>
-                      <td class="drift-positive">+£187</td>
-                    </tr>
-                    <tr>
-                      <td style="font-weight: 600;">CASH</td>
-                      <td>20%</td>
-                      <td>19.9%</td>
-                      <td class="drift-negative">-£187</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="plan-info">
-                  <div style="margin-bottom: 8px;"><strong>Monthly Spend:</strong> £1,500</div>
-                  <div style="margin-bottom: 8px;"><strong>Buffer Required:</strong> 12 months = £18,000</div>
-                  <div><strong>Investable Cash:</strong> £16,218</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Feature Section 3: AI Assistant -->
-    <section class="section dark">
-      <div class="container">
-        <div class="feature-section">
-          <div class="feature-text">
-            <h2>Your portfolio, analysed by AI.</h2>
-            <p>Ask questions, add holdings, check live prices, run scenarios — all through natural language. Supports OpenAI, Anthropic, Google Gemini, xAI, and DeepSeek. Conversations go directly to the provider. VaultKeep is never in the middle.</p>
-          </div>
-          <div class="feature-visual">
-            <div class="feature-shot">
-              <div class="window-titlebar">
-                <div class="window-icon">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="vk-tb4" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
-                    <rect width="80" height="80" rx="16" fill="url(#vk-tb4)"/>
-                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                  </svg>
-                </div>
-                <div class="window-title">VaultKeep — Your Finances, Your Device, Your Control</div>
-                <div class="window-controls">
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
-                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 280px; height: 400px;">
-                <div style="background: #0a0a1a; padding: 20px; overflow: hidden;">
-                  <h3 style="font-size: 14px; margin-bottom: 16px;">Main Dashboard</h3>
-                  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; margin-bottom: 12px;">
-                    <div style="font-size: 11px; color: #8888a4; margin-bottom: 4px;">Net Worth</div>
-                    <div style="font-size: 24px; font-weight: 700; color: #6c63ff;">£187,432.61</div>
-                  </div>
-                </div>
-                <div class="ai-chat-drawer">
-                  <div class="ai-chat-header">Chat Assistant</div>
-                  <div class="ai-messages">
-                    <div class="ai-message ai-message-user">What is my current allocation drift?</div>
-                    <div class="ai-message ai-message-assistant">Your largest drift is XNAQ at -£374 (0.2% below target). VWRP is slightly ahead at +£374.</div>
-                  </div>
-                  <div class="ai-provider">Claude · Anthropic</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Live Market Data Section -->
-    <section class="section dark-surface">
-      <div class="container">
-        <div class="feature-section">
-          <div class="feature-text">
-            <h2>Ask your portfolio anything. Get answers with live data.</h2>
-            <p>VaultKeep's AI connects to live market data via EODHD — so it can check prices, compare investments, and calculate exact rebalancing quantities at today's prices. Like having a financial analyst with a Bloomberg Terminal on their desk.</p>
-            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
-              <span style="background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); color: #8b7fff; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px;">Morning Briefing</span>
-              <span style="background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); color: #8b7fff; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px;">Live Rebalancing</span>
-              <span style="background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); color: #8b7fff; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px;">Stress Testing</span>
-              <span style="background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); color: #8b7fff; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px;">Price Comparison</span>
-            </div>
-          </div>
-          <div class="feature-visual">
-            <div class="feature-shot">
-              <div class="window-titlebar">
-                <div class="window-icon">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="vk-tb5" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#6c63ff"/><stop offset="1" stop-color="#8b7fff"/></linearGradient></defs>
-                    <rect width="80" height="80" rx="16" fill="url(#vk-tb5)"/>
-                    <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
-                  </svg>
-                </div>
-                <div class="window-title">VaultKeep — Your Finances, Your Device, Your Control</div>
-                <div class="window-controls">
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><line x1="1" y1="5" x2="9" y2="5"/></svg></div>
-                  <div class="window-btn"><svg viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8" rx="0.5"/></svg></div>
-                  <div class="window-btn window-btn-close"><svg viewBox="0 0 10 10"><line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/></svg></div>
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: 1fr 280px; height: 400px;">
-                <div style="background: #0a0a1a; padding: 20px; overflow: hidden;">
-                  <h3 style="font-size: 14px; margin-bottom: 16px;">Live Portfolio Snapshot</h3>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px;">
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px;">
-                      <div style="font-size: 10px; color: #8888a4; margin-bottom: 4px;">VWRL.LSE</div>
-                      <div style="font-size: 16px; font-weight: 600; color: #34d399;">£96.42 <span style="font-size: 11px;">+1.2%</span></div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px;">
-                      <div style="font-size: 10px; color: #8888a4; margin-bottom: 4px;">BTC-USD.CC</div>
-                      <div style="font-size: 16px; font-weight: 600; color: #34d399;">$68,421 <span style="font-size: 11px;">+3.4%</span></div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px;">
-                      <div style="font-size: 10px; color: #8888a4; margin-bottom: 4px;">XNAQ.LSE</div>
-                      <div style="font-size: 16px; font-weight: 600; color: #ef4444;">£43.18 <span style="font-size: 11px;">-0.8%</span></div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 12px;">
-                      <div style="font-size: 10px; color: #8888a4; margin-bottom: 4px;">Fear & Greed</div>
-                      <div style="font-size: 16px; font-weight: 600; color: #f59e0b;">52 <span style="font-size: 11px;">Neutral</span></div>
-                    </div>
-                  </div>
-                  <div style="font-size: 11px; color: #8888a4; background: rgba(108,99,255,0.05); border: 1px solid rgba(108,99,255,0.1); border-radius: 6px; padding: 8px;">API budget: 8/20 calls used today — green zone</div>
-                </div>
-                <div class="ai-chat-drawer">
-                  <div class="ai-chat-header">Chat Assistant</div>
-                  <div class="ai-messages">
-                    <div class="ai-message ai-message-user">Where should I put my spare £3,000?</div>
-                    <div class="ai-message ai-message-assistant">Based on your targets and live prices: buy 23 XNAQ at £43.18 (£993), 2 EQGB at £478 (£956), and £1,051 of BTC. This moves you closest to your 30/30/30/10 targets.</div>
-                  </div>
-                  <div class="ai-provider">GPT-4o · OpenAI</div>
+                <svg class="section-preview-chart" viewBox="0 0 540 96" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="preview-fill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#6c63ff" stop-opacity="0.32"/>
+                      <stop offset="100%" stop-color="#6c63ff" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                  <line x1="0" y1="76" x2="540" y2="76" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <line x1="0" y1="44" x2="540" y2="44" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <line x1="0" y1="14" x2="540" y2="14" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                  <polygon fill="url(#preview-fill)"
+                    points="0,72 30,68 60,72 90,62 120,64 150,56 180,58 210,48 240,46 270,40 300,42 330,30 360,26 390,22 420,20 450,16 480,12 510,10 540,8 540,96 0,96"/>
+                  <polyline fill="none" stroke="#6c63ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    points="0,72 30,68 60,72 90,62 120,64 150,56 180,58 210,48 240,46 270,40 300,42 330,30 360,26 390,22 420,20 450,16 480,12 510,10 540,8"/>
+                </svg>
+                <div class="section-preview-pills">
+                  <span class="section-preview-pill section-preview-pill-green">Buffer OK</span>
+                  <span class="section-preview-pill section-preview-pill-green">Risk Low</span>
+                  <span class="section-preview-pill section-preview-pill-purple">Diversified</span>
+                  <span class="section-preview-pill section-preview-pill-amber">Drift 2.3%</span>
+                  <span class="section-preview-pill section-preview-pill-slate">10 holdings</span>
                 </div>
               </div>
             </div>
@@ -1863,19 +2465,19 @@
     <!-- Security Section -->
     <section class="section with-grid" id="security">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 60px;">Security you can verify, not just trust.</h2>
+        <h2 style="text-align: center; margin-bottom: 60px;">Built for your desktop. Built to keep.</h2>
         <div class="security-grid">
           <div class="security-card">
-            <h3>Local-First Storage</h3>
-            <p>Your portfolio data never leaves your device. No accounts to create. No servers to trust. No breaches to worry about.</p>
+            <h3>Your data, your machine</h3>
+            <p>Every account, holding, asset and liability is stored locally on your computer. No accounts to create. No servers to trust. No breaches to worry about.</p>
           </div>
           <div class="security-card">
-            <h3>Encrypted Key Storage</h3>
-            <p>API keys protected with PBKDF2 (200,000 iterations) and AES-GCM encryption via the Web Crypto API. Industry-standard, browser-native.</p>
+            <h3>Owned outright</h3>
+            <p>Everything runs on your machine. Your data lives on your disk. Backup and export are one click. The product is yours, not a service you rent.</p>
           </div>
           <div class="security-card">
-            <h3>Transparent Architecture</h3>
-            <p>React + TypeScript. Tauri desktop. Open security model. No obfuscation. No dark patterns. No hidden network calls.</p>
+            <h3>Native Mac and Windows</h3>
+            <p>A desktop app for macOS and Windows. Code-signed. macOS notarised. Auto-update built in. No dark patterns. No hidden network calls.</p>
           </div>
         </div>
       </div>
@@ -1884,7 +2486,7 @@
     <!-- Pricing Section -->
     <section class="section dark" id="pricing">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 20px;">Simple, honest pricing.</h2>
+        <h2 style="text-align: center; margin-bottom: 20px;">Pricing.</h2>
         <p style="text-align: center; color: #8888a4; margin-bottom: 12px; font-size: 16px;">Two plans. No surprises. No subscriptions.</p>
 
         <div class="pricing-container">
@@ -1898,16 +2500,18 @@
 
             <ul class="pricing-features">
               <li>Full portfolio dashboard</li>
-              <li>Up to 3 accounts and 5 holdings</li>
+              <li>Up to 3 accounts, 5 holdings, 3 assets</li>
               <li>Target allocation and rebalancing</li>
-              <li>Risk signals and trajectory charts</li>
-              <li>16 built-in themes</li>
-              <li>CSV import and JSON backup</li>
-              <li>EODHD price feeds (20 calls/day, your own key)</li>
+              <li>Risk signals, trajectory and snapshot history</li>
+              <li>11 built-in themes plus custom theming</li>
+              <li>CSV import. JSON, CSV, ZIP backup</li>
+              <li>EODHD price feeds (your own free key, around 20 quotes per day)</li>
+              <li>46 currencies, multi-profile</li>
               <li class="dimmed">No AI assistant</li>
+              <li class="dimmed">No Monte Carlo or long-horizon projections</li>
             </ul>
 
-            <a class="pricing-cta secondary" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Download Free</a>
+            <a class="pricing-cta secondary" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a>
             <div class="pricing-note">No account required. Your data stays on your device.</div>
           </div>
 
@@ -1921,32 +2525,92 @@
             <div class="pricing-frequency">one-time purchase</div>
 
             <ul class="pricing-features">
-              <li>Everything in Free, unlimited</li>
-              <li>Live market data via EODHD (your own free API key)</li>
-              <li>AI assistant with live market access (BYOK)</li>
-              <li>Monte Carlo projections</li>
+              <li>Everything in Free, unlimited accounts and holdings</li>
+              <li>Live market data via your own EODHD key</li>
+              <li>AI assistant with 5 providers (your own key)</li>
+              <li>Monte Carlo with worst-case drawdown analysis</li>
+              <li>Projections out to 30 and 40 years, with scheduled contributions and life events</li>
+              <li>Macro indicators (Fear and Greed, yield curve, inflation, currency strength)</li>
+              <li>Watchlist with live prices</li>
+              <li>Sell flow with realised gains tracking</li>
               <li>Dividend tracking and income projections</li>
-              <li>Unlimited accounts, holdings, and assets</li>
-              <li>Snapshot history and projections</li>
-              <li>Desktop app (Windows and macOS)</li>
+              <li>8 asset categories, 6 liability types, 46 currencies, multi-profile</li>
+              <li>Auto-backup to your folder</li>
+              <li>Desktop app for Mac and Windows, signed and notarised</li>
               <li>Lifetime updates</li>
             </ul>
 
-            <a class="pricing-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Get VaultKeep</a>
+            <a class="pricing-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy VaultKeep, £39.99</a>
             <div class="pricing-note">Pay once. Yours forever. No subscription.</div>
           </div>
         </div>
 
         <div class="pricing-comparison" style="margin-top: 32px;">
-          YNAB charges <strong>£84 per year</strong>. Quicken charges <strong>£90 per year</strong>. VaultKeep costs <strong>£39.99 once</strong>.
+          <p style="font-size: 16px; color: #e4e4ed; margin-bottom: 8px;">
+            Most subscription wealth trackers: <strong>£10 to £30 per month</strong>.
+          </p>
+          <p style="font-size: 16px; color: #e4e4ed; margin-bottom: 8px;">
+            Adviser-grade retirement software: <strong>£80 to £100 per month</strong>, locked to a financial adviser.
+          </p>
+          <p style="font-size: 18px; color: #e4e4ed; font-weight: 600; margin-bottom: 0;">
+            VaultKeep: <strong>£39.99 once</strong>.
+          </p>
         </div>
+      </div>
+    </section>
+
+    <!-- Total Cost of Ownership -->
+    <section class="section dark-surface" id="tco">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 20px;">What it costs over 3 years.</h2>
+        <p style="text-align: center; color: #8888a4; max-width: 720px; margin: 0 auto 60px; font-size: 16px;">
+          VaultKeep uses your own EODHD price-feed key. Most users stay on EODHD's free tier forever. Heavy users pay EODHD directly. Either way, we never see your usage and we never take a cut.
+        </p>
+
+        <div class="tco-grid">
+
+          <div class="tco-card">
+            <h3>Most users</h3>
+            <ul>
+              <li>VaultKeep: <strong>£39.99 once</strong></li>
+              <li>EODHD: <strong>Free</strong> (around 20 quotes per day, no card)</li>
+              <li>3-year total: <strong>£39.99</strong></li>
+            </ul>
+            <p class="tco-note">Covers a typical portfolio of 5 to 20 holdings refreshed daily.</p>
+          </div>
+
+          <div class="tco-card">
+            <h3>Heavy users</h3>
+            <ul>
+              <li>VaultKeep: <strong>£39.99 once</strong></li>
+              <li>EODHD All-World: ~<strong>£19.99/month</strong> (paid direct to EODHD)</li>
+              <li>3-year total: ~<strong>£760</strong></li>
+            </ul>
+            <p class="tco-note">For larger portfolios with frequent refreshes, realtime quotes and extended history.</p>
+          </div>
+
+          <div class="tco-card vk-tco">
+            <h3>Versus a typical subscription</h3>
+            <ul>
+              <li>Typical tracker: <strong>£10 to £30 per month</strong></li>
+              <li>3-year total: <strong>£360 to £1,080</strong></li>
+              <li>You stop paying: <strong>never</strong></li>
+            </ul>
+            <p class="tco-note">VaultKeep with the free EODHD tier costs around £40 over 3 years. Even the cheapest comparable subscription costs roughly 9 times more.</p>
+          </div>
+
+        </div>
+
+        <p style="text-align: center; color: #8888a4; margin-top: 48px; font-size: 14px;">
+          Your EODHD account, your bill, your data. We don't take a cut and never see your usage.
+        </p>
       </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="section dark" id="faq">
       <div class="container">
-        <h2 style="text-align: center; margin-bottom: 60px;">Frequently asked questions</h2>
+        <h2 style="text-align: center; margin-bottom: 60px;">Frequently asked questions.</h2>
         <div class="faq-container">
           <div class="faq-item">
             <div class="faq-question">
@@ -1955,7 +2619,7 @@
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                On your device. VaultKeep stores all portfolio data in your browser's local storage or, for the desktop app, in an encrypted file on your machine. Nothing is transmitted to any server.
+                On your device. VaultKeep is a desktop app for Mac and Windows. All portfolio data lives in a local file on your machine. Nothing is transmitted to any VaultKeep server.
               </div>
             </div>
           </div>
@@ -1967,7 +2631,22 @@
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                No. VaultKeep works fully offline. Price feeds and the AI assistant require internet when you choose to use them, but the core application — your dashboard, calculations, and portfolio — works without any connection.
+                No. VaultKeep works fully offline. Price feeds and the AI assistant need internet when you choose to use them. The core app (your dashboard, calculations and portfolio) works without any connection.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Do I need EODHD or AI API keys?</span>
+              <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Both are optional. VaultKeep runs fully on data you enter yourself, like a refined spreadsheet. Every account, holding, asset, liability, projection and dashboard card works the same.<br><br>
+                If you want live prices, the EODHD key is bring-your-own. EODHD's free tier covers a typical portfolio of 5 to 20 holdings refreshed once a day. Their All-World paid plan (around £19.99 per month, paid directly to EODHD) adds frequent refreshes, realtime quotes, extended history, and unlocks some advanced features including Watchlist live updates, auto-refreshing macro indicators, server-calculated trailing returns, and longer lookback on the Projections page.<br><br>
+                If you want the AI assistant, you bring your own provider key (OpenAI, Anthropic, Google Gemini, xAI, or DeepSeek). Many providers have generous free tiers.<br><br>
+                In every case, the licences are yours, the bills go directly to the providers, and we never see your usage.
               </div>
             </div>
           </div>
@@ -1979,7 +2658,7 @@
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                You provide your own API key from providers like OpenAI or Anthropic. When you ask a question, VaultKeep sends your query directly from your browser to that provider. We are never in the middle, never see the conversation, and never store it.
+                You provide your own API key from one of five supported providers (OpenAI, Anthropic, Google Gemini, xAI, DeepSeek). When you ask a question, the desktop app sends your query straight to that provider. We are never in the middle, never see the conversation, and never store it.
               </div>
             </div>
           </div>
@@ -1991,7 +2670,7 @@
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                VaultKeep includes JSON export for full backups. We recommend exporting regularly. The desktop app stores data locally, so standard device backup practices apply.
+                VaultKeep includes JSON export for full backups. Set the auto-backup feature to save to your folder on a schedule, or export manually whenever you want. The desktop app stores data locally, so standard device backup practices also apply.
               </div>
             </div>
           </div>
@@ -2015,10 +2694,11 @@
             </div>
             <div class="faq-answer">
               <div class="faq-answer-content">
-                The web version works in any modern browser. The desktop app runs on Windows and macOS. Data is stored locally per device. You can transfer data between devices using the JSON export and import feature.
+                The desktop app runs on macOS and Windows. Data is stored locally per device. To use VaultKeep on more than one machine, export a JSON backup from one and import it on the other. Your perpetual licence covers up to five devices.
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -2027,8 +2707,14 @@
     <section class="section dark">
       <div class="container">
         <div class="cta-banner">
-          <h2>Start managing your portfolio with clarity and control.</h2>
-          <a class="cta-banner-btn" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Download VaultKeep Free</a>
+          <h2>Ready when you are.</h2>
+          <p style="color: #e4e4ed; opacity: 0.85; max-width: 560px; margin: 0 auto 28px; font-size: 16px;">
+            Try the free tier, buy when you want. Lifetime updates and a 14-day money-back guarantee.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a class="cta-banner-btn" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy VaultKeep, £39.99</a>
+            <a class="cta-banner-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.3);" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a>
+          </div>
         </div>
       </div>
     </section>
@@ -2054,7 +2740,7 @@
               <span class="footer-vault">Vault</span><span class="footer-keep">Keep</span>
             </div>
           </div>
-          <p class="footer-tagline">Privacy-first personal finance dashboard</p>
+          <p class="footer-tagline">Your entire financial picture, in one place</p>
         </div>
         <div>
           <h4>Product</h4>
@@ -2068,17 +2754,17 @@
         <div>
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="#">About VaultKeep Ltd</a></li>
+            <li><a href="mailto:support@vaultkeep.co.uk">Contact</a></li>
+            <li><a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">Discord</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="#">Contact</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copyright">© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775</p>
-        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a></p>
+        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a> · Discord: <a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">discord.gg/3bKDqbGWZc</a></p>
       </div>
     </div>
   </footer>
@@ -2128,7 +2814,7 @@
     // Button click handlers
     document.querySelectorAll('.btn, .btn-primary, .btn-ghost, .nav-cta, .pricing-cta, .cta-banner-btn').forEach(button => {
       button.addEventListener('click', function(e) {
-        // Download buttons are now regular <a> links — no JS needed
+        // Download buttons are now regular <a> links, no JS needed
       });
     });
   </script>
