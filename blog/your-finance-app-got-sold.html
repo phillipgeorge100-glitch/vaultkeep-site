@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A note on the consumer-fintech model. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.">
+  <title>Your finance app got sold. — VaultKeep</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://vaultkeep.co.uk/blog/your-finance-app-got-sold">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Your finance app got sold.">
+  <meta property="og:description" content="A note on the consumer-fintech model, from someone who watched it happen. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.">
+  <meta property="og:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://vaultkeep.co.uk/blog/your-finance-app-got-sold">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VaultKeep">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:published_time" content="2026-05-12T00:00:00Z">
+  <meta property="article:author" content="Phillip George">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your finance app got sold.">
+  <meta name="twitter:description" content="A note on the consumer-fintech model. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.">
+  <meta name="twitter:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+
+  <!-- Structured data: BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Your finance app got sold.",
+    "description": "A note on the consumer-fintech model, from someone who watched it happen.",
+    "datePublished": "2026-05-12",
+    "dateModified": "2026-05-12",
+    "author": {
+      "@type": "Person",
+      "name": "Phillip George",
+      "url": "https://vaultkeep.co.uk"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "VaultKeep Ltd",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vaultkeep.co.uk/favicon.svg"
+      }
+    },
+    "mainEntityOfPage": "https://vaultkeep.co.uk/blog/your-finance-app-got-sold",
+    "image": "https://vaultkeep.co.uk/screenshots/og-card.png"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a1a;
+      color: #e4e4ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar — lifted from index.html */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #e4e4ed;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo-text { display: flex; gap: 0; }
+    .nav-logo-vault { color: #e4e4ed; }
+    .nav-logo-keep { color: #6c63ff; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: #6c63ff; }
+
+    .nav-links .blog-link {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links .blog-link:hover {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.2);
+      border-color: #6c63ff;
+    }
+
+    .nav-cta,
+    .nav-cta:link,
+    .nav-cta:visited,
+    .nav-cta:hover,
+    .nav-cta:active { color: #ffffff !important; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+    }
+
+    .nav-cta-ghost,
+    .nav-cta-ghost:link,
+    .nav-cta-ghost:visited,
+    .nav-cta-ghost:hover,
+    .nav-cta-ghost:active { color: #6c63ff !important; }
+
+    .nav-cta-ghost {
+      background: transparent;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1.5px solid #6c63ff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta-ghost:hover { background: rgba(108, 99, 255, 0.08); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* Post page — Mockup D */
+    .article-main {
+      padding: 80px 24px 80px;
+    }
+
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .post-back {
+      color: #a0a0b8;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 60px;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    .post-back:hover { color: #ffffff; }
+
+    .article-meta {
+      color: #6e6e85;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .article-title {
+      font-size: clamp(40px, 8vw, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .article-deck {
+      color: #a0a0b8;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 48px;
+      font-style: italic;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 48px;
+    }
+
+    .article-body {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #e4e4ed;
+    }
+
+    .article-body p { margin-bottom: 24px; }
+
+    .article-body h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 56px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid #6c63ff;
+      padding-left: 24px;
+      margin: 32px 0;
+      color: #a0a0b8;
+      font-style: italic;
+    }
+
+    .article-body a {
+      color: #8b7fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .article-body a:hover { color: #6c63ff; }
+
+    .article-footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 15px;
+      color: #a0a0b8;
+    }
+
+    .article-footer p {
+      margin-bottom: 16px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .article-footer a {
+      color: #8b7fff;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .article-footer a:hover { color: #6c63ff; }
+
+    @media (max-width: 600px) {
+      .article-main { padding: 60px 20px 60px; }
+      .post-back { margin-bottom: 40px; }
+      .article-title { font-size: 36px; }
+      .article-deck { font-size: 18px; padding-bottom: 32px; margin-bottom: 32px; }
+      .article-body { font-size: 17px; }
+      .article-body h2 { font-size: 26px; margin-top: 40px; }
+    }
+
+    /* Footer — lifted from index.html (scoped to page-level footer only,
+       not the in-article footer above) */
+    body > footer {
+      background: #12122a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 0 24px;
+      margin-top: 120px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    body > footer h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8888a4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .footer-logo svg { width: 32px; height: 32px; }
+
+    .footer-wordmark { display: flex; gap: 0; font-weight: 700; font-size: 16px; letter-spacing: -0.03em; }
+    .footer-vault { color: #e4e4ed; }
+    .footer-keep { color: #6c63ff; }
+
+    .footer-tagline { font-size: 13px; color: #8888a4; margin-top: 8px; line-height: 1.6; }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: #6c63ff; }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright { font-size: 12px; color: #8888a4; }
+    .footer-email { font-size: 12px; color: #8888a4; }
+    .footer-email a {
+      color: #6c63ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-email a:hover { color: #8b7fff; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="../" class="nav-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vk-nav-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6c63ff"/>
+              <stop offset="1" stop-color="#8b7fff"/>
+            </linearGradient>
+          </defs>
+          <rect width="80" height="80" rx="16" fill="url(#vk-nav-bg)"/>
+          <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="nav-logo-vault">Vault</span><span class="nav-logo-keep">Keep</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#security">Security</a></li>
+        <li><a href="../#pricing">Pricing</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="./" class="blog-link">Blog</a></li>
+        <li><a class="nav-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy £39.99</a></li>
+        <li><a class="nav-cta-ghost" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="article-main">
+    <article class="article-container">
+      <a href="./" class="post-back">← All posts</a>
+
+      <div class="article-meta">
+        <span>12 May 2026</span>
+        <span>·</span>
+        <span>8 min read</span>
+        <span>·</span>
+        <span>Phillip George</span>
+      </div>
+
+      <h1 class="article-title">Your finance app got sold.</h1>
+      <p class="article-deck">A note on the consumer-fintech model, from someone who watched it happen.</p>
+
+      <div class="article-body">
+        <p>Here&rsquo;s a sentence from a press release Moneyhub put out last year:</p>
+
+        <blockquote>Users who wish to continue their service simply need to &lsquo;opt in&rsquo; when they log into the Moneyhub app from mid-July.</blockquote>
+
+        <p>That sounds friendly. Helpful, even. The plain-English version is: the company you trusted with three years of your personal financial history is exiting the consumer business, and your continued access depends on noticing the banner before the end of August. Otherwise your account is deleted, and you get one final chance to download a CSV.</p>
+
+        <p>I&rsquo;m not picking on Moneyhub here. They handled the transition about as well as it could be handled. WPS Advisory, the company taking over the consumer app, is run by people who seem to care about the same things Moneyhub did. The platform underneath is the same one. If you opted in, your app still works, and on most days it looks indistinguishable.</p>
+
+        <p>But there&rsquo;s a thing worth saying out loud, and the friendly press-release language is the reason nobody quite says it: the consumer subscription model for personal finance apps has a structural failure mode. Your data, your workflow, and your decision-making infrastructure are all sitting on top of decisions you don&rsquo;t make, in a company you don&rsquo;t run.</p>
+
+        <p>And once you start looking, you find the pattern everywhere.</p>
+
+        <h2>The list</h2>
+
+        <p>Mint, shut down 23 March 2024. Intuit migrated users to Credit Karma, where most of the features they&rsquo;d actually used quietly disappeared. Mint had over 20 million users at its 2016 peak; by shutdown, around 3.6 million monthly actives. Intuit&rsquo;s announcement framed it as a strategic consolidation. Users called it something less polite.</p>
+
+        <p>Yolt, shut down 4 December 2021. ING decided UK retail open banking wasn&rsquo;t a strategic fit. The app died, customers were given two months to export.</p>
+
+        <p>Moneyhub consumer app, transferred to WPS Advisory in 2025. Same platform, different operator, different roadmap.</p>
+
+        <p>Trim, acquired by OneMain Financial in April 2021. The standalone Trim brand and app were deprecated, though the bill-negotiation feature lives on inside OneMain&rsquo;s ecosystem. Wally, the AI personal finance app, disappeared from app stores around late 2023. Tally, the credit-card debt management app, shut down in August 2024 after failing to raise its next funding round, despite a $855 million valuation in 2022.</p>
+
+        <p>There are more. These aren&rsquo;t bankruptcies in the dramatic sense. Mint sold to Intuit in 2009 for $170 million and ran successfully for fourteen years before being wound down. Moneyhub the company is doing fine. Tally had a healthy valuation right up until it didn&rsquo;t. These are companies looking at their balance sheet and concluding that the consumer side is the wrong place to put the next pound of investment.</p>
+
+        <p>Which is fine. Companies do strategy. But the implication for you, the user, is that the tool you&rsquo;ve spent two years tagging transactions in is operating under someone else&rsquo;s strategic plan, and that plan can change.</p>
+
+        <h2>Why this keeps happening</h2>
+
+        <p>There&rsquo;s a tempting story where this is about consumer fintech being a bad business. It isn&rsquo;t. Mint ran for fourteen years inside Intuit. Moneyhub the company is doing fine. Tally raised three rounds. The consumer side of personal finance isn&rsquo;t unprofitable, it&rsquo;s inconvenient.</p>
+
+        <p>The actual structural problem is that the enterprise side of personal finance pays more, complains less, and doesn&rsquo;t require you to acquire and support millions of individual humans. Pension dashboards, embedded banking for retailers, transaction enrichment for lenders, open-banking-as-a-service for fintechs: these are big contracts with sophisticated buyers. Consumer apps need to acquire users one at a time, support them individually, handle their compliance, and rebuild trust every time they raise prices.</p>
+
+        <p>If you&rsquo;re running a finance company and you find yourself with strong enterprise traction and a slow-growing consumer line, you don&rsquo;t keep the consumer line out of loyalty. You sell it, transfer it, or wind it down. This is not a moral failure. It&rsquo;s just where the maths leads.</p>
+
+        <p>The user is downstream of that maths. If you&rsquo;re the user, &ldquo;downstream of that maths&rdquo; is exactly the position you don&rsquo;t want to be in for the thing that holds your financial data.</p>
+
+        <h2>A short personal aside</h2>
+
+        <p>I built a wealth tracker. It&rsquo;s called VaultKeep. So I&rsquo;m not pretending to be a neutral observer of this market.</p>
+
+        <p>I built it because I&rsquo;d watched a few friends go through versions of the experience I described above, and the pattern bothered me in a way I couldn&rsquo;t quite name. Eventually I named it: the model is built so that the more you depend on the tool, the more you have to lose when the company pivots. Subscriptions train you to trust. Trust makes the eventual handover expensive. And the company that owns the trust gets to decide when to cash it in.</p>
+
+        <p>The alternative I wanted to use didn&rsquo;t quite exist in the form I had in mind. So I built it. That&rsquo;s the founder-voice disclosure. The rest of this post still holds whether or not you ever touch VaultKeep.</p>
+
+        <h2>The third path</h2>
+
+        <p>The mainstream framing of personal finance tools is binary. Cloud apps on one side, spreadsheets on the other. Cloud apps are convenient and brittle to the company&rsquo;s strategy. Spreadsheets are durable and brittle to your own diligence (one borked formula, lost weeks of data).</p>
+
+        <p>There&rsquo;s a third option that fell out of fashion for a while: a desktop app you actually own, with a perpetual licence, holding data in a file on your own machine.</p>
+
+        <p>This was the default for fifteen years before SaaS recurring revenue beat it on the metric VCs cared about. Quicken in the 1990s, Microsoft Money, MoneyDance, GnuCash, You Need A Budget before they went subscription. The model still works. It just stopped being trendy. The lived experience of a decade of consumer-app shutdowns is bringing it back into fashion, which is the thing I&rsquo;m betting on.</p>
+
+        <p>The structural promise is simple. If the company that made your app goes out of business tomorrow, the version you&rsquo;ve already installed still works. The data is on your machine. The file format isn&rsquo;t gated behind a login. You don&rsquo;t get future updates, but you don&rsquo;t lose access either.</p>
+
+        <p>For some categories of personal finance work, this is the wrong trade. Mobile aggregation through open banking is genuinely hard to do locally. If you need bank-statement-style transaction feeds, cloud is probably the right answer (with eyes open). For wealth tracking, portfolio analysis, projection modelling, anything where the data is yours and the calculations are deterministic, local-first is the more durable bet.</p>
+
+        <h2>Five questions to ask your current tool</h2>
+
+        <p>Less of a checklist, more of a five-minute audit. If you&rsquo;re using anything serious for your finances right now, take five minutes and answer these for yourself.</p>
+
+        <p>Where does my data actually live? On someone&rsquo;s servers, on my device, or both? If both, who&rsquo;s the source of truth when they disagree?</p>
+
+        <p>What does the export look like? Open the export. Look at the file. Could a future you, in three years, with no access to the original app, reconstruct your current dashboard from that export alone?</p>
+
+        <p>What&rsquo;s the company&rsquo;s actual business model? Subscription consumer? Enterprise with a consumer free tier? Loan affiliates? Advertising? The business model tells you what the company is optimising for, and where you fit in that picture.</p>
+
+        <p>What happens if I stop paying? Locked out, read-only, or grandfather-claused? Read the terms of service. Read the actual paragraphs, not the marketing copy.</p>
+
+        <p>What happens if the company pivots? Where does my data go? Who notifies me? What&rsquo;s the timeline?</p>
+
+        <p>You don&rsquo;t need to act on any of this today. But once you&rsquo;ve looked, you&rsquo;ve looked. The dependency is now visible.</p>
+
+        <h2>One last thing</h2>
+
+        <p>There&rsquo;s a version of this post that ends with a hard pitch. &ldquo;The model is broken, here&rsquo;s the alternative, buy it now.&rdquo; I&rsquo;m not going to write that version because I don&rsquo;t believe the cloud model is broken, just that its structural failure mode is poorly explained to the people whose data depends on it. Some people will read this and conclude that the SaaS path is right for them. They might be correct.</p>
+
+        <p>What I&rsquo;d push back on is the version of this story where the failure-mode conversation never happens. Where another acquisition gets announced, another transition email gets sent, and another wave of users does the same dance with their data and quietly hopes the next tool lasts longer.</p>
+
+        <p>If you&rsquo;ve been through one of these transitions and the thing it left you with was a small, persistent, unnamed bad taste: that bad taste is the gap between the tool you thought you had and the asset you actually have. The bad taste is real. The gap is the model.</p>
+
+        <p>There&rsquo;s a third path. It&rsquo;s not for everyone. But the existence of an alternative is what the SaaS era spent fifteen years trying to make you forget.</p>
+      </div>
+
+      <footer class="article-footer">
+        <p>VaultKeep is a privacy-first wealth dashboard for macOS and Windows. £39.99 once, lifetime updates, no subscription. <a href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try the free tier</a>, or <a href="https://vaultkeep.co.uk">read more</a>.</p>
+        <p>If you&rsquo;ve been through one of these transitions and want to swap stories, the Discord is at <a href="https://discord.gg/3bKDqbGWZc">discord.gg/3bKDqbGWZc</a>.</p>
+      </footer>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vk-footer-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6c63ff"/>
+                  <stop offset="1" stop-color="#8b7fff"/>
+                </linearGradient>
+              </defs>
+              <rect width="80" height="80" rx="16" fill="url(#vk-footer-bg)"/>
+              <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+            </svg>
+            <div class="footer-wordmark">
+              <span class="footer-vault">Vault</span><span class="footer-keep">Keep</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Your entire financial picture, in one place</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="../#security">Security</a></li>
+            <li><a href="../#pricing">Pricing</a></li>
+            <li><a href="../#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:support@vaultkeep.co.uk">Contact</a></li>
+            <li><a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775</p>
+        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a> · Discord: <a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">discord.gg/3bKDqbGWZc</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

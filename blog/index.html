@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.">
+  <title>Writing — VaultKeep</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://vaultkeep.co.uk/blog/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Writing — VaultKeep">
+  <meta property="og:description" content="Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.">
+  <meta property="og:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://vaultkeep.co.uk/blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VaultKeep">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Writing — VaultKeep">
+  <meta name="twitter:description" content="Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.">
+  <meta name="twitter:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+
+  <!-- Structured data: Blog -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "VaultKeep — Writing",
+    "description": "Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.",
+    "url": "https://vaultkeep.co.uk/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "VaultKeep Ltd",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vaultkeep.co.uk/favicon.svg"
+      }
+    },
+    "blogPost": [
+      {
+        "@type": "BlogPosting",
+        "headline": "Your finance app got sold.",
+        "url": "https://vaultkeep.co.uk/blog/your-finance-app-got-sold",
+        "datePublished": "2026-05-12",
+        "author": {
+          "@type": "Person",
+          "name": "Phillip George"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a1a;
+      color: #e4e4ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar — lifted from index.html */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #e4e4ed;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo-text { display: flex; gap: 0; }
+    .nav-logo-vault { color: #e4e4ed; }
+    .nav-logo-keep { color: #6c63ff; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: #6c63ff; }
+
+    .nav-links .blog-link {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links .blog-link:hover {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.2);
+      border-color: #6c63ff;
+    }
+
+    .nav-cta,
+    .nav-cta:link,
+    .nav-cta:visited,
+    .nav-cta:hover,
+    .nav-cta:active { color: #ffffff !important; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+    }
+
+    .nav-cta-ghost,
+    .nav-cta-ghost:link,
+    .nav-cta-ghost:visited,
+    .nav-cta-ghost:hover,
+    .nav-cta-ghost:active { color: #6c63ff !important; }
+
+    .nav-cta-ghost {
+      background: transparent;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1.5px solid #6c63ff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta-ghost:hover { background: rgba(108, 99, 255, 0.08); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* Blog list — Mockup A */
+    .blog-main {
+      padding: 120px 24px 80px;
+    }
+
+    .blog-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .blog-main h1 {
+      font-size: clamp(40px, 8vw, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .header-sub {
+      color: #a0a0b8;
+      font-size: 18px;
+      margin-bottom: 80px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .post-row {
+      display: block;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+      color: inherit;
+      transition: padding 0.2s ease;
+    }
+
+    .post-row:hover { padding-left: 8px; }
+    .post-row:last-child { border-bottom: none; }
+
+    .post-meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      color: #6e6e85;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .post-meta .dot {
+      width: 4px;
+      height: 4px;
+      background: #6e6e85;
+      border-radius: 50%;
+    }
+
+    .post-title {
+      font-size: 30px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .post-row:hover .post-title { color: #8b7fff; }
+
+    .post-lede {
+      color: #a0a0b8;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .post-read-more {
+      color: #8b7fff;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .blog-main { padding: 80px 20px 60px; }
+      .blog-main h1 { font-size: 40px; }
+      .header-sub { margin-bottom: 48px; font-size: 16px; }
+      .post-title { font-size: 24px; }
+      .post-lede { font-size: 16px; }
+    }
+
+    /* Footer — lifted from index.html */
+    footer {
+      background: #12122a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 0 24px;
+      margin-top: 120px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    footer h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8888a4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .footer-logo svg { width: 32px; height: 32px; }
+
+    .footer-wordmark { display: flex; gap: 0; font-weight: 700; font-size: 16px; letter-spacing: -0.03em; }
+    .footer-vault { color: #e4e4ed; }
+    .footer-keep { color: #6c63ff; }
+
+    .footer-tagline { font-size: 13px; color: #8888a4; margin-top: 8px; line-height: 1.6; }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: #6c63ff; }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright { font-size: 12px; color: #8888a4; }
+    .footer-email { font-size: 12px; color: #8888a4; }
+    .footer-email a {
+      color: #6c63ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-email a:hover { color: #8b7fff; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="../" class="nav-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vk-nav-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6c63ff"/>
+              <stop offset="1" stop-color="#8b7fff"/>
+            </linearGradient>
+          </defs>
+          <rect width="80" height="80" rx="16" fill="url(#vk-nav-bg)"/>
+          <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="nav-logo-vault">Vault</span><span class="nav-logo-keep">Keep</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#security">Security</a></li>
+        <li><a href="../#pricing">Pricing</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="./" class="blog-link">Blog</a></li>
+        <li><a class="nav-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy £39.99</a></li>
+        <li><a class="nav-cta-ghost" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="blog-main">
+    <div class="blog-container">
+      <h1>Writing</h1>
+      <p class="header-sub">Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.</p>
+
+      <a href="your-finance-app-got-sold" class="post-row">
+        <div class="post-meta">
+          <span>12 May 2026</span>
+          <span class="dot"></span>
+          <span>8 min read</span>
+          <span class="dot"></span>
+          <span>Phillip George</span>
+        </div>
+        <div class="post-title">Your finance app got sold.</div>
+        <p class="post-lede">A note on the consumer-fintech model, from someone who watched it happen. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.</p>
+        <span class="post-read-more">Read →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vk-footer-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6c63ff"/>
+                  <stop offset="1" stop-color="#8b7fff"/>
+                </linearGradient>
+              </defs>
+              <rect width="80" height="80" rx="16" fill="url(#vk-footer-bg)"/>
+              <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+            </svg>
+            <div class="footer-wordmark">
+              <span class="footer-vault">Vault</span><span class="footer-keep">Keep</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Your entire financial picture, in one place</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="../#security">Security</a></li>
+            <li><a href="../#pricing">Pricing</a></li>
+            <li><a href="../#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:support@vaultkeep.co.uk">Contact</a></li>
+            <li><a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775</p>
+        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a> · Discord: <a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">discord.gg/3bKDqbGWZc</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
