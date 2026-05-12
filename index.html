@@ -1254,10 +1254,10 @@
       color: #e4e4ed;
     }
 
+    /* Primary CTA inside the purple banner — white-filled with purple text */
     .cta-banner-btn {
       display: inline-block;
-      background: #0a0a1a;
-      color: #e4e4ed;
+      background: #ffffff;
       padding: 14px 32px;
       border-radius: 8px;
       font-weight: 600;
@@ -1266,10 +1266,34 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
-
+    .cta-banner-btn,
+    .cta-banner-btn:link,
+    .cta-banner-btn:visited,
+    .cta-banner-btn:hover,
+    .cta-banner-btn:active {
+      color: #6c63ff !important;
+    }
     .cta-banner-btn:hover {
+      background: #f5f5ff;
       transform: translateY(-2px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Secondary CTA — white-outlined, white text. Inverts to the primary
+       treatment on hover (Linear / Stripe pattern). */
+    .cta-banner-btn--secondary {
+      background: transparent;
+      border: 2px solid #ffffff;
+    }
+    .cta-banner-btn--secondary,
+    .cta-banner-btn--secondary:link,
+    .cta-banner-btn--secondary:visited,
+    .cta-banner-btn--secondary:active {
+      color: #ffffff !important;
+    }
+    .cta-banner-btn--secondary:hover {
+      background: #ffffff;
+      color: #6c63ff !important;
     }
 
     /* Footer */
@@ -2726,7 +2750,7 @@
           </p>
           <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
             <a class="cta-banner-btn" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy VaultKeep, £39.99</a>
-            <a class="cta-banner-btn" style="background: transparent; border: 1px solid rgba(255,255,255,0.3);" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a>
+            <a class="cta-banner-btn cta-banner-btn--secondary" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a>
           </div>
         </div>
       </div>
