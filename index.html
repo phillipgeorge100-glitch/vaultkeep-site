@@ -1254,15 +1254,15 @@
       color: #e4e4ed;
     }
 
-    /* Primary CTA inside the purple banner — white-filled with purple text */
+    /* Primary CTA inside the purple banner — purple-filled with white text and white border */
     .cta-banner-btn {
       display: inline-block;
-      background: #ffffff;
+      background: #6c63ff;
       padding: 14px 32px;
       border-radius: 8px;
       font-weight: 600;
       text-decoration: none;
-      border: none;
+      border: 2px solid #ffffff;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -1271,29 +1271,30 @@
     .cta-banner-btn:visited,
     .cta-banner-btn:hover,
     .cta-banner-btn:active {
-      color: #6c63ff !important;
+      color: #ffffff !important;
     }
     .cta-banner-btn:hover {
-      background: #f5f5ff;
+      background: #5a51e8;
       transform: translateY(-2px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
-    /* Secondary CTA — white-outlined, white text. Inverts to the primary
-       treatment on hover (Linear / Stripe pattern). */
+    /* Secondary CTA — dark-purple-filled with white text and white border */
     .cta-banner-btn--secondary {
-      background: transparent;
+      background: #0a0a1a;
       border: 2px solid #ffffff;
     }
     .cta-banner-btn--secondary,
     .cta-banner-btn--secondary:link,
     .cta-banner-btn--secondary:visited,
+    .cta-banner-btn--secondary:hover,
     .cta-banner-btn--secondary:active {
       color: #ffffff !important;
     }
     .cta-banner-btn--secondary:hover {
-      background: #ffffff;
-      color: #6c63ff !important;
+      background: #14142d;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     }
 
     /* Footer */
