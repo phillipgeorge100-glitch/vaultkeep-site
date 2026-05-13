@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A note on compound interest, market timing, and the boring path most people underestimate. The JP Morgan missed-days finding, a 36-year S&amp;P 500 chart, and the inflection year where compounding overtakes contributions.">
+  <title>On sitting still · VaultKeep</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://vaultkeep.co.uk/blog/on-sitting-still">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="On sitting still.">
+  <meta property="og:description" content="A note on compound interest, market timing, and the boring path most people underestimate.">
+  <meta property="og:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://vaultkeep.co.uk/blog/on-sitting-still">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="VaultKeep">
+  <meta property="og:locale" content="en_GB">
+  <meta property="article:published_time" content="2026-05-13T00:00:00Z">
+  <meta property="article:author" content="Phillip George">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="On sitting still.">
+  <meta name="twitter:description" content="A note on compound interest, market timing, and the boring path most people underestimate.">
+  <meta name="twitter:image" content="https://vaultkeep.co.uk/screenshots/og-card.png">
+
+  <!-- Structured data: BlogPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "On sitting still.",
+    "description": "A note on compound interest, market timing, and the boring path most people underestimate.",
+    "datePublished": "2026-05-13",
+    "dateModified": "2026-05-13",
+    "author": {
+      "@type": "Person",
+      "name": "Phillip George",
+      "url": "https://vaultkeep.co.uk"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "VaultKeep Ltd",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://vaultkeep.co.uk/favicon.svg"
+      }
+    },
+    "mainEntityOfPage": "https://vaultkeep.co.uk/blog/on-sitting-still",
+    "image": "https://vaultkeep.co.uk/screenshots/og-card.png"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a1a;
+      color: #e4e4ed;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar - lifted from index.html */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 16px 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #e4e4ed;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-logo svg { width: 32px; height: 32px; }
+    .nav-logo-text { display: flex; gap: 0; }
+    .nav-logo-vault { color: #e4e4ed; }
+    .nav-logo-keep { color: #6c63ff; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover { color: #6c63ff; }
+
+    .nav-links .blog-link {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.1);
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(108, 99, 255, 0.3);
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links .blog-link:hover {
+      color: #ffffff;
+      background: rgba(108, 99, 255, 0.2);
+      border-color: #6c63ff;
+    }
+
+    .nav-cta,
+    .nav-cta:link,
+    .nav-cta:visited,
+    .nav-cta:hover,
+    .nav-cta:active { color: #ffffff !important; }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #6c63ff, #8b7fff);
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108, 99, 255, 0.3);
+    }
+
+    .nav-cta-ghost,
+    .nav-cta-ghost:link,
+    .nav-cta-ghost:visited,
+    .nav-cta-ghost:hover,
+    .nav-cta-ghost:active { color: #6c63ff !important; }
+
+    .nav-cta-ghost {
+      background: transparent;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1.5px solid #6c63ff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .nav-cta-ghost:hover { background: rgba(108, 99, 255, 0.08); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* Post page - Mockup D */
+    .article-main {
+      padding: 80px 24px 80px;
+    }
+
+    .article-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .post-back {
+      color: #a0a0b8;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 60px;
+      display: inline-block;
+      transition: color 0.2s ease;
+    }
+
+    .post-back:hover { color: #ffffff; }
+
+    .article-meta {
+      color: #6e6e85;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .article-title {
+      font-size: clamp(40px, 8vw, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .article-deck {
+      color: #a0a0b8;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 48px;
+      font-style: italic;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 48px;
+    }
+
+    .article-body {
+      font-size: 18px;
+      line-height: 1.75;
+      color: #e4e4ed;
+    }
+
+    .article-body p { margin-bottom: 24px; }
+
+    .article-body h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 56px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body blockquote {
+      border-left: 4px solid #6c63ff;
+      padding-left: 24px;
+      margin: 32px 0;
+      color: #a0a0b8;
+      font-style: italic;
+    }
+
+    .article-body a {
+      color: #8b7fff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .article-body a:hover { color: #6c63ff; }
+
+    /* Chart container - applies to all three figures in this post */
+    .chart-figure {
+      margin: 48px -24px;
+      padding: 32px;
+      background: #12122a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      position: relative;
+    }
+
+    .chart-svg-wrap { position: relative; }
+
+    .chart-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #a0a0b8;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .chart-subtitle {
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .chart-source {
+      font-size: 12px;
+      color: #6e6e85;
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    /* Chart 2 interactive tooltip layer */
+    .chart-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: #0a0a1a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 8px;
+      padding: 10px 14px;
+      opacity: 0;
+      transition: opacity 0.15s ease-out;
+      transform: translate(-50%, -100%);
+      margin-top: -12px;
+      z-index: 10;
+      font-size: 13px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+
+    .chart-tooltip-date {
+      color: #a0a0b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .chart-tooltip-price {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* Chart 1 - missed-days horizontal bars */
+    .missed-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .missed-row:last-child { margin-bottom: 0; }
+
+    .missed-label {
+      color: #a0a0b8;
+      width: 160px;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+
+    .missed-bar-wrap {
+      flex: 1;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .missed-bar {
+      height: 100%;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 13px;
+      transition: width 0.6s ease-out;
+    }
+
+    .missed-bar.bar-9-8  { width: 100%; background: #34d399; }
+    .missed-bar.bar-5-6  { width: 57%;  background: #4ab8d8; }
+    .missed-bar.bar-2-9  { width: 30%;  background: #5a8dee; }
+    .missed-bar.bar-0-4  { width: 5%;   background: #6c63ff; }
+    .missed-bar.bar-neg-1 { background: #f87171; margin-left: 0; }
+    .missed-bar.bar-neg-3 { background: #f87171; margin-left: 0; }
+
+    .missed-bar-neg {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      border-radius: 4px;
+      background: #f87171;
+      display: flex;
+      align-items: center;
+      padding-right: 12px;
+      justify-content: flex-end;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Tiny-bar pattern: value label sits OUTSIDE the bar to its right,
+       for bars too narrow to contain their own label legibly. */
+    .missed-bar-label-out {
+      position: absolute;
+      left: 5%;
+      margin-left: 10px;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .chart-figure { margin: 32px 0; padding: 20px; }
+    }
+
+    .article-footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 15px;
+      color: #a0a0b8;
+    }
+
+    .article-footer p {
+      margin-bottom: 16px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .article-footer a {
+      color: #8b7fff;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s ease;
+    }
+
+    .article-footer a:hover { color: #6c63ff; }
+
+    @media (max-width: 600px) {
+      .article-main { padding: 60px 20px 60px; }
+      .post-back { margin-bottom: 40px; }
+      .article-title { font-size: 36px; }
+      .article-deck { font-size: 18px; padding-bottom: 32px; margin-bottom: 32px; }
+      .article-body { font-size: 17px; }
+      .article-body h2 { font-size: 26px; margin-top: 40px; }
+    }
+
+    /* Footer - lifted from index.html (scoped to page-level footer only,
+       not the in-article footer above) */
+    body > footer {
+      background: #12122a;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 60px 0 24px;
+      margin-top: 120px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    body > footer h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #8888a4;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .footer-logo svg { width: 32px; height: 32px; }
+
+    .footer-wordmark { display: flex; gap: 0; font-weight: 700; font-size: 16px; letter-spacing: -0.03em; }
+    .footer-vault { color: #e4e4ed; }
+    .footer-keep { color: #6c63ff; }
+
+    .footer-tagline { font-size: 13px; color: #8888a4; margin-top: 8px; line-height: 1.6; }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links a {
+      color: #8888a4;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: #6c63ff; }
+
+    .footer-bottom {
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright { font-size: 12px; color: #8888a4; }
+    .footer-email { font-size: 12px; color: #8888a4; }
+    .footer-email a {
+      color: #6c63ff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-email a:hover { color: #8b7fff; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="../" class="nav-logo">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="vk-nav-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#6c63ff"/>
+              <stop offset="1" stop-color="#8b7fff"/>
+            </linearGradient>
+          </defs>
+          <rect width="80" height="80" rx="16" fill="url(#vk-nav-bg)"/>
+          <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="nav-logo-vault">Vault</span><span class="nav-logo-keep">Keep</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#security">Security</a></li>
+        <li><a href="../#pricing">Pricing</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="./" class="blog-link">Blog</a></li>
+        <li><a class="nav-cta" href="https://vaultkeep.lemonsqueezy.com/checkout/buy/7ab02c5f-82a2-4561-ade2-32e7b417e412">Buy £39.99</a></li>
+        <li><a class="nav-cta-ghost" href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try Free</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="article-main">
+    <article class="article-container">
+      <a href="./" class="post-back">← All posts</a>
+
+      <div class="article-meta">
+        <span>13 May 2026</span>
+        <span>·</span>
+        <span>9 min read</span>
+        <span>·</span>
+        <span>Phillip George</span>
+      </div>
+
+      <h1 class="article-title">On sitting still.</h1>
+      <p class="article-deck">A note on compound interest, market timing, and the boring path most people underestimate.</p>
+
+      <div class="article-body">
+
+    <p>JP Morgan publishes a study every year on market participation. The 2023 edition contains a chart that regularly does the rounds on finance Twitter, partly because the conclusion is counter-intuitive and partly because the maths is unkind.</p>
+
+    <p>The S&amp;P 500 returned about 9.8% per year on average between 2003 and 2022. If you missed the 10 best trading days over that 20-year period, your return drops to 5.6%. Miss the 20 best days and you&rsquo;re at 2.9%. Miss the 30 best and you&rsquo;re at 0.4%. By the 40th day you&rsquo;re losing money in nominal terms.</p>
+
+    <!-- CHART 1: missed-days bars -->
+    <figure class="chart-figure">
+      <div class="chart-title">Chart 1</div>
+      <div class="chart-subtitle">Annualised S&amp;P 500 return, 2003-2022, depending on how many &ldquo;best days&rdquo; you missed.</div>
+      <div class="missed-row">
+        <span class="missed-label">Stayed invested</span>
+        <div class="missed-bar-wrap"><div class="missed-bar bar-9-8">9.8%</div></div>
+      </div>
+      <div class="missed-row">
+        <span class="missed-label">Missed 10 best days</span>
+        <div class="missed-bar-wrap"><div class="missed-bar bar-5-6">5.6%</div></div>
+      </div>
+      <div class="missed-row">
+        <span class="missed-label">Missed 20 best days</span>
+        <div class="missed-bar-wrap"><div class="missed-bar bar-2-9">2.9%</div></div>
+      </div>
+      <div class="missed-row">
+        <span class="missed-label">Missed 30 best days</span>
+        <div class="missed-bar-wrap"><div class="missed-bar bar-0-4"></div><span class="missed-bar-label-out">0.4%</span></div>
+      </div>
+      <div class="missed-row">
+        <span class="missed-label">Missed 40 best days</span>
+        <div class="missed-bar-wrap"><div class="missed-bar-neg" style="width: 12%;">−1.1%</div></div>
+      </div>
+      <div class="missed-row">
+        <span class="missed-label">Missed 50 best days</span>
+        <div class="missed-bar-wrap"><div class="missed-bar-neg" style="width: 33%;">−3.2%</div></div>
+      </div>
+      <div class="chart-source">Source: J.P. Morgan Guide to Retirement, 2023 edition. Returns are annualised S&amp;P 500 total return.</div>
+    </figure>
+
+    <p>Ten days. Out of around 5,000 trading days. About 0.2% of all trading days in the period.</p>
+
+    <p>The natural reaction is to assume the best days are spread evenly across the period. They aren&rsquo;t. Most of them cluster near the worst days. The 2008 crash and the 2009 recovery. The March 2020 COVID crash and the April-July 2020 rebound. The pattern repeats every cycle: panic, capitulation, and then a snap-back so violent it usually happens before the news cycle catches up.</p>
+
+    <p>The people who miss the best days are, almost without exception, the people who sold during the worst days.</p>
+
+    <h2>The thirty-year chart</h2>
+
+    <p>Zoom out far enough and the lesson sharpens.</p>
+
+    <!-- CHART 2: S&P 500 since 1990 -->
+    <figure class="chart-figure">
+      <div class="chart-title">Chart 2</div>
+      <div class="chart-subtitle">S&amp;P 500 index value, 1990 to 2026. The crises look smaller from here.</div>
+      <div class="chart-svg-wrap">
+        <svg viewBox="0 0 640 320" id="chart2-svg" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; display: block;" preserveAspectRatio="xMidYMid meet">
+        <!-- Background grid (horizontal) -->
+        <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+          <line x1="60" y1="40" x2="620" y2="40" />
+          <line x1="60" y1="100" x2="620" y2="100" />
+          <line x1="60" y1="160" x2="620" y2="160" />
+          <line x1="60" y1="220" x2="620" y2="220" />
+          <line x1="60" y1="280" x2="620" y2="280" />
+        </g>
+        <!-- Y-axis labels (rescaled to 500-8000 to fit actual May 2026 value) -->
+        <g font-family="Inter" font-size="11" fill="#6e6e85" text-anchor="end">
+          <text x="52" y="44">8000</text>
+          <text x="52" y="104">6000</text>
+          <text x="52" y="164">4000</text>
+          <text x="52" y="224">2000</text>
+          <text x="52" y="284">500</text>
+        </g>
+        <!-- X-axis labels -->
+        <g font-family="Inter" font-size="11" fill="#6e6e85" text-anchor="middle">
+          <text x="60" y="305">1990</text>
+          <text x="216.7" y="305">2000</text>
+          <text x="355.4" y="305">2009</text>
+          <text x="402.6" y="305">2012</text>
+          <text x="495.7" y="305">2018</text>
+          <text x="572.9" y="305">2023</text>
+          <text x="620" y="305">2026</text>
+        </g>
+        <!-- Area under the line (real EODHD monthly close data, 1990-01 to 2026-05) -->
+        <path
+          d="M 60.0,285.5 L 61.3,285.4 L 62.6,285.1 L 63.9,285.4 L 65.1,284.4 L 66.4,284.5 L 67.7,284.6 L 69.0,285.7 L 70.3,286.2 L 71.6,286.3 L 72.8,285.7 L 74.1,285.4 L 75.4,285.0 L 76.7,284.3 L 78.0,284.0 L 79.3,284.0 L 80.6,283.5 L 81.8,284.1 L 83.1,283.6 L 84.4,283.3 L 85.7,283.6 L 87.0,283.4 L 88.3,284.0 L 89.5,282.7 L 90.8,282.9 L 92.1,282.8 L 93.4,283.1 L 94.7,282.7 L 96.0,282.7 L 97.2,282.9 L 98.5,282.4 L 99.8,282.8 L 101.1,282.6 L 102.4,282.6 L 103.7,282.2 L 105.0,282.1 L 106.2,282.0 L 107.5,281.8 L 108.8,281.5 L 110.1,281.9 L 111.4,281.6 L 112.7,281.6 L 113.9,281.7 L 115.2,281.2 L 116.5,281.3 L 117.8,281.0 L 119.1,281.2 L 120.4,281.1 L 121.7,280.6 L 122.9,281.1 L 124.2,281.7 L 125.5,281.6 L 126.8,281.4 L 128.1,281.8 L 129.4,281.3 L 130.6,280.8 L 131.9,281.2 L 133.2,280.9 L 134.5,281.5 L 135.8,281.3 L 137.1,280.9 L 138.3,280.4 L 139.6,280.0 L 140.9,279.5 L 142.2,278.9 L 143.5,278.6 L 144.8,278.0 L 146.1,278.0 L 147.3,277.3 L 148.6,277.4 L 149.9,276.6 L 151.2,276.3 L 152.5,275.6 L 153.8,275.5 L 155.0,275.3 L 156.3,275.1 L 157.6,274.6 L 158.9,274.5 L 160.2,275.5 L 161.5,275.1 L 162.8,274.0 L 164.0,273.4 L 165.3,271.8 L 166.6,272.3 L 167.9,270.8 L 169.2,270.7 L 170.5,271.8 L 171.7,270.4 L 173.0,268.9 L 174.3,267.7 L 175.6,265.5 L 176.9,267.2 L 178.2,265.7 L 179.4,266.7 L 180.7,265.4 L 182.0,264.9 L 183.3,264.6 L 184.6,262.4 L 185.9,260.7 L 187.2,260.4 L 188.4,261.1 L 189.7,259.7 L 191.0,260.1 L 192.3,265.4 L 193.6,263.5 L 194.9,260.8 L 196.1,258.8 L 197.4,256.7 L 198.7,255.1 L 200.0,256.4 L 201.3,254.8 L 202.6,253.3 L 203.9,254.3 L 205.1,252.1 L 206.4,253.5 L 207.7,253.7 L 209.0,255.0 L 210.3,252.4 L 211.6,251.6 L 212.8,249.0 L 214.1,251.4 L 215.4,252.3 L 216.7,248.0 L 218.0,249.5 L 219.3,250.5 L 220.6,249.5 L 221.8,250.2 L 223.1,247.4 L 224.4,250.0 L 225.7,250.3 L 227.0,253.9 L 228.3,253.8 L 229.5,252.3 L 230.8,256.3 L 232.1,258.9 L 233.4,256.0 L 234.7,255.8 L 236.0,256.8 L 237.2,257.2 L 238.5,259.7 L 239.8,262.7 L 241.1,262.1 L 242.4,259.5 L 243.7,259.3 L 245.0,259.8 L 246.2,260.6 L 247.5,259.3 L 248.8,261.5 L 250.1,261.9 L 251.4,264.3 L 252.7,266.8 L 253.9,266.7 L 255.2,269.9 L 256.5,267.7 L 257.8,266.0 L 259.1,267.8 L 260.4,268.6 L 261.7,269.1 L 262.9,268.9 L 264.2,266.7 L 265.5,265.2 L 266.8,264.8 L 268.1,264.3 L 269.4,263.7 L 270.6,264.1 L 271.9,262.4 L 273.2,262.1 L 274.5,260.4 L 275.8,259.8 L 277.1,259.4 L 278.3,260.0 L 279.6,260.6 L 280.9,260.1 L 282.2,259.5 L 283.5,260.7 L 284.8,260.7 L 286.1,260.3 L 287.3,259.8 L 288.6,258.4 L 289.9,257.2 L 291.2,258.2 L 292.5,257.5 L 293.8,258.2 L 295.0,259.0 L 296.3,257.9 L 297.6,257.9 L 298.9,256.5 L 300.2,256.9 L 301.5,256.7 L 302.8,257.4 L 304.0,256.0 L 305.3,256.1 L 306.6,255.0 L 307.9,255.0 L 309.2,254.6 L 310.5,254.1 L 311.7,255.4 L 313.0,255.4 L 314.3,255.1 L 315.6,254.3 L 316.9,253.3 L 318.2,251.9 L 319.4,251.2 L 320.7,250.6 L 322.0,250.0 L 323.3,251.0 L 324.6,250.5 L 325.9,248.6 L 327.2,247.0 L 328.4,247.9 L 329.7,249.4 L 331.0,248.8 L 332.3,247.1 L 333.6,246.4 L 334.9,248.6 L 336.1,249.0 L 337.4,251.9 L 338.7,253.4 L 340.0,253.7 L 341.3,251.7 L 342.6,251.2 L 343.9,255.0 L 345.1,255.4 L 346.4,254.9 L 347.7,258.7 L 349.0,265.0 L 350.3,267.3 L 351.6,267.1 L 352.8,269.6 L 354.1,272.5 L 355.4,270.5 L 356.7,268.1 L 358.0,266.6 L 359.3,266.6 L 360.6,264.4 L 361.8,263.3 L 363.1,262.2 L 364.4,262.8 L 365.7,260.9 L 367.0,260.3 L 368.3,261.6 L 369.5,260.7 L 370.8,258.6 L 372.1,258.0 L 373.4,261.1 L 374.7,263.0 L 376.0,260.7 L 377.2,262.4 L 378.5,259.5 L 379.8,258.1 L 381.1,258.2 L 382.4,255.8 L 383.7,254.8 L 385.0,253.5 L 386.2,253.6 L 387.5,252.4 L 388.8,253.0 L 390.1,253.7 L 391.4,254.6 L 392.7,257.0 L 393.9,259.8 L 395.2,255.9 L 396.5,256.1 L 397.8,255.8 L 399.1,254.0 L 400.4,252.3 L 401.7,250.9 L 402.9,251.3 L 404.2,254.1 L 405.5,252.4 L 406.8,251.9 L 408.1,251.0 L 409.4,249.9 L 410.6,250.8 L 411.9,250.7 L 413.2,250.4 L 414.5,248.1 L 415.8,247.5 L 417.1,245.8 L 418.3,244.9 L 419.6,243.8 L 420.9,244.6 L 422.2,242.1 L 423.5,243.7 L 424.8,242.2 L 426.1,239.8 L 427.3,238.2 L 428.6,236.9 L 429.9,239.0 L 431.2,236.5 L 432.5,236.1 L 433.8,235.7 L 435.0,234.4 L 436.3,233.3 L 437.6,234.2 L 438.9,231.9 L 440.2,232.9 L 441.5,231.4 L 442.8,229.8 L 444.0,230.1 L 445.3,232.2 L 446.6,228.7 L 447.9,229.8 L 449.2,229.3 L 450.5,228.6 L 451.7,230.0 L 453.0,228.7 L 454.3,232.9 L 455.6,234.6 L 456.9,229.5 L 458.2,229.4 L 459.4,230.6 L 460.7,233.9 L 462.0,234.2 L 463.3,230.1 L 464.6,229.9 L 465.9,228.9 L 467.2,228.8 L 468.4,226.4 L 469.7,226.5 L 471.0,226.6 L 472.3,228.0 L 473.6,225.6 L 474.9,224.4 L 476.1,223.1 L 477.4,220.4 L 478.7,220.4 L 480.0,219.7 L 481.3,218.8 L 482.6,218.5 L 483.9,217.0 L 485.1,216.9 L 486.4,215.4 L 487.7,213.6 L 489.0,211.3 L 490.3,210.4 L 491.6,205.6 L 492.8,209.2 L 494.1,211.5 L 495.4,211.3 L 496.7,209.4 L 498.0,209.0 L 499.3,205.9 L 500.6,203.2 L 501.8,202.8 L 503.1,209.2 L 504.4,207.7 L 505.7,215.8 L 507.0,209.5 L 508.3,206.9 L 509.5,205.3 L 510.8,201.7 L 512.1,207.9 L 513.4,201.9 L 514.7,200.6 L 516.0,202.4 L 517.2,200.7 L 518.5,198.8 L 519.8,195.5 L 521.1,192.6 L 522.4,192.8 L 523.7,201.5 L 525.0,213.3 L 526.2,202.8 L 527.5,198.6 L 528.8,196.8 L 530.1,191.3 L 531.4,184.0 L 532.7,188.4 L 533.9,191.4 L 535.2,180.1 L 536.5,175.8 L 537.8,177.1 L 539.1,174.0 L 540.4,168.9 L 541.7,162.2 L 542.9,161.5 L 544.2,158.5 L 545.5,155.4 L 546.8,151.3 L 548.1,158.2 L 549.4,148.6 L 550.6,149.9 L 551.9,143.5 L 553.2,151.5 L 554.5,156.0 L 555.8,151.0 L 557.1,163.8 L 558.3,163.8 L 559.6,174.9 L 560.9,163.8 L 562.2,169.4 L 563.5,181.3 L 564.8,172.1 L 566.1,165.4 L 567.3,173.1 L 568.6,165.5 L 569.9,169.0 L 571.2,164.5 L 572.5,162.6 L 573.8,162.2 L 575.0,153.6 L 576.3,149.2 L 577.6,151.8 L 578.9,158.8 L 580.2,161.8 L 581.5,149.8 L 582.8,143.4 L 584.0,140.9 L 585.3,132.9 L 586.6,127.9 L 587.9,134.9 L 589.2,127.1 L 590.5,121.3 L 591.7,119.3 L 593.0,115.3 L 594.3,111.6 L 595.6,113.4 L 596.9,103.0 L 598.2,107.8 L 599.4,102.7 L 600.7,105.5 L 602.0,116.4 L 603.3,117.8 L 604.6,106.8 L 605.9,97.4 L 607.2,93.1 L 608.4,89.3 L 609.7,82.0 L 611.0,77.1 L 612.3,76.8 L 613.6,76.9 L 614.9,74.0 L 616.1,75.9 L 617.4,87.1 L 618.7,65.3 L 620.0,59.6 L 620.0,290 L 60.0,290 Z"
+          fill="url(#gradFill)"
+          opacity="0.35"
+        />
+        <!-- Main S&amp;P 500 line (real EODHD monthly close data, 437 points) -->
+        <path
+          d="M 60.0,285.5 L 61.3,285.4 L 62.6,285.1 L 63.9,285.4 L 65.1,284.4 L 66.4,284.5 L 67.7,284.6 L 69.0,285.7 L 70.3,286.2 L 71.6,286.3 L 72.8,285.7 L 74.1,285.4 L 75.4,285.0 L 76.7,284.3 L 78.0,284.0 L 79.3,284.0 L 80.6,283.5 L 81.8,284.1 L 83.1,283.6 L 84.4,283.3 L 85.7,283.6 L 87.0,283.4 L 88.3,284.0 L 89.5,282.7 L 90.8,282.9 L 92.1,282.8 L 93.4,283.1 L 94.7,282.7 L 96.0,282.7 L 97.2,282.9 L 98.5,282.4 L 99.8,282.8 L 101.1,282.6 L 102.4,282.6 L 103.7,282.2 L 105.0,282.1 L 106.2,282.0 L 107.5,281.8 L 108.8,281.5 L 110.1,281.9 L 111.4,281.6 L 112.7,281.6 L 113.9,281.7 L 115.2,281.2 L 116.5,281.3 L 117.8,281.0 L 119.1,281.2 L 120.4,281.1 L 121.7,280.6 L 122.9,281.1 L 124.2,281.7 L 125.5,281.6 L 126.8,281.4 L 128.1,281.8 L 129.4,281.3 L 130.6,280.8 L 131.9,281.2 L 133.2,280.9 L 134.5,281.5 L 135.8,281.3 L 137.1,280.9 L 138.3,280.4 L 139.6,280.0 L 140.9,279.5 L 142.2,278.9 L 143.5,278.6 L 144.8,278.0 L 146.1,278.0 L 147.3,277.3 L 148.6,277.4 L 149.9,276.6 L 151.2,276.3 L 152.5,275.6 L 153.8,275.5 L 155.0,275.3 L 156.3,275.1 L 157.6,274.6 L 158.9,274.5 L 160.2,275.5 L 161.5,275.1 L 162.8,274.0 L 164.0,273.4 L 165.3,271.8 L 166.6,272.3 L 167.9,270.8 L 169.2,270.7 L 170.5,271.8 L 171.7,270.4 L 173.0,268.9 L 174.3,267.7 L 175.6,265.5 L 176.9,267.2 L 178.2,265.7 L 179.4,266.7 L 180.7,265.4 L 182.0,264.9 L 183.3,264.6 L 184.6,262.4 L 185.9,260.7 L 187.2,260.4 L 188.4,261.1 L 189.7,259.7 L 191.0,260.1 L 192.3,265.4 L 193.6,263.5 L 194.9,260.8 L 196.1,258.8 L 197.4,256.7 L 198.7,255.1 L 200.0,256.4 L 201.3,254.8 L 202.6,253.3 L 203.9,254.3 L 205.1,252.1 L 206.4,253.5 L 207.7,253.7 L 209.0,255.0 L 210.3,252.4 L 211.6,251.6 L 212.8,249.0 L 214.1,251.4 L 215.4,252.3 L 216.7,248.0 L 218.0,249.5 L 219.3,250.5 L 220.6,249.5 L 221.8,250.2 L 223.1,247.4 L 224.4,250.0 L 225.7,250.3 L 227.0,253.9 L 228.3,253.8 L 229.5,252.3 L 230.8,256.3 L 232.1,258.9 L 233.4,256.0 L 234.7,255.8 L 236.0,256.8 L 237.2,257.2 L 238.5,259.7 L 239.8,262.7 L 241.1,262.1 L 242.4,259.5 L 243.7,259.3 L 245.0,259.8 L 246.2,260.6 L 247.5,259.3 L 248.8,261.5 L 250.1,261.9 L 251.4,264.3 L 252.7,266.8 L 253.9,266.7 L 255.2,269.9 L 256.5,267.7 L 257.8,266.0 L 259.1,267.8 L 260.4,268.6 L 261.7,269.1 L 262.9,268.9 L 264.2,266.7 L 265.5,265.2 L 266.8,264.8 L 268.1,264.3 L 269.4,263.7 L 270.6,264.1 L 271.9,262.4 L 273.2,262.1 L 274.5,260.4 L 275.8,259.8 L 277.1,259.4 L 278.3,260.0 L 279.6,260.6 L 280.9,260.1 L 282.2,259.5 L 283.5,260.7 L 284.8,260.7 L 286.1,260.3 L 287.3,259.8 L 288.6,258.4 L 289.9,257.2 L 291.2,258.2 L 292.5,257.5 L 293.8,258.2 L 295.0,259.0 L 296.3,257.9 L 297.6,257.9 L 298.9,256.5 L 300.2,256.9 L 301.5,256.7 L 302.8,257.4 L 304.0,256.0 L 305.3,256.1 L 306.6,255.0 L 307.9,255.0 L 309.2,254.6 L 310.5,254.1 L 311.7,255.4 L 313.0,255.4 L 314.3,255.1 L 315.6,254.3 L 316.9,253.3 L 318.2,251.9 L 319.4,251.2 L 320.7,250.6 L 322.0,250.0 L 323.3,251.0 L 324.6,250.5 L 325.9,248.6 L 327.2,247.0 L 328.4,247.9 L 329.7,249.4 L 331.0,248.8 L 332.3,247.1 L 333.6,246.4 L 334.9,248.6 L 336.1,249.0 L 337.4,251.9 L 338.7,253.4 L 340.0,253.7 L 341.3,251.7 L 342.6,251.2 L 343.9,255.0 L 345.1,255.4 L 346.4,254.9 L 347.7,258.7 L 349.0,265.0 L 350.3,267.3 L 351.6,267.1 L 352.8,269.6 L 354.1,272.5 L 355.4,270.5 L 356.7,268.1 L 358.0,266.6 L 359.3,266.6 L 360.6,264.4 L 361.8,263.3 L 363.1,262.2 L 364.4,262.8 L 365.7,260.9 L 367.0,260.3 L 368.3,261.6 L 369.5,260.7 L 370.8,258.6 L 372.1,258.0 L 373.4,261.1 L 374.7,263.0 L 376.0,260.7 L 377.2,262.4 L 378.5,259.5 L 379.8,258.1 L 381.1,258.2 L 382.4,255.8 L 383.7,254.8 L 385.0,253.5 L 386.2,253.6 L 387.5,252.4 L 388.8,253.0 L 390.1,253.7 L 391.4,254.6 L 392.7,257.0 L 393.9,259.8 L 395.2,255.9 L 396.5,256.1 L 397.8,255.8 L 399.1,254.0 L 400.4,252.3 L 401.7,250.9 L 402.9,251.3 L 404.2,254.1 L 405.5,252.4 L 406.8,251.9 L 408.1,251.0 L 409.4,249.9 L 410.6,250.8 L 411.9,250.7 L 413.2,250.4 L 414.5,248.1 L 415.8,247.5 L 417.1,245.8 L 418.3,244.9 L 419.6,243.8 L 420.9,244.6 L 422.2,242.1 L 423.5,243.7 L 424.8,242.2 L 426.1,239.8 L 427.3,238.2 L 428.6,236.9 L 429.9,239.0 L 431.2,236.5 L 432.5,236.1 L 433.8,235.7 L 435.0,234.4 L 436.3,233.3 L 437.6,234.2 L 438.9,231.9 L 440.2,232.9 L 441.5,231.4 L 442.8,229.8 L 444.0,230.1 L 445.3,232.2 L 446.6,228.7 L 447.9,229.8 L 449.2,229.3 L 450.5,228.6 L 451.7,230.0 L 453.0,228.7 L 454.3,232.9 L 455.6,234.6 L 456.9,229.5 L 458.2,229.4 L 459.4,230.6 L 460.7,233.9 L 462.0,234.2 L 463.3,230.1 L 464.6,229.9 L 465.9,228.9 L 467.2,228.8 L 468.4,226.4 L 469.7,226.5 L 471.0,226.6 L 472.3,228.0 L 473.6,225.6 L 474.9,224.4 L 476.1,223.1 L 477.4,220.4 L 478.7,220.4 L 480.0,219.7 L 481.3,218.8 L 482.6,218.5 L 483.9,217.0 L 485.1,216.9 L 486.4,215.4 L 487.7,213.6 L 489.0,211.3 L 490.3,210.4 L 491.6,205.6 L 492.8,209.2 L 494.1,211.5 L 495.4,211.3 L 496.7,209.4 L 498.0,209.0 L 499.3,205.9 L 500.6,203.2 L 501.8,202.8 L 503.1,209.2 L 504.4,207.7 L 505.7,215.8 L 507.0,209.5 L 508.3,206.9 L 509.5,205.3 L 510.8,201.7 L 512.1,207.9 L 513.4,201.9 L 514.7,200.6 L 516.0,202.4 L 517.2,200.7 L 518.5,198.8 L 519.8,195.5 L 521.1,192.6 L 522.4,192.8 L 523.7,201.5 L 525.0,213.3 L 526.2,202.8 L 527.5,198.6 L 528.8,196.8 L 530.1,191.3 L 531.4,184.0 L 532.7,188.4 L 533.9,191.4 L 535.2,180.1 L 536.5,175.8 L 537.8,177.1 L 539.1,174.0 L 540.4,168.9 L 541.7,162.2 L 542.9,161.5 L 544.2,158.5 L 545.5,155.4 L 546.8,151.3 L 548.1,158.2 L 549.4,148.6 L 550.6,149.9 L 551.9,143.5 L 553.2,151.5 L 554.5,156.0 L 555.8,151.0 L 557.1,163.8 L 558.3,163.8 L 559.6,174.9 L 560.9,163.8 L 562.2,169.4 L 563.5,181.3 L 564.8,172.1 L 566.1,165.4 L 567.3,173.1 L 568.6,165.5 L 569.9,169.0 L 571.2,164.5 L 572.5,162.6 L 573.8,162.2 L 575.0,153.6 L 576.3,149.2 L 577.6,151.8 L 578.9,158.8 L 580.2,161.8 L 581.5,149.8 L 582.8,143.4 L 584.0,140.9 L 585.3,132.9 L 586.6,127.9 L 587.9,134.9 L 589.2,127.1 L 590.5,121.3 L 591.7,119.3 L 593.0,115.3 L 594.3,111.6 L 595.6,113.4 L 596.9,103.0 L 598.2,107.8 L 599.4,102.7 L 600.7,105.5 L 602.0,116.4 L 603.3,117.8 L 604.6,106.8 L 605.9,97.4 L 607.2,93.1 L 608.4,89.3 L 609.7,82.0 L 611.0,77.1 L 612.3,76.8 L 613.6,76.9 L 614.9,74.0 L 616.1,75.9 L 617.4,87.1 L 618.7,65.3 L 620.0,59.6"
+          fill="none"
+          stroke="#8b7fff"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+        <!-- Gradient -->
+        <defs>
+          <linearGradient id="gradFill" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#8b7fff" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#8b7fff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <!-- Crisis annotations (positions match real data) -->
+        <g font-family="Inter" font-size="10" fill="#a0a0b8">
+          <!-- Dot-com peak Mar 2000 -->
+          <line x1="216.7" y1="248" x2="216.7" y2="215" stroke="#a0a0b8" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <text x="216.7" y="208" text-anchor="middle">Dot-com peak</text>
+
+          <!-- 2008 GFC low Mar 2009 -->
+          <line x1="355.4" y1="270.5" x2="355.4" y2="295" stroke="#a0a0b8" stroke-width="0.5" stroke-dasharray="2,2" transform="translate(0,-12)"/>
+          <text x="355.4" y="293" text-anchor="middle">2008 GFC</text>
+
+          <!-- COVID low Mar 2020 -->
+          <line x1="525" y1="213.3" x2="525" y2="175" stroke="#a0a0b8" stroke-width="0.5" stroke-dasharray="2,2"/>
+          <text x="525" y="168" text-anchor="middle">COVID</text>
+        </g>
+        <!-- End-point dot (Today, May 2026, $7,386) -->
+        <circle cx="620" cy="59.6" r="4" fill="#34d399" />
+        <text x="615" y="49" font-family="Inter" font-size="11" fill="#34d399" font-weight="600" text-anchor="end">Today</text>
+      
+        <!-- Interactive hover layer -->
+        <line id="chart2-hoverLine" x1="0" y1="40" x2="0" y2="280" stroke="#a0a0b8" stroke-width="1" stroke-dasharray="3,3" opacity="0" style="pointer-events: none;"/>
+        <circle id="chart2-hoverDot" cx="0" cy="0" r="5" fill="#8b7fff" stroke="#0a0a1a" stroke-width="2" opacity="0" style="pointer-events: none;"/>
+        <rect id="chart2-hoverArea" x="60" y="40" width="560" height="240" fill="transparent" style="cursor: crosshair;"/>
+      </svg>
+        <div class="chart-tooltip" id="chart2-tooltip">
+          <div class="chart-tooltip-date">—</div>
+          <div class="chart-tooltip-price">—</div>
+        </div>
+      </div>
+      <div class="chart-source">S&amp;P 500 monthly close, January 1990 to May 2026 (437 data points). Dot-com peak Mar 2000 ~$1,499; GFC low Mar 2009 ~$798; COVID low Mar 2020 ~$2,585; today $7,386. Source: EODHD historical data, accessed 13 May 2026.</div>
+    </figure>
+
+    <p>If you&rsquo;d put £10,000 into the S&amp;P 500 in January 1990 and never touched it, you&rsquo;d likely have well over £200,000 today. (Approximately. Depending on exchange rates, dividend reinvestment policy, and which precise endpoint you pick.) That return came through the dot-com crash, 9/11, the 2008 financial crisis, COVID, the 2022 inflation drawdown, ten UK prime ministers, six US presidents, and roughly 8,000 daily reasons to sell.</p>
+
+    <p>The boring version of the argument is that markets go up over the long term. The sharper version is that the long term contains many short terms where they emphatically do not, and the only way to get the long-term return is to live through the short terms without flinching.</p>
+
+    <p>This isn&rsquo;t specifically a sales pitch for stocks. It&rsquo;s a description of how compound returns work when you stop interfering with them.</p>
+
+    <h2>How compound interest actually behaves</h2>
+
+    <p>The standard textbook example uses a stylised number: £1,000 at 7% for 30 years becomes £7,612, that sort of thing. The number is correct, but the chart it produces is misleadingly smooth.</p>
+
+    <p>Real compound growth from regular contributions looks more like this:</p>
+
+    <!-- CHART 3: compound growth stacked area -->
+    <figure class="chart-figure">
+      <div class="chart-title">Chart 3</div>
+      <div class="chart-subtitle">£500/month invested at 7% annual return, over 30 years. The growth layer overtakes the contributions layer around year 18.</div>
+      <svg viewBox="0 0 640 350" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; display: block;" preserveAspectRatio="xMidYMid meet">
+        <!-- Grid -->
+        <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+          <line x1="60" y1="40" x2="620" y2="40" />
+          <line x1="60" y1="100" x2="620" y2="100" />
+          <line x1="60" y1="160" x2="620" y2="160" />
+          <line x1="60" y1="220" x2="620" y2="220" />
+          <line x1="60" y1="280" x2="620" y2="280" />
+        </g>
+        <!-- Y-axis labels -->
+        <g font-family="Inter" font-size="11" fill="#6e6e85" text-anchor="end">
+          <text x="52" y="44">£600k</text>
+          <text x="52" y="104">£450k</text>
+          <text x="52" y="164">£300k</text>
+          <text x="52" y="224">£150k</text>
+          <text x="52" y="284">£0</text>
+        </g>
+        <!-- X-axis labels -->
+        <g font-family="Inter" font-size="11" fill="#6e6e85" text-anchor="middle">
+          <text x="60" y="305">Year 0</text>
+          <text x="153" y="305">5</text>
+          <text x="247" y="305">10</text>
+          <text x="340" y="305">15</text>
+          <text x="433" y="305">20</text>
+          <text x="527" y="305">25</text>
+          <text x="620" y="305">30</text>
+        </g>
+        <!-- Contributions layer (blue, bottom) -->
+        <!-- £0 → £180k over 30 years (linear). Y-axis scale: £0=280, £600k=40, so each £k = 0.4px -->
+        <path
+          d="M 60,280 L 153,268 L 247,256 L 340,244 L 433,232 L 527,220 L 620,208 L 620,280 L 60,280 Z"
+          fill="#5a8dee"
+          opacity="0.55"
+        />
+        <!-- Growth layer (purple, top, stacked on contributions) -->
+        <!-- £0 → £430k of GROWTH on top of contributions. Total = contributions + growth -->
+        <!-- Top edge (total): £0=280, £35.8k(yr5)=265.7, £86.5k(yr10)=245.4, £158.5k(yr15)=216.6, £260.5k(yr20)=175.8, £405k(yr25)=118, £610k(yr30)=36 -->
+        <!-- Bottom edge (matches contributions line at corrected y-coords) -->
+        <path
+          d="M 60,280 L 153,266 L 247,245 L 340,217 L 433,176 L 527,118 L 620,36 L 620,208 L 527,220 L 433,232 L 340,244 L 247,256 L 153,268 L 60,280 Z"
+          fill="#8b7fff"
+          opacity="0.55"
+        />
+        <!-- Outline -->
+        <path
+          d="M 60,280 L 153,266 L 247,245 L 340,217 L 433,176 L 527,118 L 620,36"
+          fill="none" stroke="#8b7fff" stroke-width="2"
+        />
+        <!-- Inflection marker at actual year-18 crossover (growth = contributions ≈ £108k each) -->
+        <circle cx="396" cy="194" r="3.5" fill="#8b7fff" stroke="#0a0a1a" stroke-width="1.5"/>
+        <text x="396" y="183" font-family="Inter" font-size="10" fill="#a0a0b8" text-anchor="middle" font-weight="600">Year 18</text>
+        <!-- End-point figures -->
+        <text x="615" y="30" font-family="Inter" font-size="12" fill="#8b7fff" text-anchor="end" font-weight="700">£610k total</text>
+        <text x="615" y="50" font-family="Inter" font-size="10" fill="#a0a0b8" text-anchor="end">£430k growth</text>
+        <text x="615" y="203" font-family="Inter" font-size="10" fill="#5a8dee" text-anchor="end">£180k contributions</text>
+        <!-- Legend (bottom, below x-axis labels) -->
+        <g transform="translate(60, 330)" font-family="Inter" font-size="11">
+          <rect x="0" y="-9" width="14" height="14" fill="#5a8dee" opacity="0.55"/>
+          <text x="20" y="2" fill="#a0a0b8">Cumulative contributions</text>
+          <rect x="170" y="-9" width="14" height="14" fill="#8b7fff" opacity="0.55"/>
+          <text x="190" y="2" fill="#a0a0b8">Compounded growth</text>
+        </g>
+      </svg>
+      <div class="chart-source">£500 monthly contribution, 7% nominal annual return, 30-year horizon. Future value compounded monthly. Real returns would vary with inflation, taxation, and asset choice. Illustrative.</div>
+    </figure>
+
+    <p>The shape isn&rsquo;t a smooth curve. It&rsquo;s a series of flat stretches and sudden accelerations, with most of the growth happening in the last third of the timeline. The reason is that compounding works on the cumulative pile, and the pile only gets meaningful late.</p>
+
+    <p>Year 5 of a £500/month investment plan at a 7% return: about £36,000 in the pot, of which around £6,000 is growth. Year 10: £87,000, with £27,000 of growth. Year 20: £260,000, with £140,000 of growth. Year 30: £610,000, with £430,000 of growth.</p>
+
+    <p>The acceleration is the whole point.</p>
+
+    <p>What this means in practice: the early years feel slow because they are slow. Your contributions are doing more work than your returns. Somewhere around year 18 the balance flips, and returns start doing more work than your contributions. By year 25, the contributions are almost decorative compared to the compounding pile.</p>
+
+    <p>This is the part nobody tells you when you start. You&rsquo;ll feel like you&rsquo;re getting nowhere for the first decade. Then suddenly it looks like you&rsquo;ve always been getting somewhere.</p>
+
+    <h2>A short personal aside</h2>
+
+    <p>I built a wealth tracker. It&rsquo;s called VaultKeep. So I&rsquo;m not pretending to be a neutral observer of &ldquo;you should be tracking this&rdquo;.</p>
+
+    <p>I built it because I&rsquo;d been investing for about seven years before I realised I had no idea what my actual long-term return was. I had statements from three brokers, an ISA, a SIPP, some crypto, a property, and a hand-maintained spreadsheet that lost data the one time it crashed. The signal I most needed (am I actually compounding?) was buried under operational noise from the tracking itself.</p>
+
+    <p>The product solves that for me. The deeper point is that compound returns are real even when you can&rsquo;t see them, and tracking the right horizon is harder than it sounds. The rest of this post still holds whether you ever touch VaultKeep.</p>
+
+    <h2>Four questions to ask yourself</h2>
+
+    <p>Not a checklist, more a five-minute audit. If you&rsquo;ve been investing for any meaningful period:</p>
+
+    <p>What is your actual long-term return? Not your last quarter, not last year. Your annualised return since you started. If you can&rsquo;t answer in 30 seconds, that&rsquo;s a tracking problem.</p>
+
+    <p>What&rsquo;s the worst drawdown you&rsquo;ve held through without selling? The answer tells you about your real risk tolerance, not the one you put on a broker questionnaire when you opened the account.</p>
+
+    <p>How much of your wealth is in the kind of asset that compounds (equities, real estate, private business) versus the kind that doesn&rsquo;t (cash, short-dated bonds at current yields)? The answer is a function of your horizon, not your personality.</p>
+
+    <p>If the market dropped 30% tomorrow, do you have a written rule for what you&rsquo;d do? Not a feeling. A written rule. The presence or absence of that rule tells you more about your future return than any allocation decision.</p>
+
+    <p>You don&rsquo;t have to do anything with these answers today. But once you&rsquo;ve answered them, you&rsquo;ve answered them, and the next 30% drop becomes a known scenario rather than a novel emergency.</p>
+
+    <h2>One last thing</h2>
+
+    <p>There&rsquo;s a temptation, in posts like this one, to end with &ldquo;the market always goes up, stay the course, soldier on&rdquo;. It&rsquo;s a fine message but it skips the harder truth: staying the course requires evidence, and evidence requires tracking, and most people aren&rsquo;t tracking the thing that would help them stay the course. They&rsquo;re tracking last week&rsquo;s wobble.</p>
+
+    <p>If you want the long-term return, you have to be able to see the long term. That&rsquo;s the part nobody can do for you. The tools can help: a chart that goes back 30 years rather than 30 days, a projection that looks 30 years forward rather than 30 days forward, a net-worth-over-time line that holds steady through the noise. But the seeing is up to you.</p>
+
+    <p>Sit still. Watch the curve emerge. Most of the work isn&rsquo;t in the doing. It&rsquo;s in the not doing.</p>
+
+      </div>
+
+      <footer class="article-footer">
+        <p>VaultKeep is a privacy-first wealth dashboard for macOS and Windows. £39.99 once, lifetime updates, no subscription. <a href="https://github.com/phillipgeorge100-glitch/vaultkeep-releases/releases/latest">Try the free tier</a>, or <a href="https://vaultkeep.co.uk">read more</a>.</p>
+        <p>If you&rsquo;re tracking your own long-term returns and want to compare notes, the Discord is at <a href="https://discord.gg/3bKDqbGWZc">discord.gg/3bKDqbGWZc</a>.</p>
+      </footer>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="vk-footer-bg" x1="10" y1="10" x2="70" y2="70" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6c63ff"/>
+                  <stop offset="1" stop-color="#8b7fff"/>
+                </linearGradient>
+              </defs>
+              <rect width="80" height="80" rx="16" fill="url(#vk-footer-bg)"/>
+              <path d="M40 15L22 25v13c0 13 7 23 18 27 11-4 18-14 18-27V25L40 15z" fill="none" stroke="white" stroke-width="3.5"/>
+            </svg>
+            <div class="footer-wordmark">
+              <span class="footer-vault">Vault</span><span class="footer-keep">Keep</span>
+            </div>
+          </div>
+          <p class="footer-tagline">Your entire financial picture, in one place</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <ul class="footer-links">
+            <li><a href="../#features">Features</a></li>
+            <li><a href="../#security">Security</a></li>
+            <li><a href="../#pricing">Pricing</a></li>
+            <li><a href="../#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:support@vaultkeep.co.uk">Contact</a></li>
+            <li><a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="../privacy.html">Privacy Policy</a></li>
+            <li><a href="../terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2026 VaultKeep Ltd. All rights reserved. Company No. 17033775</p>
+        <p class="footer-email">Email: <a href="mailto:support@vaultkeep.co.uk">support@vaultkeep.co.uk</a> · Discord: <a href="https://discord.gg/3bKDqbGWZc" target="_blank" rel="noopener">discord.gg/3bKDqbGWZc</a></p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function() {
+  const data = [{"x":60.0,"y":285.5,"p":329.08,"l":"Jan 1990"},{"x":61.3,"y":285.4,"p":331.89,"l":"Feb 1990"},{"x":62.6,"y":285.1,"p":339.94,"l":"Mar 1990"},{"x":63.9,"y":285.4,"p":330.8,"l":"Apr 1990"},{"x":65.1,"y":284.4,"p":361.23,"l":"May 1990"},{"x":66.4,"y":284.5,"p":358.02,"l":"Jun 1990"},{"x":67.7,"y":284.6,"p":356.15,"l":"Jul 1990"},{"x":69.0,"y":285.7,"p":322.56,"l":"Aug 1990"},{"x":70.3,"y":286.2,"p":306.05,"l":"Sep 1990"},{"x":71.6,"y":286.3,"p":304,"l":"Oct 1990"},{"x":72.8,"y":285.7,"p":322.22,"l":"Nov 1990"},{"x":74.1,"y":285.4,"p":330.22,"l":"Dec 1990"},{"x":75.4,"y":285.0,"p":343.93,"l":"Jan 1991"},{"x":76.7,"y":284.3,"p":367.07,"l":"Feb 1991"},{"x":78.0,"y":284.0,"p":375.22,"l":"Mar 1991"},{"x":79.3,"y":284.0,"p":375.34,"l":"Apr 1991"},{"x":80.6,"y":283.5,"p":389.83,"l":"May 1991"},{"x":81.8,"y":284.1,"p":371.16,"l":"Jun 1991"},{"x":83.1,"y":283.6,"p":387.81,"l":"Jul 1991"},{"x":84.4,"y":283.3,"p":395.43,"l":"Aug 1991"},{"x":85.7,"y":283.6,"p":387.86,"l":"Sep 1991"},{"x":87.0,"y":283.4,"p":392.45,"l":"Oct 1991"},{"x":88.3,"y":284.0,"p":375.22,"l":"Nov 1991"},{"x":89.5,"y":282.7,"p":417.09,"l":"Dec 1991"},{"x":90.8,"y":282.9,"p":408.78,"l":"Jan 1992"},{"x":92.1,"y":282.8,"p":412.7,"l":"Feb 1992"},{"x":93.4,"y":283.1,"p":403.69,"l":"Mar 1992"},{"x":94.7,"y":282.7,"p":414.95,"l":"Apr 1992"},{"x":96.0,"y":282.7,"p":415.35,"l":"May 1992"},{"x":97.2,"y":282.9,"p":408.14,"l":"Jun 1992"},{"x":98.5,"y":282.4,"p":424.21,"l":"Jul 1992"},{"x":99.8,"y":282.8,"p":414.03,"l":"Aug 1992"},{"x":101.1,"y":282.6,"p":417.8,"l":"Sep 1992"},{"x":102.4,"y":282.6,"p":418.68,"l":"Oct 1992"},{"x":103.7,"y":282.2,"p":431.35,"l":"Nov 1992"},{"x":105.0,"y":282.1,"p":435.71,"l":"Dec 1992"},{"x":106.2,"y":282.0,"p":438.78,"l":"Jan 1993"},{"x":107.5,"y":281.8,"p":443.38,"l":"Feb 1993"},{"x":108.8,"y":281.5,"p":451.67,"l":"Mar 1993"},{"x":110.1,"y":281.9,"p":440.19,"l":"Apr 1993"},{"x":111.4,"y":281.6,"p":450.19,"l":"May 1993"},{"x":112.7,"y":281.6,"p":450.53,"l":"Jun 1993"},{"x":113.9,"y":281.7,"p":448.13,"l":"Jul 1993"},{"x":115.2,"y":281.2,"p":463.56,"l":"Aug 1993"},{"x":116.5,"y":281.3,"p":458.93,"l":"Sep 1993"},{"x":117.8,"y":281.0,"p":467.83,"l":"Oct 1993"},{"x":119.1,"y":281.2,"p":461.79,"l":"Nov 1993"},{"x":120.4,"y":281.1,"p":466.45,"l":"Dec 1993"},{"x":121.7,"y":280.6,"p":481.61,"l":"Jan 1994"},{"x":122.9,"y":281.1,"p":467.14,"l":"Feb 1994"},{"x":124.2,"y":281.7,"p":445.77,"l":"Mar 1994"},{"x":125.5,"y":281.6,"p":450.91,"l":"Apr 1994"},{"x":126.8,"y":281.4,"p":456.5,"l":"May 1994"},{"x":128.1,"y":281.8,"p":444.27,"l":"Jun 1994"},{"x":129.4,"y":281.3,"p":458.26,"l":"Jul 1994"},{"x":130.6,"y":280.8,"p":475.49,"l":"Aug 1994"},{"x":131.9,"y":281.2,"p":462.71,"l":"Sep 1994"},{"x":133.2,"y":280.9,"p":472.35,"l":"Oct 1994"},{"x":134.5,"y":281.5,"p":453.69,"l":"Nov 1994"},{"x":135.8,"y":281.3,"p":459.27,"l":"Dec 1994"},{"x":137.1,"y":280.9,"p":470.42,"l":"Jan 1995"},{"x":138.3,"y":280.4,"p":487.39,"l":"Feb 1995"},{"x":139.6,"y":280.0,"p":500.71,"l":"Mar 1995"},{"x":140.9,"y":279.5,"p":514.71,"l":"Apr 1995"},{"x":142.2,"y":278.9,"p":533.4,"l":"May 1995"},{"x":143.5,"y":278.6,"p":544.75,"l":"Jun 1995"},{"x":144.8,"y":278.0,"p":562.06,"l":"Jul 1995"},{"x":146.1,"y":278.0,"p":561.88,"l":"Aug 1995"},{"x":147.3,"y":277.3,"p":584.41,"l":"Sep 1995"},{"x":148.6,"y":277.4,"p":581.5,"l":"Oct 1995"},{"x":149.9,"y":276.6,"p":605.37,"l":"Nov 1995"},{"x":151.2,"y":276.3,"p":615.93,"l":"Dec 1995"},{"x":152.5,"y":275.6,"p":636.02,"l":"Jan 1996"},{"x":153.8,"y":275.5,"p":640.43,"l":"Feb 1996"},{"x":155.0,"y":275.3,"p":645.5,"l":"Mar 1996"},{"x":156.3,"y":275.1,"p":654.17,"l":"Apr 1996"},{"x":157.6,"y":274.6,"p":669.12,"l":"May 1996"},{"x":158.9,"y":274.5,"p":670.63,"l":"Jun 1996"},{"x":160.2,"y":275.5,"p":639.95,"l":"Jul 1996"},{"x":161.5,"y":275.1,"p":651.99,"l":"Aug 1996"},{"x":162.8,"y":274.0,"p":687.33,"l":"Sep 1996"},{"x":164.0,"y":273.4,"p":705.27,"l":"Oct 1996"},{"x":165.3,"y":271.8,"p":757.02,"l":"Nov 1996"},{"x":166.6,"y":272.3,"p":740.74,"l":"Dec 1996"},{"x":167.9,"y":270.8,"p":786.16,"l":"Jan 1997"},{"x":169.2,"y":270.7,"p":790.82,"l":"Feb 1997"},{"x":170.5,"y":271.8,"p":757.12,"l":"Mar 1997"},{"x":171.7,"y":270.4,"p":801.34,"l":"Apr 1997"},{"x":173.0,"y":268.9,"p":848.28,"l":"May 1997"},{"x":174.3,"y":267.7,"p":885.14,"l":"Jun 1997"},{"x":175.6,"y":265.5,"p":954.31,"l":"Jul 1997"},{"x":176.9,"y":267.2,"p":899.47,"l":"Aug 1997"},{"x":178.2,"y":265.7,"p":947.28,"l":"Sep 1997"},{"x":179.4,"y":266.7,"p":914.62,"l":"Oct 1997"},{"x":180.7,"y":265.4,"p":955.4,"l":"Nov 1997"},{"x":182.0,"y":264.9,"p":970.43,"l":"Dec 1997"},{"x":183.3,"y":264.6,"p":980.28,"l":"Jan 1998"},{"x":184.6,"y":262.4,"p":1049.34,"l":"Feb 1998"},{"x":185.9,"y":260.7,"p":1101.75,"l":"Mar 1998"},{"x":187.2,"y":260.4,"p":1111.75,"l":"Apr 1998"},{"x":188.4,"y":261.1,"p":1090.82,"l":"May 1998"},{"x":189.7,"y":259.7,"p":1133.84,"l":"Jun 1998"},{"x":191.0,"y":260.1,"p":1120.67,"l":"Jul 1998"},{"x":192.3,"y":265.4,"p":957.28,"l":"Aug 1998"},{"x":193.6,"y":263.5,"p":1017.01,"l":"Sep 1998"},{"x":194.9,"y":260.8,"p":1098.67,"l":"Oct 1998"},{"x":196.1,"y":258.8,"p":1163.63,"l":"Nov 1998"},{"x":197.4,"y":256.7,"p":1229.23,"l":"Dec 1998"},{"x":198.7,"y":255.1,"p":1279.64,"l":"Jan 1999"},{"x":200.0,"y":256.4,"p":1238.33,"l":"Feb 1999"},{"x":201.3,"y":254.8,"p":1286.37,"l":"Mar 1999"},{"x":202.6,"y":253.3,"p":1335.18,"l":"Apr 1999"},{"x":203.9,"y":254.3,"p":1301.84,"l":"May 1999"},{"x":205.1,"y":252.1,"p":1372.71,"l":"Jun 1999"},{"x":206.4,"y":253.5,"p":1328.72,"l":"Jul 1999"},{"x":207.7,"y":253.7,"p":1320.41,"l":"Aug 1999"},{"x":209.0,"y":255.0,"p":1282.71,"l":"Sep 1999"},{"x":210.3,"y":252.4,"p":1362.93,"l":"Oct 1999"},{"x":211.6,"y":251.6,"p":1388.91,"l":"Nov 1999"},{"x":212.8,"y":249.0,"p":1469.25,"l":"Dec 1999"},{"x":214.1,"y":251.4,"p":1394.46,"l":"Jan 2000"},{"x":215.4,"y":252.3,"p":1366.42,"l":"Feb 2000"},{"x":216.7,"y":248.0,"p":1498.58,"l":"Mar 2000"},{"x":218.0,"y":249.5,"p":1452.43,"l":"Apr 2000"},{"x":219.3,"y":250.5,"p":1420.6,"l":"May 2000"},{"x":220.6,"y":249.5,"p":1454.6,"l":"Jun 2000"},{"x":221.8,"y":250.2,"p":1430.83,"l":"Jul 2000"},{"x":223.1,"y":247.4,"p":1517.68,"l":"Aug 2000"},{"x":224.4,"y":250.0,"p":1436.51,"l":"Sep 2000"},{"x":225.7,"y":250.3,"p":1429.4,"l":"Oct 2000"},{"x":227.0,"y":253.9,"p":1314.95,"l":"Nov 2000"},{"x":228.3,"y":253.8,"p":1320.28,"l":"Dec 2000"},{"x":229.5,"y":252.3,"p":1366.01,"l":"Jan 2001"},{"x":230.8,"y":256.3,"p":1239.94,"l":"Feb 2001"},{"x":232.1,"y":258.9,"p":1160.33,"l":"Mar 2001"},{"x":233.4,"y":256.0,"p":1249.46,"l":"Apr 2001"},{"x":234.7,"y":255.8,"p":1255.82,"l":"May 2001"},{"x":236.0,"y":256.8,"p":1224.38,"l":"Jun 2001"},{"x":237.2,"y":257.2,"p":1211.23,"l":"Jul 2001"},{"x":238.5,"y":259.7,"p":1133.58,"l":"Aug 2001"},{"x":239.8,"y":262.7,"p":1040.94,"l":"Sep 2001"},{"x":241.1,"y":262.1,"p":1059.78,"l":"Oct 2001"},{"x":242.4,"y":259.5,"p":1139.45,"l":"Nov 2001"},{"x":243.7,"y":259.3,"p":1148.08,"l":"Dec 2001"},{"x":245.0,"y":259.8,"p":1130.2,"l":"Jan 2002"},{"x":246.2,"y":260.6,"p":1106.73,"l":"Feb 2002"},{"x":247.5,"y":259.3,"p":1147.39,"l":"Mar 2002"},{"x":248.8,"y":261.5,"p":1076.92,"l":"Apr 2002"},{"x":250.1,"y":261.9,"p":1067.14,"l":"May 2002"},{"x":251.4,"y":264.3,"p":989.82,"l":"Jun 2002"},{"x":252.7,"y":266.8,"p":911.62,"l":"Jul 2002"},{"x":253.9,"y":266.7,"p":916.07,"l":"Aug 2002"},{"x":255.2,"y":269.9,"p":815.28,"l":"Sep 2002"},{"x":256.5,"y":267.7,"p":885.76,"l":"Oct 2002"},{"x":257.8,"y":266.0,"p":936.31,"l":"Nov 2002"},{"x":259.1,"y":267.8,"p":879.82,"l":"Dec 2002"},{"x":260.4,"y":268.6,"p":855.7,"l":"Jan 2003"},{"x":261.7,"y":269.1,"p":841.15,"l":"Feb 2003"},{"x":262.9,"y":268.9,"p":848.18,"l":"Mar 2003"},{"x":264.2,"y":266.7,"p":916.92,"l":"Apr 2003"},{"x":265.5,"y":265.2,"p":963.59,"l":"May 2003"},{"x":266.8,"y":264.8,"p":974.5,"l":"Jun 2003"},{"x":268.1,"y":264.3,"p":990.31,"l":"Jul 2003"},{"x":269.4,"y":263.7,"p":1008.01,"l":"Aug 2003"},{"x":270.6,"y":264.1,"p":995.97,"l":"Sep 2003"},{"x":271.9,"y":262.4,"p":1050.71,"l":"Oct 2003"},{"x":273.2,"y":262.1,"p":1058.2,"l":"Nov 2003"},{"x":274.5,"y":260.4,"p":1111.92,"l":"Dec 2003"},{"x":275.8,"y":259.8,"p":1131.13,"l":"Jan 2004"},{"x":277.1,"y":259.4,"p":1144.94,"l":"Feb 2004"},{"x":278.3,"y":260.0,"p":1126.21,"l":"Mar 2004"},{"x":279.6,"y":260.6,"p":1107.3,"l":"Apr 2004"},{"x":280.9,"y":260.1,"p":1120.68,"l":"May 2004"},{"x":282.2,"y":259.5,"p":1140.84,"l":"Jun 2004"},{"x":283.5,"y":260.7,"p":1101.72,"l":"Jul 2004"},{"x":284.8,"y":260.7,"p":1104.24,"l":"Aug 2004"},{"x":286.1,"y":260.3,"p":1114.58,"l":"Sep 2004"},{"x":287.3,"y":259.8,"p":1130.2,"l":"Oct 2004"},{"x":288.6,"y":258.4,"p":1173.82,"l":"Nov 2004"},{"x":289.9,"y":257.2,"p":1211.92,"l":"Dec 2004"},{"x":291.2,"y":258.2,"p":1181.27,"l":"Jan 2005"},{"x":292.5,"y":257.5,"p":1203.6,"l":"Feb 2005"},{"x":293.8,"y":258.2,"p":1180.59,"l":"Mar 2005"},{"x":295.0,"y":259.0,"p":1156.85,"l":"Apr 2005"},{"x":296.3,"y":257.9,"p":1191.5,"l":"May 2005"},{"x":297.6,"y":257.9,"p":1191.33,"l":"Jun 2005"},{"x":298.9,"y":256.5,"p":1234.18,"l":"Jul 2005"},{"x":300.2,"y":256.9,"p":1220.33,"l":"Aug 2005"},{"x":301.5,"y":256.7,"p":1228.81,"l":"Sep 2005"},{"x":302.8,"y":257.4,"p":1207.01,"l":"Oct 2005"},{"x":304.0,"y":256.0,"p":1249.48,"l":"Nov 2005"},{"x":305.3,"y":256.1,"p":1248.29,"l":"Dec 2005"},{"x":306.6,"y":255.0,"p":1280.08,"l":"Jan 2006"},{"x":307.9,"y":255.0,"p":1280.66,"l":"Feb 2006"},{"x":309.2,"y":254.6,"p":1294.87,"l":"Mar 2006"},{"x":310.5,"y":254.1,"p":1310.61,"l":"Apr 2006"},{"x":311.7,"y":255.4,"p":1270.09,"l":"May 2006"},{"x":313.0,"y":255.4,"p":1270.2,"l":"Jun 2006"},{"x":314.3,"y":255.1,"p":1276.66,"l":"Jul 2006"},{"x":315.6,"y":254.3,"p":1303.82,"l":"Aug 2006"},{"x":316.9,"y":253.3,"p":1335.85,"l":"Sep 2006"},{"x":318.2,"y":251.9,"p":1377.94,"l":"Oct 2006"},{"x":319.4,"y":251.2,"p":1400.63,"l":"Nov 2006"},{"x":320.7,"y":250.6,"p":1418.3,"l":"Dec 2006"},{"x":322.0,"y":250.0,"p":1438.24,"l":"Jan 2007"},{"x":323.3,"y":251.0,"p":1406.82,"l":"Feb 2007"},{"x":324.6,"y":250.5,"p":1420.86,"l":"Mar 2007"},{"x":325.9,"y":248.6,"p":1482.37,"l":"Apr 2007"},{"x":327.2,"y":247.0,"p":1530.62,"l":"May 2007"},{"x":328.4,"y":247.9,"p":1503.35,"l":"Jun 2007"},{"x":329.7,"y":249.4,"p":1455.27,"l":"Jul 2007"},{"x":331.0,"y":248.8,"p":1473.99,"l":"Aug 2007"},{"x":332.3,"y":247.1,"p":1526.75,"l":"Sep 2007"},{"x":333.6,"y":246.4,"p":1549.38,"l":"Oct 2007"},{"x":334.9,"y":248.6,"p":1481.14,"l":"Nov 2007"},{"x":336.1,"y":249.0,"p":1468.36,"l":"Dec 2007"},{"x":337.4,"y":251.9,"p":1378.55,"l":"Jan 2008"},{"x":338.7,"y":253.4,"p":1330.63,"l":"Feb 2008"},{"x":340.0,"y":253.7,"p":1322.7,"l":"Mar 2008"},{"x":341.3,"y":251.7,"p":1385.59,"l":"Apr 2008"},{"x":342.6,"y":251.2,"p":1400.38,"l":"May 2008"},{"x":343.9,"y":255.0,"p":1280,"l":"Jun 2008"},{"x":345.1,"y":255.4,"p":1267.38,"l":"Jul 2008"},{"x":346.4,"y":254.9,"p":1282.83,"l":"Aug 2008"},{"x":347.7,"y":258.7,"p":1166.36,"l":"Sep 2008"},{"x":349.0,"y":265.0,"p":968.75,"l":"Oct 2008"},{"x":350.3,"y":267.3,"p":896.24,"l":"Nov 2008"},{"x":351.6,"y":267.1,"p":903.25,"l":"Dec 2008"},{"x":352.8,"y":269.6,"p":825.88,"l":"Jan 2009"},{"x":354.1,"y":272.5,"p":735.09,"l":"Feb 2009"},{"x":355.4,"y":270.5,"p":797.87,"l":"Mar 2009"},{"x":356.7,"y":268.1,"p":872.81,"l":"Apr 2009"},{"x":358.0,"y":266.6,"p":919.14,"l":"May 2009"},{"x":359.3,"y":266.6,"p":919.32,"l":"Jun 2009"},{"x":360.6,"y":264.4,"p":987.48,"l":"Jul 2009"},{"x":361.8,"y":263.3,"p":1020.62,"l":"Aug 2009"},{"x":363.1,"y":262.2,"p":1057.08,"l":"Sep 2009"},{"x":364.4,"y":262.8,"p":1036.19,"l":"Oct 2009"},{"x":365.7,"y":260.9,"p":1095.63,"l":"Nov 2009"},{"x":367.0,"y":260.3,"p":1115.1,"l":"Dec 2009"},{"x":368.3,"y":261.6,"p":1073.87,"l":"Jan 2010"},{"x":369.5,"y":260.7,"p":1104.49,"l":"Feb 2010"},{"x":370.8,"y":258.6,"p":1169.43,"l":"Mar 2010"},{"x":372.1,"y":258.0,"p":1186.69,"l":"Apr 2010"},{"x":373.4,"y":261.1,"p":1089.41,"l":"May 2010"},{"x":374.7,"y":263.0,"p":1030.71,"l":"Jun 2010"},{"x":376.0,"y":260.7,"p":1101.6,"l":"Jul 2010"},{"x":377.2,"y":262.4,"p":1049.33,"l":"Aug 2010"},{"x":378.5,"y":259.5,"p":1141.2,"l":"Sep 2010"},{"x":379.8,"y":258.1,"p":1183.26,"l":"Oct 2010"},{"x":381.1,"y":258.2,"p":1180.55,"l":"Nov 2010"},{"x":382.4,"y":255.8,"p":1257.64,"l":"Dec 2010"},{"x":383.7,"y":254.8,"p":1286.12,"l":"Jan 2011"},{"x":385.0,"y":253.5,"p":1327.22,"l":"Feb 2011"},{"x":386.2,"y":253.6,"p":1325.83,"l":"Mar 2011"},{"x":387.5,"y":252.4,"p":1363.61,"l":"Apr 2011"},{"x":388.8,"y":253.0,"p":1345.2,"l":"May 2011"},{"x":390.1,"y":253.7,"p":1320.64,"l":"Jun 2011"},{"x":391.4,"y":254.6,"p":1292.28,"l":"Jul 2011"},{"x":392.7,"y":257.0,"p":1218.89,"l":"Aug 2011"},{"x":393.9,"y":259.8,"p":1131.42,"l":"Sep 2011"},{"x":395.2,"y":255.9,"p":1253.3,"l":"Oct 2011"},{"x":396.5,"y":256.1,"p":1246.96,"l":"Nov 2011"},{"x":397.8,"y":255.8,"p":1257.6,"l":"Dec 2011"},{"x":399.1,"y":254.0,"p":1312.41,"l":"Jan 2012"},{"x":400.4,"y":252.3,"p":1365.68,"l":"Feb 2012"},{"x":401.7,"y":250.9,"p":1408.47,"l":"Mar 2012"},{"x":402.9,"y":251.3,"p":1397.91,"l":"Apr 2012"},{"x":404.2,"y":254.1,"p":1310.33,"l":"May 2012"},{"x":405.5,"y":252.4,"p":1362.16,"l":"Jun 2012"},{"x":406.8,"y":251.9,"p":1379.32,"l":"Jul 2012"},{"x":408.1,"y":251.0,"p":1406.58,"l":"Aug 2012"},{"x":409.4,"y":249.9,"p":1440.67,"l":"Sep 2012"},{"x":410.6,"y":250.8,"p":1412.16,"l":"Oct 2012"},{"x":411.9,"y":250.7,"p":1416.18,"l":"Nov 2012"},{"x":413.2,"y":250.4,"p":1426.19,"l":"Dec 2012"},{"x":414.5,"y":248.1,"p":1498.11,"l":"Jan 2013"},{"x":415.8,"y":247.5,"p":1514.68,"l":"Feb 2013"},{"x":417.1,"y":245.8,"p":1569.19,"l":"Mar 2013"},{"x":418.3,"y":244.9,"p":1597.57,"l":"Apr 2013"},{"x":419.6,"y":243.8,"p":1630.74,"l":"May 2013"},{"x":420.9,"y":244.6,"p":1606.28,"l":"Jun 2013"},{"x":422.2,"y":242.1,"p":1685.73,"l":"Jul 2013"},{"x":423.5,"y":243.7,"p":1632.97,"l":"Aug 2013"},{"x":424.8,"y":242.2,"p":1681.55,"l":"Sep 2013"},{"x":426.1,"y":239.8,"p":1756.54,"l":"Oct 2013"},{"x":427.3,"y":238.2,"p":1805.81,"l":"Nov 2013"},{"x":428.6,"y":236.9,"p":1848.36,"l":"Dec 2013"},{"x":429.9,"y":239.0,"p":1782.59,"l":"Jan 2014"},{"x":431.2,"y":236.5,"p":1859.45,"l":"Feb 2014"},{"x":432.5,"y":236.1,"p":1872.34,"l":"Mar 2014"},{"x":433.8,"y":235.7,"p":1883.95,"l":"Apr 2014"},{"x":435.0,"y":234.4,"p":1923.57,"l":"May 2014"},{"x":436.3,"y":233.3,"p":1960.23,"l":"Jun 2014"},{"x":437.6,"y":234.2,"p":1930.67,"l":"Jul 2014"},{"x":438.9,"y":231.9,"p":2003.37,"l":"Aug 2014"},{"x":440.2,"y":232.9,"p":1972.29,"l":"Sep 2014"},{"x":441.5,"y":231.4,"p":2018.05,"l":"Oct 2014"},{"x":442.8,"y":229.8,"p":2067.56,"l":"Nov 2014"},{"x":444.0,"y":230.1,"p":2058.9,"l":"Dec 2014"},{"x":445.3,"y":232.2,"p":1994.99,"l":"Jan 2015"},{"x":446.6,"y":228.7,"p":2104.5,"l":"Feb 2015"},{"x":447.9,"y":229.8,"p":2067.89,"l":"Mar 2015"},{"x":449.2,"y":229.3,"p":2085.51,"l":"Apr 2015"},{"x":450.5,"y":228.6,"p":2107.39,"l":"May 2015"},{"x":451.7,"y":230.0,"p":2063.11,"l":"Jun 2015"},{"x":453.0,"y":228.7,"p":2103.84,"l":"Jul 2015"},{"x":454.3,"y":232.9,"p":1972.18,"l":"Aug 2015"},{"x":455.6,"y":234.6,"p":1920.03,"l":"Sep 2015"},{"x":456.9,"y":229.5,"p":2079.36,"l":"Oct 2015"},{"x":458.2,"y":229.4,"p":2080.41,"l":"Nov 2015"},{"x":459.4,"y":230.6,"p":2043.94,"l":"Dec 2015"},{"x":460.7,"y":233.9,"p":1940.24,"l":"Jan 2016"},{"x":462.0,"y":234.2,"p":1932.23,"l":"Feb 2016"},{"x":463.3,"y":230.1,"p":2059.74,"l":"Mar 2016"},{"x":464.6,"y":229.9,"p":2065.3,"l":"Apr 2016"},{"x":465.9,"y":228.9,"p":2096.95,"l":"May 2016"},{"x":467.2,"y":228.8,"p":2098.86,"l":"Jun 2016"},{"x":468.4,"y":226.4,"p":2173.6,"l":"Jul 2016"},{"x":469.7,"y":226.5,"p":2170.95,"l":"Aug 2016"},{"x":471.0,"y":226.6,"p":2168.27,"l":"Sep 2016"},{"x":472.3,"y":228.0,"p":2126.15,"l":"Oct 2016"},{"x":473.6,"y":225.6,"p":2198.81,"l":"Nov 2016"},{"x":474.9,"y":224.4,"p":2238.83,"l":"Dec 2016"},{"x":476.1,"y":223.1,"p":2278.87,"l":"Jan 2017"},{"x":477.4,"y":220.4,"p":2363.64,"l":"Feb 2017"},{"x":478.7,"y":220.4,"p":2362.72,"l":"Mar 2017"},{"x":480.0,"y":219.7,"p":2384.2,"l":"Apr 2017"},{"x":481.3,"y":218.8,"p":2411.8,"l":"May 2017"},{"x":482.6,"y":218.5,"p":2423.41,"l":"Jun 2017"},{"x":483.9,"y":217.0,"p":2470.3,"l":"Jul 2017"},{"x":485.1,"y":216.9,"p":2471.65,"l":"Aug 2017"},{"x":486.4,"y":215.4,"p":2519.36,"l":"Sep 2017"},{"x":487.7,"y":213.6,"p":2575.26,"l":"Oct 2017"},{"x":489.0,"y":211.3,"p":2647.58,"l":"Nov 2017"},{"x":490.3,"y":210.4,"p":2673.61,"l":"Dec 2017"},{"x":491.6,"y":205.6,"p":2823.81,"l":"Jan 2018"},{"x":492.8,"y":209.2,"p":2713.83,"l":"Feb 2018"},{"x":494.1,"y":211.5,"p":2640.87,"l":"Mar 2018"},{"x":495.4,"y":211.3,"p":2648.05,"l":"Apr 2018"},{"x":496.7,"y":209.4,"p":2705.27,"l":"May 2018"},{"x":498.0,"y":209.0,"p":2718.37,"l":"Jun 2018"},{"x":499.3,"y":205.9,"p":2816.29,"l":"Jul 2018"},{"x":500.6,"y":203.2,"p":2901.52,"l":"Aug 2018"},{"x":501.8,"y":202.8,"p":2913.98,"l":"Sep 2018"},{"x":503.1,"y":209.2,"p":2711.74,"l":"Oct 2018"},{"x":504.4,"y":207.7,"p":2760.17,"l":"Nov 2018"},{"x":505.7,"y":215.8,"p":2506.85,"l":"Dec 2018"},{"x":507.0,"y":209.5,"p":2704.1,"l":"Jan 2019"},{"x":508.3,"y":206.9,"p":2784.49,"l":"Feb 2019"},{"x":509.5,"y":205.3,"p":2834.4,"l":"Mar 2019"},{"x":510.8,"y":201.7,"p":2945.83,"l":"Apr 2019"},{"x":512.1,"y":207.9,"p":2752.06,"l":"May 2019"},{"x":513.4,"y":201.9,"p":2941.76,"l":"Jun 2019"},{"x":514.7,"y":200.6,"p":2980.38,"l":"Jul 2019"},{"x":516.0,"y":202.4,"p":2926.46,"l":"Aug 2019"},{"x":517.2,"y":200.7,"p":2976.74,"l":"Sep 2019"},{"x":518.5,"y":198.8,"p":3037.56,"l":"Oct 2019"},{"x":519.8,"y":195.5,"p":3140.98,"l":"Nov 2019"},{"x":521.1,"y":192.6,"p":3230.78,"l":"Dec 2019"},{"x":522.4,"y":192.8,"p":3225.52,"l":"Jan 2020"},{"x":523.7,"y":201.5,"p":2954.22,"l":"Feb 2020"},{"x":525.0,"y":213.3,"p":2584.59,"l":"Mar 2020"},{"x":526.2,"y":202.8,"p":2912.43,"l":"Apr 2020"},{"x":527.5,"y":198.6,"p":3044.31,"l":"May 2020"},{"x":528.8,"y":196.8,"p":3100.29,"l":"Jun 2020"},{"x":530.1,"y":191.3,"p":3271.12,"l":"Jul 2020"},{"x":531.4,"y":184.0,"p":3500.31,"l":"Aug 2020"},{"x":532.7,"y":188.4,"p":3363,"l":"Sep 2020"},{"x":533.9,"y":191.4,"p":3269.96,"l":"Oct 2020"},{"x":535.2,"y":180.1,"p":3621.63,"l":"Nov 2020"},{"x":536.5,"y":175.8,"p":3756.07,"l":"Dec 2020"},{"x":537.8,"y":177.1,"p":3714.24,"l":"Jan 2021"},{"x":539.1,"y":174.0,"p":3811.15,"l":"Feb 2021"},{"x":540.4,"y":168.9,"p":3972.89,"l":"Mar 2021"},{"x":541.7,"y":162.2,"p":4181.17,"l":"Apr 2021"},{"x":542.9,"y":161.5,"p":4204.11,"l":"May 2021"},{"x":544.2,"y":158.5,"p":4297.5,"l":"Jun 2021"},{"x":545.5,"y":155.4,"p":4395.26,"l":"Jul 2021"},{"x":546.8,"y":151.3,"p":4522.68,"l":"Aug 2021"},{"x":548.1,"y":158.2,"p":4307.54,"l":"Sep 2021"},{"x":549.4,"y":148.6,"p":4605.38,"l":"Oct 2021"},{"x":550.6,"y":149.9,"p":4567,"l":"Nov 2021"},{"x":551.9,"y":143.5,"p":4766.18,"l":"Dec 2021"},{"x":553.2,"y":151.5,"p":4515.55,"l":"Jan 2022"},{"x":554.5,"y":156.0,"p":4373.94,"l":"Feb 2022"},{"x":555.8,"y":151.0,"p":4530.41,"l":"Mar 2022"},{"x":557.1,"y":163.8,"p":4131.93,"l":"Apr 2022"},{"x":558.3,"y":163.8,"p":4132.15,"l":"May 2022"},{"x":559.6,"y":174.9,"p":3785.38,"l":"Jun 2022"},{"x":560.9,"y":163.8,"p":4130.29,"l":"Jul 2022"},{"x":562.2,"y":169.4,"p":3955,"l":"Aug 2022"},{"x":563.5,"y":181.3,"p":3585.62,"l":"Sep 2022"},{"x":564.8,"y":172.1,"p":3871.98,"l":"Oct 2022"},{"x":566.1,"y":165.4,"p":4080.11,"l":"Nov 2022"},{"x":567.3,"y":173.1,"p":3839.5,"l":"Dec 2022"},{"x":568.6,"y":165.5,"p":4076.6,"l":"Jan 2023"},{"x":569.9,"y":169.0,"p":3970.15,"l":"Feb 2023"},{"x":571.2,"y":164.5,"p":4109.31,"l":"Mar 2023"},{"x":572.5,"y":162.6,"p":4169.48,"l":"Apr 2023"},{"x":573.8,"y":162.2,"p":4179.83,"l":"May 2023"},{"x":575.0,"y":153.6,"p":4450.38,"l":"Jun 2023"},{"x":576.3,"y":149.2,"p":4588.96,"l":"Jul 2023"},{"x":577.6,"y":151.8,"p":4507.66,"l":"Aug 2023"},{"x":578.9,"y":158.8,"p":4288.05,"l":"Sep 2023"},{"x":580.2,"y":161.8,"p":4193.8,"l":"Oct 2023"},{"x":581.5,"y":149.8,"p":4567.8,"l":"Nov 2023"},{"x":582.8,"y":143.4,"p":4769.83,"l":"Dec 2023"},{"x":584.0,"y":140.9,"p":4845.65,"l":"Jan 2024"},{"x":585.3,"y":132.9,"p":5096.27,"l":"Feb 2024"},{"x":586.6,"y":127.9,"p":5254.35,"l":"Mar 2024"},{"x":587.9,"y":134.9,"p":5035.69,"l":"Apr 2024"},{"x":589.2,"y":127.1,"p":5277.51,"l":"May 2024"},{"x":590.5,"y":121.3,"p":5460.48,"l":"Jun 2024"},{"x":591.7,"y":119.3,"p":5522.3,"l":"Jul 2024"},{"x":593.0,"y":115.3,"p":5648.4,"l":"Aug 2024"},{"x":594.3,"y":111.6,"p":5762.48,"l":"Sep 2024"},{"x":595.6,"y":113.4,"p":5705.45,"l":"Oct 2024"},{"x":596.9,"y":103.0,"p":6032.38,"l":"Nov 2024"},{"x":598.2,"y":107.8,"p":5881.63,"l":"Dec 2024"},{"x":599.4,"y":102.7,"p":6040.53,"l":"Jan 2025"},{"x":600.7,"y":105.5,"p":5954.5,"l":"Feb 2025"},{"x":602.0,"y":116.4,"p":5611.85,"l":"Mar 2025"},{"x":603.3,"y":117.8,"p":5569.06,"l":"Apr 2025"},{"x":604.6,"y":106.8,"p":5911.69,"l":"May 2025"},{"x":605.9,"y":97.4,"p":6204.95,"l":"Jun 2025"},{"x":607.2,"y":93.1,"p":6339.39,"l":"Jul 2025"},{"x":608.4,"y":89.3,"p":6460.26,"l":"Aug 2025"},{"x":609.7,"y":82.0,"p":6688.46,"l":"Sep 2025"},{"x":611.0,"y":77.1,"p":6840.2,"l":"Oct 2025"},{"x":612.3,"y":76.8,"p":6849.09,"l":"Nov 2025"},{"x":613.6,"y":76.9,"p":6845.5,"l":"Dec 2025"},{"x":614.9,"y":74.0,"p":6939.03,"l":"Jan 2026"},{"x":616.1,"y":75.9,"p":6878.88,"l":"Feb 2026"},{"x":617.4,"y":87.1,"p":6528.52,"l":"Mar 2026"},{"x":618.7,"y":65.3,"p":7209.01,"l":"Apr 2026"},{"x":620.0,"y":59.6,"p":7386.5,"l":"May 2026"}];
+  const svg = document.getElementById('chart2-svg');
+  const hoverArea = document.getElementById('chart2-hoverArea');
+  const hoverLine = document.getElementById('chart2-hoverLine');
+  const hoverDot = document.getElementById('chart2-hoverDot');
+  const tooltip = document.getElementById('chart2-tooltip');
+  const tipDate = tooltip.querySelector('.chart-tooltip-date');
+  const tipPrice = tooltip.querySelector('.chart-tooltip-price');
+
+  function fmtPrice(p) {
+    return '$' + p.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  }
+
+  function onMove(e) {
+    const rect = svg.getBoundingClientRect();
+    const svgX = ((e.clientX - rect.left) / rect.width) * 640;
+
+    // Binary search would be faster, but 437 linear scans is still ~0.01ms
+    let nearest = data[0];
+    let minDist = Math.abs(data[0].x - svgX);
+    for (let i = 1; i < data.length; i++) {
+      const dist = Math.abs(data[i].x - svgX);
+      if (dist < minDist) { minDist = dist; nearest = data[i]; }
+    }
+
+    hoverLine.setAttribute('x1', nearest.x);
+    hoverLine.setAttribute('x2', nearest.x);
+    hoverLine.setAttribute('opacity', 1);
+    hoverDot.setAttribute('cx', nearest.x);
+    hoverDot.setAttribute('cy', nearest.y);
+    hoverDot.setAttribute('opacity', 1);
+
+    // Position tooltip in pixel space
+    const screenX = (nearest.x / 640) * rect.width + rect.left - svg.parentElement.getBoundingClientRect().left;
+    const screenY = (nearest.y / 320) * rect.height + rect.top - svg.parentElement.getBoundingClientRect().top;
+    tooltip.style.left = screenX + 'px';
+    tooltip.style.top = screenY + 'px';
+    tipDate.textContent = nearest.l;
+    tipPrice.textContent = fmtPrice(nearest.p);
+    tooltip.style.opacity = 1;
+  }
+
+  function onLeave() {
+    hoverLine.setAttribute('opacity', 0);
+    hoverDot.setAttribute('opacity', 0);
+    tooltip.style.opacity = 0;
+  }
+
+  hoverArea.addEventListener('mousemove', onMove);
+  hoverArea.addEventListener('mouseleave', onLeave);
+  // Touch support: tap to show, tap elsewhere to hide
+  hoverArea.addEventListener('touchstart', function(e) {
+    if (e.touches && e.touches.length) {
+      onMove({ clientX: e.touches[0].clientX });
+    }
+  }, { passive: true });
+  hoverArea.addEventListener('touchend', onLeave);
+})();
+</script>
+</body>
+</html>
