@@ -225,10 +225,60 @@
     .header-sub {
       color: #a0a0b8;
       font-size: 18px;
-      margin-bottom: 80px;
+      margin-bottom: 32px;
       max-width: 500px;
       line-height: 1.6;
     }
+
+    /* Search bar — client-side filter over the post list */
+    .search-wrap {
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      color: #e4e4ed;
+      padding: 14px 18px;
+      font-family: inherit;
+      font-size: 15px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      outline: none;
+    }
+
+    .search-input::placeholder { color: #6e6e85; }
+
+    .search-input:focus {
+      border-color: rgba(108, 99, 255, 0.5);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* Year bucket headers — small uppercase markers between groups */
+    .year-bucket {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6e6e85;
+      margin-top: 56px;
+      margin-bottom: 12px;
+    }
+
+    .year-bucket:first-of-type { margin-top: 0; }
+
+    .post-row[hidden], .year-bucket[hidden] { display: none; }
+
+    .no-results {
+      color: #a0a0b8;
+      font-style: italic;
+      padding: 32px 0;
+      display: none;
+    }
+
+    .no-results.visible { display: block; }
 
     .post-row {
       display: block;
@@ -391,31 +441,48 @@
       <h1>Writing</h1>
       <p class="header-sub">Notes on wealth, software, and ownership. Long-form essays from the people building VaultKeep.</p>
 
-      <a href="on-sitting-still" class="post-row">
-        <div class="post-meta">
-          <span>13 May 2026</span>
-          <span class="dot"></span>
-          <span>9 min read</span>
-          <span class="dot"></span>
-          <span>Phillip George</span>
-        </div>
-        <div class="post-title">On sitting still.</div>
-        <p class="post-lede">A note on compound interest, market timing, and the boring path most people underestimate. The JP Morgan missed-days finding, a 36-year S&amp;P 500 chart, and the inflection year where compounding overtakes contributions.</p>
-        <span class="post-read-more">Read →</span>
-      </a>
+      <div class="search-wrap">
+        <input
+          type="search"
+          id="post-search"
+          class="search-input"
+          placeholder="Search writing…"
+          aria-label="Search posts"
+          autocomplete="off"
+        />
+      </div>
 
-      <a href="your-finance-app-got-sold" class="post-row">
-        <div class="post-meta">
-          <span>12 May 2026</span>
-          <span class="dot"></span>
-          <span>8 min read</span>
-          <span class="dot"></span>
-          <span>Phillip George</span>
-        </div>
-        <div class="post-title">Your finance app got sold.</div>
-        <p class="post-lede">A note on the consumer-fintech model, from someone who watched it happen. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.</p>
-        <span class="post-read-more">Read →</span>
-      </a>
+      <div class="post-list" id="post-list">
+        <h2 class="year-bucket" data-year="2026">2026</h2>
+
+        <a href="on-sitting-still" class="post-row" data-year="2026">
+          <div class="post-meta">
+            <span>13 May 2026</span>
+            <span class="dot"></span>
+            <span>9 min read</span>
+            <span class="dot"></span>
+            <span>Phillip George</span>
+          </div>
+          <div class="post-title">On sitting still.</div>
+          <p class="post-lede">A note on compound interest, market timing, and the boring path most people underestimate. The JP Morgan missed-days finding, a 36-year S&amp;P 500 chart, and the inflection year where compounding overtakes contributions.</p>
+          <span class="post-read-more">Read →</span>
+        </a>
+
+        <a href="your-finance-app-got-sold" class="post-row" data-year="2026">
+          <div class="post-meta">
+            <span>12 May 2026</span>
+            <span class="dot"></span>
+            <span>8 min read</span>
+            <span class="dot"></span>
+            <span>Phillip George</span>
+          </div>
+          <div class="post-title">Your finance app got sold.</div>
+          <p class="post-lede">A note on the consumer-fintech model, from someone who watched it happen. Mint, Yolt, Moneyhub, Trim, Tally — the pattern, the structural reason, and the third path most people forgot existed.</p>
+          <span class="post-read-more">Read →</span>
+        </a>
+      </div>
+
+      <p class="no-results" id="no-results"></p>
     </div>
   </main>
 
@@ -466,5 +533,57 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const input = document.getElementById('post-search');
+      const postList = document.getElementById('post-list');
+      const noResults = document.getElementById('no-results');
+      if (!input || !postList) return;
+
+      // Cache lower-case haystack per post row at load
+      const rows = Array.from(postList.querySelectorAll('.post-row'));
+      const buckets = Array.from(postList.querySelectorAll('.year-bucket'));
+      rows.forEach(function (row) {
+        row.dataset.haystack = row.textContent.toLowerCase();
+      });
+
+      function applyFilter() {
+        const q = input.value.trim().toLowerCase();
+        let visibleTotal = 0;
+
+        rows.forEach(function (row) {
+          const match = q === '' || row.dataset.haystack.indexOf(q) !== -1;
+          row.hidden = !match;
+          if (match) visibleTotal++;
+        });
+
+        // Hide a year bucket if none of its posts are visible
+        buckets.forEach(function (bucket) {
+          const year = bucket.getAttribute('data-year');
+          const anyVisible = rows.some(function (row) {
+            return row.getAttribute('data-year') === year && !row.hidden;
+          });
+          bucket.hidden = !anyVisible;
+        });
+
+        if (q !== '' && visibleTotal === 0) {
+          noResults.textContent = 'No posts match “' + input.value.trim() + '”.';
+          noResults.classList.add('visible');
+        } else {
+          noResults.classList.remove('visible');
+        }
+      }
+
+      input.addEventListener('input', applyFilter);
+      // Escape clears the field
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          input.value = '';
+          applyFilter();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
