@@ -457,6 +457,17 @@
     }
     .footer-email a:hover { color: #8b7fff; }
   </style>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-170D3B7R4P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-170D3B7R4P', {
+    anonymize_ip: true,
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
 </head>
 <body>
   <nav>
@@ -743,5 +754,31 @@
       });
     })();
   </script>
+<script>
+  // GA4 purchase event — fires when LemonSqueezy redirects buyer here
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('purchased') === 'true') {
+      // Wait for gtag to be ready (it loads async)
+      const fireEvent = () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'purchase', {
+            currency: 'GBP',
+            value: 39.99,
+            items: [{
+              item_id: 'vaultkeep-perpetual-licence',
+              item_name: 'VaultKeep perpetual licence',
+              price: 39.99,
+              quantity: 1
+            }]
+          });
+        } else {
+          setTimeout(fireEvent, 200);
+        }
+      };
+      fireEvent();
+    }
+  })();
+</script>
 </body>
 </html>
